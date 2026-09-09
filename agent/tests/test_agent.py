@@ -3,7 +3,6 @@
 import asyncio
 
 import pytest
-
 from sentinel_agent.agent import SentinelAgent
 from sentinel_agent.config import AgentSettings, MonitoringMode
 

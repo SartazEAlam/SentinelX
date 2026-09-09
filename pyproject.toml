@@ -46,6 +46,10 @@ dev = [
     "mypy>=1.10.0,<2.0.0",
 ]
 
+[tool.setuptools.packages.find]
+where = ["backend", "agent"]
+exclude = ["tests*", "*tests*"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests", "backend/tests", "agent/tests"]
 pythonpath = [".", "backend", "agent"]

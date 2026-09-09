@@ -13,15 +13,18 @@ export default function SystemHealth() {
   const [loading, setLoading] = useState(true);
   const [lastChecked, setLastChecked] = useState<string>('');
 
-  const fetchHealth = async () => {
-    setLoading(true);
+  const executeHealthCheck = async (showLoading = false) => {
+    if (showLoading) {
+      setLoading(true);
+    }
     setError(null);
     try {
       const data = await getHealth();
       setHealth(data);
       setLastChecked(new Date().toLocaleTimeString());
-    } catch (err: any) {
-      setError(err.message || 'Failed to connect to backend');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Failed to connect to backend';
+      setError(message);
       setHealth(null);
     } finally {
       setLoading(false);
@@ -29,16 +32,49 @@ export default function SystemHealth() {
   };
 
   useEffect(() => {
-    fetchHealth();
-    const interval = setInterval(fetchHealth, 30000);
-    return () => clearInterval(interval);
+    let isMounted = true;
+
+    const loadInitialHealth = async () => {
+      try {
+        const data = await getHealth();
+        if (isMounted) {
+          setHealth(data);
+          setError(null);
+          setLastChecked(new Date().toLocaleTimeString());
+        }
+      } catch (err: unknown) {
+        if (isMounted) {
+          const message = err instanceof Error ? err.message : 'Failed to connect to backend';
+          setError(message);
+          setHealth(null);
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    void loadInitialHealth();
+    const interval = setInterval(() => {
+      void executeHealthCheck(false);
+    }, 30000);
+
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
   }, []);
 
   return (
     <div className="system-health-page">
       <div className="page-header">
         <h2>System Health</h2>
-        <button onClick={fetchHealth} className="btn-primary" id="refresh-health-btn">
+        <button
+          onClick={() => void executeHealthCheck(true)}
+          className="btn-primary"
+          id="refresh-health-btn"
+        >
           Refresh
         </button>
       </div>

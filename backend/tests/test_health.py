@@ -1,8 +1,7 @@
 """Tests for the health check endpoint and configuration."""
 
-from fastapi.testclient import TestClient
-
 from app.config import Settings
+from fastapi.testclient import TestClient
 
 
 class TestHealthEndpoint:

@@ -7,7 +7,6 @@ Usage:
 import asyncio
 import logging
 import sys
-
 from datetime import UTC, datetime
 
 from sentinel_agent.agent import SentinelAgent
