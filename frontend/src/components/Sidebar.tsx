@@ -1,14 +1,32 @@
 import { NavLink } from 'react-router-dom';
+import {
+  LayoutDashboard,
+  Activity,
+  CheckCircle2,
+  Laptop,
+  ScrollText,
+  Bell,
+  TrendingUp,
+  HeartPulse,
+  Shield,
+  type LucideIcon,
+} from 'lucide-react';
 
-const navItems = [
-  { path: '/', label: 'Dashboard', icon: '📊' },
-  { path: '/events', label: 'Events', icon: '📋' },
-  { path: '/approvals', label: 'Approvals', icon: '✅' },
-  { path: '/devices', label: 'Devices', icon: '💻' },
-  { path: '/policies', label: 'Policies', icon: '📜' },
-  { path: '/alerts', label: 'Alerts', icon: '🔔' },
-  { path: '/analytics', label: 'Analytics', icon: '📈' },
-  { path: '/system-health', label: 'System Health', icon: '🩺' },
+interface NavItem {
+  path: string;
+  label: string;
+  icon: LucideIcon;
+}
+
+const navItems: NavItem[] = [
+  { path: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { path: '/events', label: 'Events', icon: Activity },
+  { path: '/approvals', label: 'Approvals', icon: CheckCircle2 },
+  { path: '/devices', label: 'Devices', icon: Laptop },
+  { path: '/policies', label: 'Policies', icon: ScrollText },
+  { path: '/alerts', label: 'Alerts', icon: Bell },
+  { path: '/analytics', label: 'Analytics', icon: TrendingUp },
+  { path: '/system-health', label: 'System Health', icon: HeartPulse },
 ];
 
 /**
@@ -19,7 +37,9 @@ export default function Sidebar() {
   return (
     <aside className="sidebar" id="main-sidebar">
       <div className="sidebar-brand">
-        <div className="brand-icon">🛡</div>
+        <div className="brand-icon">
+          <Shield size={22} className="brand-svg" />
+        </div>
         <div className="brand-text">
           <span className="brand-name">SentinelX</span>
           <span className="brand-subtitle">DLP System</span>
@@ -27,19 +47,24 @@ export default function Sidebar() {
       </div>
 
       <nav className="sidebar-nav">
-        {navItems.map((item) => (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            end={item.path === '/'}
-            className={({ isActive }) =>
-              `nav-item ${isActive ? 'nav-item-active' : ''}`
-            }
-          >
-            <span className="nav-icon">{item.icon}</span>
-            <span className="nav-label">{item.label}</span>
-          </NavLink>
-        ))}
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              end={item.path === '/'}
+              className={({ isActive }) =>
+                `nav-item ${isActive ? 'nav-item-active' : ''}`
+              }
+            >
+              <span className="nav-icon">
+                <Icon size={18} />
+              </span>
+              <span className="nav-label">{item.label}</span>
+            </NavLink>
+          );
+        })}
       </nav>
 
       <div className="sidebar-footer">

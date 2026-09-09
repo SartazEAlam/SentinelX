@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { AlertOctagon, RefreshCw } from 'lucide-react';
 import { getHealth, type HealthResponse } from '../services/apiClient';
 import StatusIndicator from '../components/StatusIndicator';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -74,8 +75,11 @@ export default function SystemHealth() {
           onClick={() => void executeHealthCheck(true)}
           className="btn-primary"
           id="refresh-health-btn"
+          disabled={loading}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
         >
-          Refresh
+          <RefreshCw size={15} className={loading ? 'spin' : ''} />
+          <span>Refresh</span>
         </button>
       </div>
 
@@ -83,7 +87,9 @@ export default function SystemHealth() {
 
       {error && (
         <div className="health-card health-card-error">
-          <div className="health-card-icon">❌</div>
+          <div className="health-card-icon">
+            <AlertOctagon size={40} className="text-red-400" />
+          </div>
           <h3>Backend Unreachable</h3>
           <p>{error}</p>
           <p className="health-hint">

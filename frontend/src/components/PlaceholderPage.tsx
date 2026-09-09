@@ -1,3 +1,5 @@
+import type { LucideIcon } from 'lucide-react';
+
 /**
  * Placeholder page for routes that are not yet implemented.
  * Clearly indicates the feature is planned for a future phase.
@@ -5,16 +7,18 @@
 export default function PlaceholderPage({
   title,
   phase,
-  icon,
+  icon: Icon,
 }: {
   title: string;
   phase: number;
-  icon: string;
+  icon: LucideIcon;
 }) {
   return (
     <div className="placeholder-page">
       <div className="placeholder-card">
-        <span className="placeholder-icon">{icon}</span>
+        <div className="placeholder-icon-wrapper">
+          <Icon size={44} className="placeholder-svg" />
+        </div>
         <h2>{title}</h2>
         <p className="placeholder-phase">Coming in Phase {phase}</p>
         <p className="placeholder-description">
