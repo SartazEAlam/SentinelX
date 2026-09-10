@@ -65,6 +65,10 @@ select = ["E", "F", "I", "N", "W", "UP"]
 
 [tool.mypy]
 python_version = "3.11"
+mypy_path = ["backend", "agent"]
+files = ["backend/app", "agent/sentinel_agent"]
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
+
+
