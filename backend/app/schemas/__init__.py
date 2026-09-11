@@ -2,6 +2,7 @@
 
 from app.schemas.alerts import AlertActionRequest, AlertResponse
 from app.schemas.approvals import ApprovalActionRequest, ApprovalResponse
+from app.schemas.audit import AuditLogResponse
 from app.schemas.auth import LoginRequest, TokenResponse, UserMeResponse
 from app.schemas.common import ErrorDetail, ErrorResponse, PaginatedResponse, PaginationParams
 from app.schemas.devices import (
@@ -18,9 +19,8 @@ from app.schemas.events import (
     SecurityEventResponse,
 )
 from app.schemas.policies import PolicyCreate, PolicyResponse, PolicyUpdate
-from app.schemas.users import UserCreate, UserResponse, UserUpdate
-from app.schemas.audit import AuditLogResponse
 from app.schemas.stats import EventTrend, OverviewStats
+from app.schemas.users import UserCreate, UserResponse, UserUpdate
 
 __all__ = [
     # Common

@@ -57,7 +57,7 @@ def test_create_duplicate_user(client: TestClient, admin_token: str) -> None:
             "role": "VIEWER"
         },
     )
-    
+
     # Try again
     response = client.post(
         "/api/v1/users",

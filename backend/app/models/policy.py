@@ -1,7 +1,7 @@
 """Policy model — configurable DLP policy definitions."""
 
 from datetime import datetime
-from typing import Any, Optional
+from typing import Any
 
 from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Index, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -20,16 +20,16 @@ class Policy(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(128), unique=True, nullable=False)
-    description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
     enabled: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
     priority: Mapped[int] = mapped_column(Integer, nullable=False, default=100)
 
     # Policy criteria (stored as JSON strings for flexibility)
-    sensitivity_levels: Mapped[Optional[Any]] = mapped_column(Text, nullable=True)
-    risk_threshold: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
-    allowed_actions: Mapped[Optional[Any]] = mapped_column(Text, nullable=True)
-    decision: Mapped[Optional[str]] = mapped_column(String(16), nullable=True)
-    conditions: Mapped[Optional[Any]] = mapped_column(Text, nullable=True)
+    sensitivity_levels: Mapped[Any | None] = mapped_column(Text, nullable=True)
+    risk_threshold: Mapped[float | None] = mapped_column(Float, nullable=True)
+    allowed_actions: Mapped[Any | None] = mapped_column(Text, nullable=True)
+    decision: Mapped[str | None] = mapped_column(String(16), nullable=True)
+    conditions: Mapped[Any | None] = mapped_column(Text, nullable=True)
 
     # Ownership
     created_by: Mapped[int] = mapped_column(

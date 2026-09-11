@@ -66,7 +66,7 @@ def get_events(
         sensitivity_level=sensitivity_level,
         min_risk_score=min_risk_score,
     )
-    
+
     return {
         "items": events,
         "total": total,

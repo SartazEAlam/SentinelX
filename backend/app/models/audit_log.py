@@ -1,7 +1,7 @@
 """AuditLog model — immutable, append-only security audit trail."""
 
 from datetime import datetime
-from typing import Any, Optional
+from typing import Any
 
 from sqlalchemy import DateTime, ForeignKey, Index, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column
@@ -19,19 +19,19 @@ class AuditLog(Base):
     __tablename__ = "audit_logs"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    actor_user_id: Mapped[Optional[int]] = mapped_column(
+    actor_user_id: Mapped[int | None] = mapped_column(
         Integer, ForeignKey("users.id"), nullable=True
     )
-    actor_device_id: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    actor_device_id: Mapped[str | None] = mapped_column(String(64), nullable=True)
     action: Mapped[str] = mapped_column(String(64), nullable=False)
-    resource_type: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
-    resource_id: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    resource_type: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    resource_id: Mapped[str | None] = mapped_column(String(64), nullable=True)
     timestamp: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
-    ip_address: Mapped[Optional[str]] = mapped_column(String(45), nullable=True)
-    user_agent: Mapped[Optional[str]] = mapped_column(String(512), nullable=True)
-    metadata_json: Mapped[Optional[Any]] = mapped_column(Text, nullable=True)
+    ip_address: Mapped[str | None] = mapped_column(String(45), nullable=True)
+    user_agent: Mapped[str | None] = mapped_column(String(512), nullable=True)
+    metadata_json: Mapped[Any | None] = mapped_column(Text, nullable=True)
 
     __table_args__ = (
         Index("ix_audit_action", "action"),

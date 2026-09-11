@@ -24,7 +24,7 @@ def get_users(
     """List all users (Admin only)."""
     skip = (params.page - 1) * params.size
     users, total = user_service.list_users(db, skip=skip, limit=params.size)
-    
+
     return {
         "items": users,
         "total": total,

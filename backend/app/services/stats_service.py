@@ -2,7 +2,7 @@
 
 from datetime import UTC, datetime, timedelta
 
-from sqlalchemy import func
+from sqlalchemy import func, desc
 from sqlalchemy.orm import Session
 
 from app.models.alert import Alert
@@ -47,26 +47,26 @@ def get_overview_stats(db: Session) -> OverviewStats:
     # 5. Events Trend (simplified: just grouping by hour for the last 24h)
     # Using SQLite/PostgreSQL compatible approach:
     # Actually, full cross-db date truncation is complex in raw SQLAlchemy without
-    # specific dialects, so we'll do a simple python-side bucket for now if the 
+    # specific dialects, so we'll do a simple python-side bucket for now if the
     # dataset is small, or we can use a basic query. Since Phase 1 focuses on real
     # data but simple queries, we'll fetch the timestamps and bucket them.
     # To be efficient, we only fetch the timestamp column.
-    
+
     events = db.query(SecurityEvent.timestamp).filter(SecurityEvent.timestamp >= day_ago).all()
-    
+
     buckets: dict[str, int] = {}
     for i in range(24):
         # Format: YYYY-MM-DDTHH:00:00Z
         bucket_time = (now - timedelta(hours=i)).replace(minute=0, second=0, microsecond=0)
         buckets[bucket_time.isoformat()] = 0
-        
+
     for (ts,) in events:
         # Assign to nearest hour bucket
         bucket_time = ts.replace(minute=0, second=0, microsecond=0)
         key = bucket_time.isoformat()
         if key in buckets:
             buckets[key] += 1
-            
+
     events_trend = [
         EventTrend(timestamp=k, count=v) for k, v in sorted(buckets.items())
     ]
@@ -83,7 +83,7 @@ def get_overview_stats(db: Session) -> OverviewStats:
         .limit(5)
         .all()
     )
-    
+
     top_violators = []
     for device_id, count in top_devices:
         # Get device name

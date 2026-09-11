@@ -1,6 +1,7 @@
 """Authentication service."""
 
 import logging
+
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
@@ -51,14 +52,14 @@ def authenticate_user(db: Session, login_data: LoginRequest, ip_address: str | N
         raise UnauthorizedError("Inactive user")
 
     mark_login(db, user.id)
-    
+
     log_action(
         db,
         action=AuditAction.USER_LOGIN,
         actor_user_id=user.id,
         ip_address=ip_address,
     )
-    
+
     return user
 
 
@@ -66,11 +67,11 @@ def create_initial_admin_if_needed(db: Session) -> None:
     """Create the initial admin user if the users table is empty."""
     if db.query(User).first():
         return
-        
+
     settings = get_settings()
-    
+
     logger.info("No users found. Creating initial admin from environment variables.")
-    
+
     admin_in = UserCreate(
         username=settings.FIRST_ADMIN_USERNAME,
         password=settings.FIRST_ADMIN_PASSWORD,
@@ -78,5 +79,5 @@ def create_initial_admin_if_needed(db: Session) -> None:
         full_name="System Administrator",
         role=UserRole.ADMIN,
     )
-    
+
     create_user(db, admin_in)

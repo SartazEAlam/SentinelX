@@ -35,11 +35,11 @@ def setup_test_db() -> Generator[None, None, None]:
     """Create all tables in the test database before tests run."""
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
-    
+
     # Bootstrap initial admin
     with TestingSessionLocal() as db:
         create_initial_admin_if_needed(db)
-        
+
     yield
     Base.metadata.drop_all(bind=engine)
 
@@ -101,7 +101,7 @@ def viewer_token(client: TestClient, db: Session) -> str:
     # create_user will raise if user exists, so handle gracefully or just create in the transaction
     # Since tests run in isolated transactions, we should create it here.
     create_user(db, user_in)
-    
+
     response = client.post(
         "/api/v1/auth/login",
         json={

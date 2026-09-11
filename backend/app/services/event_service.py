@@ -117,11 +117,10 @@ def create_events_batch(
         raise ConflictError("Device is disabled")
 
     accepted = 0
-    errors = []
 
     for event_in in batch_in.events:
         metadata_json = json.dumps(event_in.metadata_json) if event_in.metadata_json else None
-        
+
         event = SecurityEvent(
             event_id=event_in.event_id,
             device_id=device.device_id,

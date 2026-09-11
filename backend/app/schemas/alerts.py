@@ -23,7 +23,7 @@ class AlertResponse(BaseModel):
     title: str
     message: str | None
     status: AlertStatus
-    
+
     created_at: datetime
     acknowledged_at: datetime | None
     resolved_at: datetime | None

@@ -27,7 +27,7 @@ def get_approvals(
     """List approval requests."""
     skip = (params.page - 1) * params.size
     approvals, total = approval_service.list_approvals(db, skip=skip, limit=params.size, status=status)
-    
+
     return {
         "items": approvals,
         "total": total,

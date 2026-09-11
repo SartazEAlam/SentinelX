@@ -38,7 +38,7 @@ def create_approval(
     db: Session, event_id: int, requested_by: int, reason: str | None = None
 ) -> ApprovalRequest:
     """Create a new approval request for an event."""
-    
+
     # Check if a pending request already exists for this event
     existing = (
         db.query(ApprovalRequest)

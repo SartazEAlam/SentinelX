@@ -31,7 +31,7 @@ def get_alerts(
     alerts, total = alert_service.list_alerts(
         db, skip=skip, limit=params.size, status=status, severity=severity, device_id=device_id
     )
-    
+
     return {
         "items": alerts,
         "total": total,

@@ -61,7 +61,7 @@ def get_devices(
     """List registered devices."""
     skip = (params.page - 1) * params.size
     devices, total = device_service.list_devices(db, skip=skip, limit=params.size, status=status)
-    
+
     return {
         "items": devices,
         "total": total,

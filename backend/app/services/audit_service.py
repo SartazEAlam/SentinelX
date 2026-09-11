@@ -22,9 +22,9 @@ def log_action(
     metadata: dict[str, Any] | None = None,
 ) -> AuditLog:
     """Create a new append-only audit log entry."""
-    
+
     metadata_json = json.dumps(metadata) if metadata else None
-    
+
     audit_entry = AuditLog(
         action=action,
         actor_user_id=actor_user_id,
@@ -35,7 +35,7 @@ def log_action(
         user_agent=user_agent,
         metadata_json=metadata_json,
     )
-    
+
     db.add(audit_entry)
     db.commit()
     db.refresh(audit_entry)

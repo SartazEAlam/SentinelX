@@ -2,16 +2,15 @@
 
 from typing import Annotated
 
-from fastapi import Depends
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-from sqlalchemy.orm import Session
-
 from app.core.exceptions import ForbiddenError, UnauthorizedError
 from app.core.security import decode_access_token, verify_device_token
 from app.db.database import get_db
 from app.models.device import Device
 from app.models.enums import DeviceStatus, UserRole
 from app.models.user import User
+from fastapi import Depends
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from sqlalchemy.orm import Session
 
 # Define separate security schemes for user JWT and device bearer tokens
 oauth2_scheme = HTTPBearer(auto_error=False)
@@ -77,21 +76,21 @@ def get_current_device(
     # Wait, standard practice: either token is 'device_id:secret' (b64 encoded) or we need X-Device-ID header.
     # To keep it simple, we'll use an X-Device-ID header in addition to the Bearer token, or assume the token is `<device_id>.<secret>`.
     # Let's use the `<device_id>.<secret>` format for the Bearer token.
-    
+
     parts = token.credentials.split(".", 1)
     if len(parts) != 2:
         raise UnauthorizedError("Invalid device token format")
-        
+
     device_id, secret = parts
-    
+
     device = db.query(Device).filter(Device.device_id == device_id).first()
     if not device:
         raise UnauthorizedError("Device not found")
-        
+
     if not device.is_active or device.status == DeviceStatus.DISABLED:
         raise UnauthorizedError("Device is disabled")
-        
+
     if not verify_device_token(token.credentials, device.token_hash):
         raise UnauthorizedError("Invalid device token")
-        
+
     return device

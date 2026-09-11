@@ -25,7 +25,7 @@ def get_policies(
     """List DLP policies."""
     skip = (params.page - 1) * params.size
     policies, total = policy_service.list_policies(db, skip=skip, limit=params.size)
-    
+
     return {
         "items": policies,
         "total": total,

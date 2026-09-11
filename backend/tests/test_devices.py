@@ -5,7 +5,7 @@ from fastapi.testclient import TestClient
 
 def test_device_registration_and_heartbeat(client: TestClient) -> None:
     """Test registering a device and then sending a heartbeat."""
-    
+
     # 1. Register device
     reg_response = client.post(
         "/api/v1/devices/register",
@@ -20,9 +20,9 @@ def test_device_registration_and_heartbeat(client: TestClient) -> None:
     data = reg_response.json()
     assert data["device_id"] == "hw-id-12345"
     assert "token" in data
-    
+
     device_token = data["token"]
-    
+
     # 2. Send heartbeat
     hb_response = client.post(
         "/api/v1/devices/heartbeat",
@@ -40,7 +40,7 @@ def test_device_registration_and_heartbeat(client: TestClient) -> None:
 
 def test_device_ingest_event(client: TestClient) -> None:
     """Test device ingesting a security event."""
-    
+
     # Register device
     reg_response = client.post(
         "/api/v1/devices/register",
@@ -50,7 +50,7 @@ def test_device_ingest_event(client: TestClient) -> None:
         },
     )
     device_token = reg_response.json()["token"]
-    
+
     # Ingest event
     event_response = client.post(
         "/api/v1/events",

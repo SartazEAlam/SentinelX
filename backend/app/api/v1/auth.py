@@ -24,11 +24,11 @@ def login(
     """Authenticate user and return JWT."""
     ip_address = request.client.host if request.client else None
     user = authenticate_user(db, login_data, ip_address=ip_address)
-    
+
     access_token = create_access_token(
         data={"sub": user.username, "role": user.role}
     )
-    
+
     return TokenResponse(
         access_token=access_token,
         expires_in=1800,  # 30 mins

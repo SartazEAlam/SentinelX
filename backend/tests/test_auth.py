@@ -1,8 +1,7 @@
 """Tests for authentication endpoints."""
 
-from fastapi.testclient import TestClient
-
 from app.config import get_settings
+from fastapi.testclient import TestClient
 
 
 def test_login_success(client: TestClient) -> None:

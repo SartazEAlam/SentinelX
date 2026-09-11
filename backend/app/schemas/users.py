@@ -1,6 +1,7 @@
 """User management schemas."""
 
 from datetime import datetime
+
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 from app.models.enums import UserRole

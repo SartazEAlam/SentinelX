@@ -55,7 +55,7 @@ def acknowledge_alert(
     alert.status = AlertStatus.ACKNOWLEDGED
     alert.acknowledged_by = actor_id
     alert.acknowledged_at = datetime.now(UTC)
-    
+
     if action_in.comment:
         # We append comment to the message for now
         alert.message = f"{alert.message}\n\nAcknowledgment Note: {action_in.comment}"
@@ -84,7 +84,7 @@ def resolve_alert(
     alert.status = AlertStatus.RESOLVED
     alert.resolved_by = actor_id
     alert.resolved_at = datetime.now(UTC)
-    
+
     if action_in.comment:
         # We append comment to the message for now
         alert.message = f"{alert.message}\n\nResolution Note: {action_in.comment}"

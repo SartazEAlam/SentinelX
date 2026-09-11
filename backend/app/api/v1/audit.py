@@ -39,7 +39,7 @@ def get_audit_logs(
         resource_type=resource_type,
         resource_id=resource_id,
     )
-    
+
     return {
         "items": logs,
         "total": total,

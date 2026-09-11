@@ -15,7 +15,7 @@ class PolicyCreate(BaseModel):
     description: str | None = None
     enabled: bool = True
     priority: int = Field(default=100, ge=1)
-    
+
     # JSON payloads for criteria
     sensitivity_levels: list[str] | None = None
     risk_threshold: float | None = Field(default=None, ge=0.0, le=100.0)
@@ -44,13 +44,13 @@ class PolicyResponse(BaseModel):
     description: str | None
     enabled: bool
     priority: int
-    
+
     sensitivity_levels: Any | None
     risk_threshold: float | None
     allowed_actions: Any | None
     decision: EventDecision | None
     conditions: Any | None
-    
+
     created_at: datetime
     updated_at: datetime
 

@@ -1,7 +1,6 @@
 """Alert model — security alerts generated from events."""
 
 from datetime import datetime
-from typing import Optional
 
 from sqlalchemy import DateTime, ForeignKey, Index, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -19,28 +18,28 @@ class Alert(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     alert_id: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
-    event_id: Mapped[Optional[int]] = mapped_column(
+    event_id: Mapped[int | None] = mapped_column(
         Integer, ForeignKey("security_events.id"), nullable=True
     )
-    device_id: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
+    device_id: Mapped[str | None] = mapped_column(String(64), nullable=True)
     severity: Mapped[str] = mapped_column(String(16), nullable=False)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
-    message: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    message: Mapped[str | None] = mapped_column(Text, nullable=True)
     status: Mapped[str] = mapped_column(String(16), nullable=False, default="OPEN")
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
-    acknowledged_at: Mapped[Optional[datetime]] = mapped_column(
+    acknowledged_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
     )
-    acknowledged_by: Mapped[Optional[int]] = mapped_column(
+    acknowledged_by: Mapped[int | None] = mapped_column(
         Integer, ForeignKey("users.id"), nullable=True
     )
-    resolved_at: Mapped[Optional[datetime]] = mapped_column(
+    resolved_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
     )
-    resolved_by: Mapped[Optional[int]] = mapped_column(
+    resolved_by: Mapped[int | None] = mapped_column(
         Integer, ForeignKey("users.id"), nullable=True
     )
 

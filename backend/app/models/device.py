@@ -1,7 +1,6 @@
 """Device model — registered endpoint agents."""
 
 from datetime import datetime
-from typing import Optional
 
 from sqlalchemy import Boolean, DateTime, Index, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column
@@ -22,15 +21,15 @@ class Device(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     device_id: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
     device_name: Mapped[str] = mapped_column(String(128), nullable=False)
-    hostname: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
-    operating_system: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
-    os_version: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
-    agent_version: Mapped[Optional[str]] = mapped_column(String(32), nullable=True)
-    ip_address: Mapped[Optional[str]] = mapped_column(String(45), nullable=True)
+    hostname: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    operating_system: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    os_version: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    agent_version: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    ip_address: Mapped[str | None] = mapped_column(String(45), nullable=True)
     status: Mapped[str] = mapped_column(
         String(16), nullable=False, default=DeviceStatus.UNKNOWN
     )
-    last_seen_at: Mapped[Optional[datetime]] = mapped_column(
+    last_seen_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
     )
     registered_at: Mapped[datetime] = mapped_column(

@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.core.exceptions import ConflictError, NotFoundError
 from app.core.security import hash_password
-from app.models.enums import AuditAction, UserRole
+from app.models.enums import AuditAction
 from app.models.user import User
 from app.schemas.users import UserCreate, UserUpdate
 from app.services.audit_service import log_action
@@ -64,7 +64,7 @@ def create_user(
         ip_address=ip_address,
         metadata={"username": user.username, "role": user.role},
     )
-    
+
     return user
 
 
@@ -81,10 +81,10 @@ def update_user(
 
     if user_in.full_name is not None:
         user.full_name = user_in.full_name
-        
+
     if user_in.role is not None:
         user.role = user_in.role
-        
+
     if user_in.is_active is not None:
         user.is_active = user_in.is_active
         if not user_in.is_active:
@@ -108,7 +108,7 @@ def update_user(
         resource_type="User",
         resource_id=str(user.id),
     )
-    
+
     return user
 
 
