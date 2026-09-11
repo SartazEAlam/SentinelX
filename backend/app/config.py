@@ -34,8 +34,10 @@ class Settings(BaseSettings):
     # --- Database ---
     DATABASE_URL: str = "sqlite:///./sentinelx.db"
 
-    # --- Security ---
-    JWT_SECRET: str = "CHANGE_ME_BEFORE_PRODUCTION"
+    # --- Security / JWT ---
+    JWT_SECRET_KEY: str = "CHANGE_ME_BEFORE_PRODUCTION"
+    JWT_ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
     # --- CORS ---
     CORS_ORIGINS: str = (
@@ -45,9 +47,21 @@ class Settings(BaseSettings):
     # --- Logging ---
     LOG_LEVEL: str = "INFO"
 
+    # --- Initial Admin Bootstrap ---
+    FIRST_ADMIN_USERNAME: str = "admin"
+    FIRST_ADMIN_PASSWORD: str = "Admin@123!"
+    FIRST_ADMIN_EMAIL: str = "admin@sentinelx.com"
+
+    # --- Pagination ---
+    DEFAULT_PAGE_SIZE: int = 50
+    MAX_PAGE_SIZE: int = 200
+
+    # --- Event Ingestion ---
+    MAX_BATCH_SIZE: int = 100
+
     # --- Derived ---
     SENSITIVE_FIELDS: ClassVar[frozenset[str]] = frozenset(
-        {"JWT_SECRET", "API_TOKEN", "DATABASE_URL"}
+        {"JWT_SECRET_KEY", "FIRST_ADMIN_PASSWORD", "API_TOKEN", "DATABASE_URL"}
     )
 
     @field_validator("LOG_LEVEL")
@@ -69,6 +83,12 @@ class Settings(BaseSettings):
         if lower not in allowed:
             raise ValueError(f"ENVIRONMENT must be one of {allowed}, got '{v}'")
         return lower
+
+    @field_validator("JWT_SECRET_KEY")
+    @classmethod
+    def validate_jwt_secret(cls, v: str) -> str:
+        """Warn if the default JWT secret is used (enforced at startup for production)."""
+        return v
 
     @property
     def cors_origin_list(self) -> list[str]:

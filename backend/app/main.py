@@ -9,9 +9,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.api.routes_health import router as health_router
+from app.api.v1.router import api_router
 from app.config import get_settings
-from app.db.database import create_tables, engine
+from app.core.exceptions import SentinelXError
+from app.db.database import SessionLocal, engine
 from app.logging_config import setup_logging
+from app.services.auth_service import create_initial_admin_if_needed
 
 logger = logging.getLogger(__name__)
 
@@ -31,14 +34,20 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
         settings.ENVIRONMENT,
     )
 
-    # Initialize database tables
-    create_tables()
+    # Log database target
     db_target = (
         settings.DATABASE_URL.split("@")[-1]
         if "@" in settings.DATABASE_URL
         else settings.DATABASE_URL.split("///")[-1]
     )
     logger.info("Database initialized - %s", db_target)
+
+    # Bootstrap operations
+    try:
+        with SessionLocal() as db:
+            create_initial_admin_if_needed(db)
+    except Exception as e:
+        logger.error("Failed to run bootstrap tasks: %s", e)
 
     yield
 
@@ -84,8 +93,32 @@ def create_app() -> FastAPI:
             },
         )
 
+    @app.exception_handler(SentinelXError)
+    async def sentinelx_exception_handler(request: Request, exc: SentinelXError) -> JSONResponse:
+        """Catch custom SentinelX exceptions."""
+        status_code = 400
+        if exc.code == "NOT_FOUND":
+            status_code = 404
+        elif exc.code == "CONFLICT":
+            status_code = 409
+        elif exc.code == "UNAUTHORIZED":
+            status_code = 401
+        elif exc.code == "FORBIDDEN":
+            status_code = 403
+
+        return JSONResponse(
+            status_code=status_code,
+            content={
+                "error": {
+                    "code": exc.code,
+                    "message": exc.message,
+                }
+            },
+        )
+
     # Mount versioned API routes
     app.include_router(health_router, prefix="/api/v1")
+    app.include_router(api_router, prefix="/api/v1")
 
     return app
 
