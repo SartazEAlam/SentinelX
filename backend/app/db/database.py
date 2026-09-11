@@ -26,17 +26,6 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
-def create_tables() -> None:
-    """Create all database tables from registered models.
-
-    Imports models to ensure they are registered with the declarative Base
-    before calling `create_all`.
-    """
-    from app.db.models import Base  # noqa: F811
-
-    Base.metadata.create_all(bind=engine)
-
-
 def get_db() -> Generator[Session, None, None]:
     """FastAPI dependency that yields a database session.
 

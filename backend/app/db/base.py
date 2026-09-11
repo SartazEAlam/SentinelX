@@ -1,17 +1,4 @@
-"""SQLAlchemy declarative base and shared model utilities.
-
-This module defines the Base class and common mixins used across all
-database models. Individual table models will be added in later phases.
-
-Planned models (not yet implemented):
-    - User
-    - Device
-    - SecurityEvent
-    - ApprovalRequest
-    - Policy
-    - Alert
-    - AuditLog
-"""
+"""SQLAlchemy declarative base and shared model utilities."""
 
 from datetime import UTC, datetime
 
