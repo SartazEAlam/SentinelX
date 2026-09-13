@@ -46,7 +46,8 @@ def test_create_user(client: TestClient, admin_token: str) -> None:
 
 def test_create_duplicate_user(client: TestClient, admin_token: str) -> None:
     """Cannot create a user with a duplicate username."""
-    # Run creation once (it might already exist from previous test if using same DB without rollback)
+    # Run creation once (it might already exist from previous test if using same DB
+    # without rollback)
     client.post(
         "/api/v1/users",
         headers={"Authorization": f"Bearer {admin_token}"},
