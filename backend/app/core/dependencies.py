@@ -69,13 +69,8 @@ def get_current_device(
     if not token:
         raise UnauthorizedError("Device token required")
 
-    # Tokens are of the form 'deviceId.randomString'
-    # Wait, the spec didn't mandate a specific format, but typically it's just a token.
-    # We will look up the device by scanning? No, that's slow.
-    # Let's extract device_id from the header (e.g., X-Device-ID).
-    # Wait, standard practice: either token is 'device_id:secret' (b64 encoded) or we need X-Device-ID header.
-    # To keep it simple, we'll use an X-Device-ID header in addition to the Bearer token, or assume the token is `<device_id>.<secret>`.
-    # Let's use the `<device_id>.<secret>` format for the Bearer token.
+    # Tokens are of the form '<device_id>.<secret>'
+    # Format: Bearer <device_id>.<random_secret>
 
     parts = token.credentials.split(".", 1)
     if len(parts) != 2:
