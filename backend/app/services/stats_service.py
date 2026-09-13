@@ -2,7 +2,7 @@
 
 from datetime import UTC, datetime, timedelta
 
-from sqlalchemy import func, desc
+from sqlalchemy import desc, func
 from sqlalchemy.orm import Session
 
 from app.models.alert import Alert
@@ -61,6 +61,8 @@ def get_overview_stats(db: Session) -> OverviewStats:
         buckets[bucket_time.isoformat()] = 0
 
     for (ts,) in events:
+        if ts.tzinfo is None:
+            ts = ts.replace(tzinfo=UTC)
         # Assign to nearest hour bucket
         bucket_time = ts.replace(minute=0, second=0, microsecond=0)
         key = bucket_time.isoformat()
