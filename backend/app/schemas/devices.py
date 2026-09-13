@@ -20,7 +20,7 @@ class DeviceRegister(BaseModel):
 
 class DeviceRegisterResponse(BaseModel):
     """Response returned upon successful registration.
-    
+
     Contains the one-time plaintext token that the agent must save
     and use as a Bearer token for subsequent requests.
     """
