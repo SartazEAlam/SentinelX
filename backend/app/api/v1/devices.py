@@ -24,7 +24,9 @@ router = APIRouter(tags=["Devices"])
 
 
 # Open endpoint: Agent uses this to register (Admin might also trigger it via deployment script)
-@router.post("/register", response_model=DeviceRegisterResponse, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/register", response_model=DeviceRegisterResponse, status_code=status.HTTP_201_CREATED
+)
 def register_device(
     device_in: DeviceRegister,
     request: Request,
