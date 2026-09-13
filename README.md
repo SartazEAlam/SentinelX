@@ -200,7 +200,7 @@ docker compose down
 Run the automated test suite and linters from the project root:
 
 ```bash
-# Run all Python tests (Backend + Agent: 18 tests)
+# Run all Python tests (Backend + Agent: 42 tests)
 pytest -v
 
 # Run Python linter (Ruff)
@@ -247,7 +247,7 @@ Comprehensive project documentation is available in the [`docs/`](docs/) directo
 - ✅ Live Frontend ↔ Backend health monitoring dashboard
 - ✅ Endpoint Agent with session management and ASCII-safe Windows console support
 - ✅ Docker Compose orchestration with healthchecked PostgreSQL and backend container
-- ✅ Full automated test suite passing (18/18 tests, 0 lint errors)
+- ✅ Full automated test suite passing (42/42 tests, 0 lint errors, 0 type errors)
 - ✅ **Phase 1 Complete**: Full Alembic database migrations, comprehensive Pydantic schemas, RBAC JWT Authentication, dual-layer endpoint device auth, and global Audit Logging service.
 
 ### Planned Roadmap (Phases 2–10)
