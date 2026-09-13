@@ -39,7 +39,9 @@ def list_devices(
     return devices, total
 
 
-def register_device(db: Session, device_in: DeviceRegister, ip_address: str | None = None) -> DeviceRegisterResponse:
+def register_device(
+    db: Session, device_in: DeviceRegister, ip_address: str | None = None
+) -> DeviceRegisterResponse:
     """Register a new device or overwrite an existing disabled one."""
     existing = db.query(Device).filter(Device.device_id == device_in.device_id).first()
 
@@ -89,7 +91,7 @@ def register_device(db: Session, device_in: DeviceRegister, ip_address: str | No
         id=device.id,
         device_id=device.device_id,
         token=full_token,  # ONLY RETURNED ONCE!
-        status=device.status,
+        status=DeviceStatus(device.status),
         registered_at=device.registered_at,
     )
 
