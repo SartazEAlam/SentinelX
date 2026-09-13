@@ -105,7 +105,7 @@ def create_events_batch(
     db: Session, device_id: str, batch_in: BatchEventCreate
 ) -> BatchEventResponse:
     """Ingest a batch of security events from a device.
-    
+
     Processing is all-or-nothing for the batch to ensure consistency.
     """
     settings = get_settings()
