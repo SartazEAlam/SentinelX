@@ -8,10 +8,12 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+import app.models as _models  # noqa: F401
 from app.api.routes_health import router as health_router
 from app.api.v1.router import api_router
 from app.config import get_settings
 from app.core.exceptions import SentinelXError
+from app.db.base import Base
 from app.db.database import SessionLocal, engine
 from app.logging_config import setup_logging
 from app.services.auth_service import create_initial_admin_if_needed
@@ -44,6 +46,11 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
     # Bootstrap operations
     try:
+        if (
+            settings.DATABASE_URL.startswith("sqlite")
+            or settings.ENVIRONMENT in ("development", "testing")
+        ):
+            Base.metadata.create_all(bind=engine)
         with SessionLocal() as db:
             create_initial_admin_if_needed(db)
     except Exception as e:
