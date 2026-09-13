@@ -52,7 +52,9 @@ def get_events(
     current_user: Annotated[User, Depends(require_viewer_or_above)],
     device_id: str | None = Query(default=None, description="Filter by device ID"),
     event_type: EventType | None = Query(default=None, description="Filter by event type"),
-    sensitivity_level: SensitivityLevel | None = Query(default=None, description="Filter by sensitivity"),
+    sensitivity_level: SensitivityLevel | None = Query(
+        default=None, description="Filter by sensitivity"
+    ),
     min_risk_score: float | None = Query(default=None, description="Minimum risk score"),
 ) -> dict:
     """List security events with filtering (Viewer/Analyst/Admin)."""
