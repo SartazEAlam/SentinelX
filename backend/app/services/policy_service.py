@@ -44,12 +44,23 @@ def create_policy(db: Session, policy_in: PolicyCreate, creator_id: int) -> Poli
         name=policy_in.name,
         description=policy_in.description,
         enabled=policy_in.enabled,
-        priority=policy_in.priority,
-        sensitivity_levels=json.dumps(policy_in.sensitivity_levels) if policy_in.sensitivity_levels else None,
+        sensitivity_levels=(
+            json.dumps(policy_in.sensitivity_levels)
+            if policy_in.sensitivity_levels
+            else None
+        ),
         risk_threshold=policy_in.risk_threshold,
-        allowed_actions=json.dumps(policy_in.allowed_actions) if policy_in.allowed_actions else None,
+        allowed_actions=(
+            json.dumps(policy_in.allowed_actions)
+            if policy_in.allowed_actions
+            else None
+        ),
         decision=policy_in.decision,
-        conditions=json.dumps(policy_in.conditions) if policy_in.conditions else None,
+        conditions=(
+            json.dumps(policy_in.conditions)
+            if policy_in.conditions
+            else None
+        ),
         created_by=creator_id,
     )
 
@@ -67,9 +78,15 @@ def create_policy(db: Session, policy_in: PolicyCreate, creator_id: int) -> Poli
     )
 
     # Parse JSON back for the response schema
-    policy.sensitivity_levels = json.loads(policy.sensitivity_levels) if policy.sensitivity_levels else None
-    policy.allowed_actions = json.loads(policy.allowed_actions) if policy.allowed_actions else None
-    policy.conditions = json.loads(policy.conditions) if policy.conditions else None
+    policy.sensitivity_levels = (
+        json.loads(policy.sensitivity_levels) if policy.sensitivity_levels else None
+    )
+    policy.allowed_actions = (
+        json.loads(policy.allowed_actions) if policy.allowed_actions else None
+    )
+    policy.conditions = (
+        json.loads(policy.conditions) if policy.conditions else None
+    )
 
     return policy
 
@@ -112,9 +129,15 @@ def update_policy(db: Session, policy_id: int, policy_in: PolicyUpdate, actor_id
     )
 
     # Parse JSON back for the response schema
-    policy.sensitivity_levels = json.loads(policy.sensitivity_levels) if policy.sensitivity_levels else None
-    policy.allowed_actions = json.loads(policy.allowed_actions) if policy.allowed_actions else None
-    policy.conditions = json.loads(policy.conditions) if policy.conditions else None
+    policy.sensitivity_levels = (
+        json.loads(policy.sensitivity_levels) if policy.sensitivity_levels else None
+    )
+    policy.allowed_actions = (
+        json.loads(policy.allowed_actions) if policy.allowed_actions else None
+    )
+    policy.conditions = (
+        json.loads(policy.conditions) if policy.conditions else None
+    )
 
     return policy
 
