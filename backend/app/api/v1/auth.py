@@ -40,4 +40,4 @@ def get_current_user_info(
     current_user: Annotated[User, Depends(get_current_user)],
 ) -> UserMeResponse:
     """Return info about the currently authenticated user."""
-    return current_user
+    return UserMeResponse.model_validate(current_user)
