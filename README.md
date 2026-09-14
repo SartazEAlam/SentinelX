@@ -111,32 +111,54 @@ sentinelx/
 
 ## Quick Start (Local Development)
 
-> [!TIP]
-> SentinelX is composed of three services (Backend API, Frontend Dashboard, Endpoint Agent). Open **3 separate terminal windows** at the project root (`sentinelx/`), one for each service.
+> [!IMPORTANT]
+> **Single Virtual Environment Rule**: SentinelX is a monorepo. You only need **one single virtual environment at the project root** (`SentinelX/.venv`). All components (Backend, Agent, CLI tools, tests) share this root environment. **Do not create `.venv` directories inside `backend/` or `agent/`**.
 
 ### 1. Environment Setup (One-Time)
 
-From the project root directory:
+Open a terminal at the project root directory (`SentinelX/`):
 
+#### Step 1: Copy Environment Template
 ```bash
-# 1. Copy environment template
 cp .env.example .env
+```
+*(On Windows PowerShell, you can also run `Copy-Item .env.example .env`)*
 
-# 2. Create Python virtual environment
+#### Step 2: Create the Virtual Environment (Root Only)
+```bash
 python -m venv .venv
+```
 
-# 3. Activate the virtual environment
-# On Git Bash:
-source .venv/Scripts/activate
-# On PowerShell:
-# .venv\Scripts\Activate.ps1
-# On Windows CMD:
-# .venv\Scripts\activate.bat
+#### Step 3: Activate the Virtual Environment
+Choose the command matching your terminal:
+- **PowerShell (Windows)**:
+  ```powershell
+  .venv\Scripts\Activate.ps1
+  ```
+  *(If you get a script execution policy error, run once: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`)*
+- **Command Prompt (CMD)**:
+  ```cmd
+  .venv\Scripts\activate.bat
+  ```
+- **Git Bash / macOS / Linux**:
+  ```bash
+  source .venv/Scripts/activate
+  ```
 
-# 4. Install all Python dependencies (Backend, Agent, Dev tools) in editable mode
+#### Step 4: Install Python Dependencies
+Install Backend, Agent, and Dev dependencies in editable mode:
+```bash
 pip install -e ".[backend,agent,dev]"
+```
 
-# 5. Install Frontend dependencies
+#### Step 5: Seed the Development Database
+Populates the local database with initial admin credentials, an analyst account, and sample security policies:
+```bash
+python scripts/seed_dev.py
+```
+
+#### Step 6: Install Frontend Dependencies
+```bash
 cd frontend
 npm install
 cd ..
@@ -146,28 +168,38 @@ cd ..
 
 ### 2. Running the System
 
-#### Terminal 1: Backend Server
+Open **3 separate terminal windows** (with the root `.venv` activated for Terminals 1 and 3):
+
+#### Terminal 1: Backend Server (FastAPI)
+Run directly from the **project root** (recommended):
 ```bash
-# From project root with .venv activated:
-cd backend
-uvicorn app.main:app --reload --port 8000
+uvicorn app.main:app --app-dir backend --reload --port 8000
 ```
+*(Alternatively: `cd backend && uvicorn app.main:app --reload --port 8000`)*
+
 - **API URL**: [http://localhost:8000](http://localhost:8000)
 - **Interactive Swagger Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
 - **Health Check Endpoint**: [http://localhost:8000/api/v1/health](http://localhost:8000/api/v1/health)
 
-#### Terminal 2: Frontend Dashboard
+#### Terminal 2: Frontend Dashboard (React + Vite)
+From the **`frontend/`** directory:
 ```bash
-# From project root:
 cd frontend
 npm run dev
 ```
-- **Web App**: [http://localhost:5173](http://localhost:5173)
-- **Live System Health**: [http://localhost:5173/system-health](http://localhost:5173/system-health) *(verifies live backend & database connection)*
+- **Web Dashboard**: [http://localhost:5173](http://localhost:5173)
+- **Live System Health**: [http://localhost:5173/system-health](http://localhost:5173/system-health) *(verifies live backend & database connectivity)*
+
+> [!TIP]
+> **Default Login Credentials** (created by `scripts/seed_dev.py`):
+> | Role | Username | Password |
+> |---|---|---|
+> | **Administrator** | `admin` | `Admin@123!` |
+> | **Security Analyst** | `analyst_jane` | `AnalystPassword123!` |
 
 #### Terminal 3: Endpoint Agent
+Run from the **project root** with `.venv` activated:
 ```bash
-# From project root with .venv activated:
 python -m sentinel_agent
 ```
 - Starts the endpoint agent service with active device session.
@@ -197,13 +229,13 @@ docker compose down
 
 ### 4. Running Tests & Quality Checks
 
-Run the automated test suite and linters from the project root:
+Run all automated tests and linters from the **project root** with `.venv` activated:
 
 ```bash
 # Run all Python tests (Backend + Agent: 42 tests)
 pytest -v
 
-# Run Python linter (Ruff)
+# Run Python linter & code formatter check (Ruff)
 ruff check .
 
 # Run Frontend linter (Oxlint)
