@@ -176,18 +176,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(16, 185, 129, 0.2));
-  border: 1px solid rgba(6, 182, 212, 0.35);
-  color: var(--color-accent);
-  box-shadow: 0 0 12px rgba(6, 182, 212, 0.15);
+  width: 2.35rem;
+  height: 2.35rem;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
-.brand-svg {
-  stroke-width: 2.25;
+.brand-icon:hover {
+  transform: scale(1.06);
+}
+
+.brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.4));
 }
 
 .brand-name {
