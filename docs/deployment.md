@@ -13,15 +13,13 @@
 
 ```bash
 # Backend
-cd backend
-uvicorn app.main:app --reload
+uvicorn app.main:app --app-dir backend --reload
 
 # Frontend
 cd frontend
 npm run dev
 
 # Agent
-cd agent
 python -m sentinel_agent
 ```
 

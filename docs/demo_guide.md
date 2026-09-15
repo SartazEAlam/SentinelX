@@ -2,12 +2,11 @@
 
 > A full demonstration script will be created in Phase 10.
 
-## Phase 0 Demo Steps
+## Phase 1 Demo Steps
 
 1. **Start the backend**
    ```bash
-   cd backend
-   uvicorn app.main:app --reload
+   uvicorn app.main:app --app-dir backend --reload
    ```
 
 2. **Verify API documentation**
@@ -28,7 +27,6 @@
 
 6. **Start the agent**
    ```bash
-   cd agent
    python -m sentinel_agent
    ```
    - Observe startup banner and configuration display
