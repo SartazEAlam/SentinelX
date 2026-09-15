@@ -8,7 +8,6 @@ import {
   Bell,
   TrendingUp,
   HeartPulse,
-  Shield,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -38,7 +37,7 @@ export default function Sidebar() {
     <aside className="sidebar" id="main-sidebar">
       <div className="sidebar-brand">
         <div className="brand-icon">
-          <Shield size={22} className="brand-svg" />
+          <img src="/favicon.svg" alt="SentinelX Logo" className="brand-img" />
         </div>
         <div className="brand-text">
           <span className="brand-name">SentinelX</span>
