@@ -1,9 +1,8 @@
-"""Policy management schemas."""
-
+import json
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from app.models.enums import EventDecision
 from app.schemas.users import UserResponse
@@ -45,11 +44,11 @@ class PolicyResponse(BaseModel):
     enabled: bool
     priority: int
 
-    sensitivity_levels: Any | None
-    risk_threshold: float | None
-    allowed_actions: Any | None
-    decision: EventDecision | None
-    conditions: Any | None
+    sensitivity_levels: Any | None = None
+    risk_threshold: float | None = None
+    allowed_actions: Any | None = None
+    decision: EventDecision | None = None
+    conditions: Any | None = None
 
     created_at: datetime
     updated_at: datetime
@@ -58,3 +57,14 @@ class PolicyResponse(BaseModel):
     creator: UserResponse | None = None
 
     model_config = ConfigDict(from_attributes=True)
+
+    @field_validator("sensitivity_levels", "allowed_actions", "conditions", mode="before")
+    @classmethod
+    def parse_json_fields(cls, v: Any) -> Any:
+        if isinstance(v, str):
+            try:
+                return json.loads(v)
+            except Exception:
+                return v
+        return v
+
