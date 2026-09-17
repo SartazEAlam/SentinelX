@@ -2,7 +2,7 @@
 
 from typing import Annotated
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
 from app.core.dependencies import require_analyst_or_above, require_viewer_or_above
@@ -10,7 +10,7 @@ from app.db.database import get_db
 from app.models.alert import Alert
 from app.models.enums import AlertSeverity, AlertStatus
 from app.models.user import User
-from app.schemas.alerts import AlertActionRequest, AlertResponse
+from app.schemas.alerts import AlertActionRequest, AlertCreate, AlertResponse
 from app.schemas.common import PaginatedResponse, PaginationParams
 from app.services import alert_service
 
@@ -49,6 +49,17 @@ def get_alert(
 ) -> Alert:
     """Get a specific alert."""
     return alert_service.get_alert(db, alert_id)
+
+
+@router.post("", response_model=AlertResponse, status_code=status.HTTP_201_CREATED)
+def create_alert(
+    alert_in: AlertCreate,
+    db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(require_analyst_or_above)],
+) -> Alert:
+    """Create a security alert (Analyst/Admin only)."""
+    return alert_service.create_alert(db, alert_in, actor_id=current_user.id)
+
 
 
 @router.post("/{alert_id}/acknowledge", response_model=AlertResponse)
