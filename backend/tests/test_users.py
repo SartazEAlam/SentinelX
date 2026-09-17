@@ -67,7 +67,40 @@ def test_create_duplicate_user(client: TestClient, admin_token: str) -> None:
             "username": "dup_user",
             "email": "dup2@test.com",
             "password": "StrongPassword123!",
-            "role": "VIEWER"
+            "role": "VIEWER",
         },
     )
     assert response.status_code == 409
+
+
+def test_deactivate_user(client: TestClient, admin_token: str) -> None:
+    """Admin can deactivate (soft delete) a user."""
+    # Create user
+    create_resp = client.post(
+        "/api/v1/users",
+        headers={"Authorization": f"Bearer {admin_token}"},
+        json={
+            "username": "user_to_deactivate",
+            "email": "deact@test.com",
+            "password": "Password123!",
+            "role": "VIEWER",
+        },
+    )
+    user_id = create_resp.json()["id"]
+
+    # Deactivate user
+    del_resp = client.delete(
+        f"/api/v1/users/{user_id}",
+        headers={"Authorization": f"Bearer {admin_token}"},
+    )
+    assert del_resp.status_code == 200
+    assert del_resp.json()["is_active"] is False
+
+    # Inactive user cannot log in
+    login_resp = client.post(
+        "/api/v1/auth/login",
+        json={"username": "user_to_deactivate", "password": "Password123!"},
+    )
+    assert login_resp.status_code == 401
+    assert "inactive" in login_resp.json()["error"]["message"].lower()
+
