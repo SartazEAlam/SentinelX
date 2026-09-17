@@ -1,6 +1,7 @@
 """Alert service."""
 
 from datetime import UTC, datetime
+from uuid import uuid4
 
 from sqlalchemy import desc
 from sqlalchemy.orm import Session
@@ -8,7 +9,7 @@ from sqlalchemy.orm import Session
 from app.core.exceptions import ConflictError, NotFoundError
 from app.models.alert import Alert
 from app.models.enums import AlertSeverity, AlertStatus, AuditAction
-from app.schemas.alerts import AlertActionRequest
+from app.schemas.alerts import AlertActionRequest, AlertCreate
 from app.services.audit_service import log_action
 
 
@@ -42,6 +43,34 @@ def list_alerts(
     alerts = query.order_by(desc(Alert.created_at)).offset(skip).limit(limit).all()
 
     return alerts, total
+
+
+def create_alert(
+    db: Session, alert_in: AlertCreate, actor_id: int | None = None
+) -> Alert:
+    """Create a new security alert."""
+    alert = Alert(
+        alert_id=str(uuid4()),
+        event_id=alert_in.event_id,
+        device_id=alert_in.device_id,
+        severity=alert_in.severity,
+        title=alert_in.title,
+        message=alert_in.message,
+        status=AlertStatus.OPEN,
+    )
+    db.add(alert)
+    db.commit()
+    db.refresh(alert)
+
+    log_action(
+        db,
+        action=AuditAction.ALERT_CREATED,
+        actor_user_id=actor_id,
+        resource_type="Alert",
+        resource_id=alert.alert_id,
+        metadata={"title": alert.title, "severity": alert.severity},
+    )
+    return alert
 
 
 def acknowledge_alert(
