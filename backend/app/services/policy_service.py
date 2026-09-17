@@ -25,13 +25,6 @@ def list_policies(db: Session, skip: int = 0, limit: int = 50) -> tuple[list[Pol
     query = db.query(Policy)
     total = query.count()
     policies = query.order_by(desc(Policy.priority)).offset(skip).limit(limit).all()
-
-    # Parse JSON fields for API representation
-    for p in policies:
-        p.sensitivity_levels = json.loads(p.sensitivity_levels) if p.sensitivity_levels else None
-        p.allowed_actions = json.loads(p.allowed_actions) if p.allowed_actions else None
-        p.conditions = json.loads(p.conditions) if p.conditions else None
-
     return policies, total
 
 
@@ -77,17 +70,6 @@ def create_policy(db: Session, policy_in: PolicyCreate, creator_id: int) -> Poli
         metadata={"name": policy.name},
     )
 
-    # Parse JSON back for the response schema
-    policy.sensitivity_levels = (
-        json.loads(policy.sensitivity_levels) if policy.sensitivity_levels else None
-    )
-    policy.allowed_actions = (
-        json.loads(policy.allowed_actions) if policy.allowed_actions else None
-    )
-    policy.conditions = (
-        json.loads(policy.conditions) if policy.conditions else None
-    )
-
     return policy
 
 
@@ -126,17 +108,6 @@ def update_policy(db: Session, policy_id: int, policy_in: PolicyUpdate, actor_id
         actor_user_id=actor_id,
         resource_type="Policy",
         resource_id=str(policy.id),
-    )
-
-    # Parse JSON back for the response schema
-    policy.sensitivity_levels = (
-        json.loads(policy.sensitivity_levels) if policy.sensitivity_levels else None
-    )
-    policy.allowed_actions = (
-        json.loads(policy.allowed_actions) if policy.allowed_actions else None
-    )
-    policy.conditions = (
-        json.loads(policy.conditions) if policy.conditions else None
     )
 
     return policy
