@@ -8,6 +8,12 @@ from app.models.enums import ApprovalStatus
 from app.schemas.users import UserResponse
 
 
+class ApprovalCreate(BaseModel):
+    """Payload for requesting an approval for a security event."""
+    event_id: int
+    reason: str | None = None
+
+
 class ApprovalActionRequest(BaseModel):
     """Payload for approving or rejecting a request."""
     comment: str | None = None
