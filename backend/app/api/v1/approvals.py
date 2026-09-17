@@ -2,7 +2,7 @@
 
 from typing import Annotated
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
 from app.core.dependencies import require_analyst_or_above, require_viewer_or_above
@@ -10,7 +10,11 @@ from app.db.database import get_db
 from app.models.approval import ApprovalRequest
 from app.models.enums import ApprovalStatus
 from app.models.user import User
-from app.schemas.approvals import ApprovalActionRequest, ApprovalResponse
+from app.schemas.approvals import (
+    ApprovalActionRequest,
+    ApprovalCreate,
+    ApprovalResponse,
+)
 from app.schemas.common import PaginatedResponse, PaginationParams
 from app.services import approval_service
 
@@ -47,6 +51,22 @@ def get_approval(
 ) -> ApprovalRequest:
     """Get a specific approval request."""
     return approval_service.get_approval(db, approval_id)
+
+
+@router.post("", response_model=ApprovalResponse, status_code=status.HTTP_201_CREATED)
+def create_approval_request(
+    approval_in: ApprovalCreate,
+    db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(require_viewer_or_above)],
+) -> ApprovalRequest:
+    """Submit a new approval request for a security event."""
+    return approval_service.create_approval(
+        db,
+        event_id=approval_in.event_id,
+        requested_by=current_user.id,
+        reason=approval_in.reason,
+    )
+
 
 
 @router.post("/{approval_id}/approve", response_model=ApprovalResponse)
