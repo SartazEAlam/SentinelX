@@ -8,6 +8,15 @@ from app.models.enums import AlertSeverity, AlertStatus
 from app.schemas.users import UserResponse
 
 
+class AlertCreate(BaseModel):
+    """Payload for creating a security alert."""
+    title: str
+    message: str | None = None
+    severity: AlertSeverity = AlertSeverity.MEDIUM
+    event_id: int | None = None
+    device_id: str | None = None
+
+
 class AlertActionRequest(BaseModel):
     """Payload for acknowledging or resolving an alert."""
     comment: str | None = None
