@@ -68,3 +68,16 @@ def update_user(
     return user_service.update_user(
         db, user_id, user_in, actor_id=current_user.id
     )
+
+
+@router.delete("/{user_id}", response_model=UserResponse)
+def deactivate_user(
+    user_id: int,
+    db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(require_admin)],
+) -> User:
+    """Deactivate a user (Admin only soft delete)."""
+    return user_service.update_user(
+        db, user_id, UserUpdate(is_active=False), actor_id=current_user.id
+    )
+
