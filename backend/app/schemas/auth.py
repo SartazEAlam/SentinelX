@@ -1,6 +1,6 @@
 """Authentication schemas."""
 
-from pydantic import BaseModel, ConfigDict, EmailStr
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 from app.models.enums import UserRole
 
@@ -9,6 +9,12 @@ class LoginRequest(BaseModel):
     """Credentials for authentication."""
     username: str
     password: str
+
+
+class PasswordChangeRequest(BaseModel):
+    """Schema for changing current user password."""
+    current_password: str
+    new_password: str = Field(..., min_length=8)
 
 
 class TokenResponse(BaseModel):
