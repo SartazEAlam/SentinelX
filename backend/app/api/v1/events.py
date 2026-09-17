@@ -1,5 +1,4 @@
-"""Security event routes."""
-
+from datetime import datetime
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query, status
@@ -8,7 +7,7 @@ from sqlalchemy.orm import Session
 from app.core.dependencies import get_current_device, require_viewer_or_above
 from app.db.database import get_db
 from app.models.device import Device
-from app.models.enums import EventType, SensitivityLevel
+from app.models.enums import EventDecision, EventType, SensitivityLevel
 from app.models.security_event import SecurityEvent
 from app.models.user import User
 from app.schemas.common import PaginatedResponse, PaginationParams
@@ -56,6 +55,9 @@ def get_events(
         default=None, description="Filter by sensitivity"
     ),
     min_risk_score: float | None = Query(default=None, description="Minimum risk score"),
+    decision: EventDecision | None = Query(default=None, description="Filter by decision"),
+    start_time: datetime | None = Query(default=None, description="Filter events after timestamp"),
+    end_time: datetime | None = Query(default=None, description="Filter events before timestamp"),
 ) -> dict:
     """List security events with filtering (Viewer/Analyst/Admin)."""
     skip = (params.page - 1) * params.size
@@ -67,6 +69,9 @@ def get_events(
         event_type=event_type,
         sensitivity_level=sensitivity_level,
         min_risk_score=min_risk_score,
+        decision=decision,
+        start_time=start_time,
+        end_time=end_time,
     )
 
     return {
