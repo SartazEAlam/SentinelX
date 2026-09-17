@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.core.exceptions import UnauthorizedError
-from app.core.security import verify_password
+from app.core.security import hash_password, verify_password
 from app.models.enums import AuditAction, UserRole
 from app.models.user import User
 from app.schemas.auth import LoginRequest
@@ -81,3 +81,37 @@ def create_initial_admin_if_needed(db: Session) -> None:
     )
 
     create_user(db, admin_in)
+
+
+def change_password(
+    db: Session,
+    user: User,
+    current_password: str,
+    new_password: str,
+    ip_address: str | None = None,
+) -> None:
+    """Change user password after validating current password."""
+    if not verify_password(current_password, user.password_hash):
+        log_action(
+            db,
+            action=AuditAction.USER_UPDATED,
+            actor_user_id=user.id,
+            ip_address=ip_address,
+            metadata={"reason": "Password change failed: incorrect current password"},
+        )
+        raise UnauthorizedError("Incorrect current password")
+
+    user.password_hash = hash_password(new_password)
+    db.commit()
+    db.refresh(user)
+
+    log_action(
+        db,
+        action=AuditAction.USER_UPDATED,
+        actor_user_id=user.id,
+        resource_type="User",
+        resource_id=str(user.id),
+        ip_address=ip_address,
+        metadata={"action": "password_changed"},
+    )
+
