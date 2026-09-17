@@ -1,6 +1,7 @@
 """Security event service for ingestion and querying."""
 
 import json
+from datetime import datetime
 
 from sqlalchemy import desc
 from sqlalchemy.exc import IntegrityError
@@ -8,7 +9,13 @@ from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.core.exceptions import ConflictError, NotFoundError
-from app.models.enums import AuditAction, DeviceStatus, EventType, SensitivityLevel
+from app.models.enums import (
+    AuditAction,
+    DeviceStatus,
+    EventDecision,
+    EventType,
+    SensitivityLevel,
+)
 from app.models.security_event import SecurityEvent
 from app.schemas.events import BatchEventCreate, BatchEventResponse, SecurityEventCreate
 from app.services.audit_service import log_action
@@ -31,6 +38,9 @@ def list_events(
     event_type: EventType | None = None,
     sensitivity_level: SensitivityLevel | None = None,
     min_risk_score: float | None = None,
+    decision: EventDecision | None = None,
+    start_time: datetime | None = None,
+    end_time: datetime | None = None,
 ) -> tuple[list[SecurityEvent], int]:
     """List security events with optional filtering and pagination."""
     query = db.query(SecurityEvent)
@@ -43,6 +53,12 @@ def list_events(
         query = query.filter(SecurityEvent.sensitivity_level == sensitivity_level)
     if min_risk_score is not None:
         query = query.filter(SecurityEvent.risk_score >= min_risk_score)
+    if decision:
+        query = query.filter(SecurityEvent.decision == decision)
+    if start_time:
+        query = query.filter(SecurityEvent.timestamp >= start_time)
+    if end_time:
+        query = query.filter(SecurityEvent.timestamp <= end_time)
 
     total = query.count()
     events = query.order_by(desc(SecurityEvent.timestamp)).offset(skip).limit(limit).all()
