@@ -64,3 +64,19 @@ def test_reject_approval_as_viewer_fails(client: TestClient, viewer_token: str) 
         json={"comment": "Unauthorized reject attempt"},
     )
     assert response.status_code == 403
+
+
+def test_create_approval_request(client: TestClient, viewer_token: str) -> None:
+    """User can submit an approval request."""
+    response = client.post(
+        "/api/v1/approvals",
+        headers={"Authorization": f"Bearer {viewer_token}"},
+        json={"event_id": 202, "reason": "Need temporary access to file"},
+    )
+    assert response.status_code == 201
+    data = response.json()
+    assert data["event_id"] == 202
+    assert data["status"] == "PENDING"
+    assert data["reason"] == "Need temporary access to file"
+    assert "request_id" in data
+
