@@ -2,15 +2,20 @@
 
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, status
 from sqlalchemy.orm import Session
 
 from app.core.dependencies import get_current_user
 from app.core.security import create_access_token
 from app.db.database import get_db
 from app.models.user import User
-from app.schemas.auth import LoginRequest, TokenResponse, UserMeResponse
-from app.services.auth_service import authenticate_user
+from app.schemas.auth import (
+    LoginRequest,
+    PasswordChangeRequest,
+    TokenResponse,
+    UserMeResponse,
+)
+from app.services.auth_service import authenticate_user, change_password
 
 router = APIRouter(tags=["Authentication"])
 
@@ -41,3 +46,22 @@ def get_current_user_info(
 ) -> UserMeResponse:
     """Return info about the currently authenticated user."""
     return UserMeResponse.model_validate(current_user)
+
+
+@router.post("/change-password", status_code=status.HTTP_204_NO_CONTENT)
+def change_user_password(
+    data: PasswordChangeRequest,
+    request: Request,
+    db: Annotated[Session, Depends(get_db)],
+    current_user: Annotated[User, Depends(get_current_user)],
+) -> None:
+    """Change the password of the currently authenticated user."""
+    ip_address = request.client.host if request.client else None
+    change_password(
+        db,
+        user=current_user,
+        current_password=data.current_password,
+        new_password=data.new_password,
+        ip_address=ip_address,
+    )
+
