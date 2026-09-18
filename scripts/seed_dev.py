@@ -240,19 +240,19 @@ def seed_db() -> None:
             },
         ]
 
-        created_event_ids = []
+        created_events = []
         for ev in sample_events:
             if not db.query(SecurityEvent).filter(SecurityEvent.event_id == ev["event_id"]).first():
                 event_obj = SecurityEvent(**ev)
                 db.add(event_obj)
                 db.commit()
                 db.refresh(event_obj)
-                created_event_ids.append(event_obj)
+                created_events.append(event_obj)
                 print(f"  [+] Created event: {event_obj.event_id} ({ev['file_name']})")
 
         # 6. Sample Alerts
-        if created_event_ids:
-            blocked_event = created_event_ids[0]
+        if created_events:
+            blocked_event = created_events[0]
             alert_existing = db.query(Alert).filter(Alert.event_id == blocked_event.id).first()
             if not alert_existing:
                 sample_alert = Alert(
@@ -272,8 +272,8 @@ def seed_db() -> None:
                 print(f"  [+] Created alert: {sample_alert.title}")
 
         # 7. Sample Approval Request
-        if len(created_event_ids) > 1:
-            held_event = created_event_ids[1]
+        if len(created_events) > 1:
+            held_event = created_events[1]
             appr_existing = (
                 db.query(ApprovalRequest)
                 .filter(ApprovalRequest.event_id == held_event.id)
@@ -299,5 +299,5 @@ def seed_db() -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Seed the SentinelX database")
-    args = parser.parse_args()
+    parser.parse_args()
     seed_db()
