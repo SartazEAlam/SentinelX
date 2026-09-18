@@ -68,7 +68,7 @@ def create_alert(
         actor_user_id=actor_id,
         resource_type="Alert",
         resource_id=alert.alert_id,
-        metadata={"title": alert.title, "severity": alert.severity},
+        metadata={"title": alert.title, "severity": str(alert.severity)},
     )
     return alert
 
@@ -86,7 +86,6 @@ def acknowledge_alert(
     alert.acknowledged_at = datetime.now(UTC)
 
     if action_in.comment:
-        # We append comment to the message for now
         alert.message = f"{alert.message}\n\nAcknowledgment Note: {action_in.comment}"
 
     db.commit()
@@ -115,7 +114,6 @@ def resolve_alert(
     alert.resolved_at = datetime.now(UTC)
 
     if action_in.comment:
-        # We append comment to the message for now
         alert.message = f"{alert.message}\n\nResolution Note: {action_in.comment}"
 
     db.commit()
