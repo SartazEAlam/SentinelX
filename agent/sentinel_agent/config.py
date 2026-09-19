@@ -50,6 +50,31 @@ class AgentSettings(BaseSettings):
     # --- Monitoring ---
     MONITORING_MODE: MonitoringMode = MonitoringMode.MONITOR_ONLY
 
+    # --- Heartbeat ---
+    HEARTBEAT_INTERVAL_SECONDS: int = 60
+
+    # --- Batching ---
+    BATCH_SIZE: int = 50
+    BATCH_FLUSH_INTERVAL_SECONDS: int = 10
+
+    # --- Identity ---
+    IDENTITY_DIR: str = "~/.sentinelx"
+
+    # --- Retry ---
+    MAX_RETRY_ATTEMPTS: int = 3
+    RETRY_BACKOFF_SECONDS: float = 5.0
+
+    # --- File hashing ---
+    FILE_HASH_ENABLED: bool = True
+    FILE_HASH_MAX_SIZE_MB: int = 50
+
+    # --- Exclusions ---
+    EXCLUDED_EXTENSIONS: str = ".tmp,.log,.lock,.swp,.swo"
+    EXCLUDED_DIRECTORIES: str = ".git,.venv,node_modules,__pycache__,.mypy_cache,.ruff_cache"
+
+    # --- USB polling ---
+    USB_POLL_INTERVAL_SECONDS: int = 5
+
     @field_validator("LOG_LEVEL")
     @classmethod
     def validate_log_level(cls, v: str) -> str:
@@ -81,6 +106,30 @@ class AgentSettings(BaseSettings):
         if not self.TRUSTED_PATHS.strip():
             return []
         return [Path(p.strip()) for p in self.TRUSTED_PATHS.split(",") if p.strip()]
+
+    @property
+    def excluded_extension_set(self) -> set[str]:
+        """Parse comma-separated excluded extensions into a set."""
+        if not self.EXCLUDED_EXTENSIONS.strip():
+            return set()
+        return {e.strip().lower() for e in self.EXCLUDED_EXTENSIONS.split(",") if e.strip()}
+
+    @property
+    def excluded_directory_set(self) -> set[str]:
+        """Parse comma-separated excluded directory names into a set."""
+        if not self.EXCLUDED_DIRECTORIES.strip():
+            return set()
+        return {d.strip() for d in self.EXCLUDED_DIRECTORIES.split(",") if d.strip()}
+
+    @property
+    def identity_path(self) -> Path:
+        """Resolved identity directory path."""
+        return Path(self.IDENTITY_DIR).expanduser().resolve()
+
+    @property
+    def file_hash_max_bytes(self) -> int:
+        """Max file size in bytes for hashing."""
+        return self.FILE_HASH_MAX_SIZE_MB * 1024 * 1024
 
 
 def get_agent_settings() -> AgentSettings:
