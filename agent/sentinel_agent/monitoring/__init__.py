@@ -1,28 +1,7 @@
-"""File system and endpoint monitoring.
+"""File system and endpoint monitoring."""
 
-Future implementations:
-    - FileSystemMonitor: watchdog-based file event observer
-    - USBMonitor: USB device attach/detach detection
-    - ProcessMonitor: process activity tracking
-"""
+from sentinel_agent.monitoring.filesystem import FileSystemCollector
+from sentinel_agent.monitoring.process_context import ProcessContextEnricher
+from sentinel_agent.monitoring.usb import USBCollector
 
-from abc import ABC, abstractmethod
-
-
-class BaseMonitor(ABC):
-    """Abstract base for all monitoring modules."""
-
-    @abstractmethod
-    async def start(self) -> None:
-        """Start monitoring."""
-        ...
-
-    @abstractmethod
-    async def stop(self) -> None:
-        """Stop monitoring and release resources."""
-        ...
-
-    @abstractmethod
-    def is_active(self) -> bool:
-        """Check if the monitor is currently active."""
-        ...
+__all__ = ["FileSystemCollector", "ProcessContextEnricher", "USBCollector"]
