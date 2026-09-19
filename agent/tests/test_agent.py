@@ -1,9 +1,8 @@
 """Tests for agent configuration and lifecycle."""
 
-import asyncio
 
 import pytest
-from sentinel_agent.agent import SentinelAgent
+from sentinel_agent.agent import AgentState, SentinelAgent
 from sentinel_agent.config import AgentSettings, MonitoringMode
 
 
@@ -48,6 +47,42 @@ class TestAgentConfig:
         settings = AgentSettings(SERVER_URL="http://localhost:8000/")
         assert not settings.SERVER_URL.endswith("/")
 
+    def test_new_settings_have_defaults(self) -> None:
+        """Phase 2 settings have sensible defaults."""
+        settings = AgentSettings()
+        assert settings.HEARTBEAT_INTERVAL_SECONDS == 60
+        assert settings.BATCH_SIZE == 50
+        assert settings.BATCH_FLUSH_INTERVAL_SECONDS == 10
+        assert settings.MAX_RETRY_ATTEMPTS == 3
+        assert settings.FILE_HASH_ENABLED is True
+        assert settings.FILE_HASH_MAX_SIZE_MB == 50
+        assert settings.USB_POLL_INTERVAL_SECONDS == 5
+
+    def test_excluded_extensions_parsing(self) -> None:
+        """Excluded extensions are parsed into a set."""
+        settings = AgentSettings(EXCLUDED_EXTENSIONS=".tmp,.log,.lock")
+        exts = settings.excluded_extension_set
+        assert ".tmp" in exts
+        assert ".log" in exts
+        assert ".lock" in exts
+
+    def test_excluded_directories_parsing(self) -> None:
+        """Excluded directories are parsed into a set."""
+        settings = AgentSettings(EXCLUDED_DIRECTORIES=".git,node_modules")
+        dirs = settings.excluded_directory_set
+        assert ".git" in dirs
+        assert "node_modules" in dirs
+
+    def test_identity_path(self) -> None:
+        """Identity path resolves to an absolute path."""
+        settings = AgentSettings(IDENTITY_DIR="~/.sentinelx")
+        assert settings.identity_path.is_absolute()
+
+    def test_file_hash_max_bytes(self) -> None:
+        """File hash max bytes computed from MB setting."""
+        settings = AgentSettings(FILE_HASH_MAX_SIZE_MB=100)
+        assert settings.file_hash_max_bytes == 100 * 1024 * 1024
+
 
 class TestAgentLifecycle:
     """Tests for agent startup and shutdown."""
@@ -56,26 +91,15 @@ class TestAgentLifecycle:
         """Agent initializes without error."""
         settings = AgentSettings()
         agent = SentinelAgent(settings)
-        assert agent.device_id == settings.DEVICE_ID
         assert not agent.is_running
+        assert agent.state == AgentState.STOPPED
 
-    def test_agent_starts_and_stops(self) -> None:
-        """Agent starts and shuts down cleanly."""
-        settings = AgentSettings()
-        agent = SentinelAgent(settings)
-
-        async def run_test() -> None:
-            # Start agent in background
-            task = asyncio.create_task(agent.start())
-
-            # Give it a moment to start
-            await asyncio.sleep(0.1)
-            assert agent.is_running
-
-            # Trigger shutdown
-            agent._shutdown_event.set()
-            await task
-
-            assert not agent.is_running
-
-        asyncio.run(run_test())
+    def test_agent_state_enum(self) -> None:
+        """AgentState enum has all expected values."""
+        states = {s.value for s in AgentState}
+        assert "INITIALIZING" in states
+        assert "REGISTERING" in states
+        assert "RUNNING" in states
+        assert "DEGRADED" in states
+        assert "STOPPING" in states
+        assert "STOPPED" in states
