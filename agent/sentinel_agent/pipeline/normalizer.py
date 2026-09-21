@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from sentinel_agent.pipeline.models import EndpointEvent, get_current_user
+from sentinel_agent.classification.engine import ClassificationEngine
 
 logger = logging.getLogger(__name__)
 
@@ -20,9 +21,11 @@ class EventNormalizer:
         self,
         hash_enabled: bool = True,
         hash_max_bytes: int = 50 * 1024 * 1024,
+        classification_engine: ClassificationEngine | None = None,
     ) -> None:
         self._hash_enabled = hash_enabled
         self._hash_max_bytes = hash_max_bytes
+        self._classification_engine = classification_engine
 
     def normalize_fs_event(
         self,
@@ -47,7 +50,7 @@ class EventNormalizer:
         except (OSError, PermissionError) as exc:
             logger.debug("Cannot stat file %s: %s", src_path, exc)
 
-        return EndpointEvent(
+        event = EndpointEvent(
             event_type=event_type,
             action=action,
             source=src_path,
@@ -60,6 +63,16 @@ class EventNormalizer:
             process_id=process_id,
             user_context=get_current_user(),
         )
+        
+        # Classification
+        if self._classification_engine and event.file_path and path.exists() and path.is_file():
+            try:
+                result = self._classification_engine.classify_file(path)
+                event.classification = result
+            except Exception as exc:
+                logger.error("Classification failed for %s: %s", path, exc)
+                
+        return event
 
     def normalize_usb_event(
         self,
