@@ -1,0 +1,100 @@
+{
+  "categories": [
+    "PERSONAL_DATA",
+    "CONTACT_INFORMATION",
+    "IDENTITY_INFORMATION",
+    "FINANCIAL_DATA",
+    "PAYMENT_CARD_DATA",
+    "BANKING_DATA",
+    "CREDENTIALS",
+    "AUTHENTICATION_SECRETS",
+    "HEALTH_DATA",
+    "EMPLOYEE_DATA",
+    "CUSTOMER_DATA",
+    "SOURCE_CODE",
+    "INTERNAL_DOCUMENT",
+    "CONFIDENTIAL_DOCUMENT",
+    "SECURITY_DATA",
+    "API_KEYS",
+    "TOKENS",
+    "DATABASE_DATA",
+    "INTELLECTUAL_PROPERTY",
+    "OTHER_SENSITIVE"
+  ],
+  "sensitivity_levels": {
+    "UNKNOWN": 0,
+    "PUBLIC": 10,
+    "INTERNAL": 30,
+    "CONFIDENTIAL": 60,
+    "HIGHLY_CONFIDENTIAL": 90
+  },
+  "rules": {
+    "extensions": {
+      ".csv": {"confidence": 0.2, "category": "DATABASE_DATA", "evidence": "Database/Spreadsheet file extension"},
+      ".xlsx": {"confidence": 0.2, "category": "DATABASE_DATA", "evidence": "Spreadsheet file extension"},
+      ".sql": {"confidence": 0.4, "category": "DATABASE_DATA", "evidence": "SQL Database dump extension"},
+      ".env": {"confidence": 0.8, "category": "AUTHENTICATION_SECRETS", "evidence": "Environment variables file extension"},
+      ".pem": {"confidence": 0.9, "category": "AUTHENTICATION_SECRETS", "evidence": "Private key file extension"},
+      ".key": {"confidence": 0.9, "category": "AUTHENTICATION_SECRETS", "evidence": "Private key file extension"},
+      ".py": {"confidence": 0.3, "category": "SOURCE_CODE", "evidence": "Python source code extension"},
+      ".js": {"confidence": 0.3, "category": "SOURCE_CODE", "evidence": "JavaScript source code extension"}
+    },
+    "filenames": [
+      {"pattern": ".*salary.*", "confidence": 0.7, "category": "EMPLOYEE_DATA", "evidence": "Filename indicates salary data"},
+      {"pattern": ".*payroll.*", "confidence": 0.7, "category": "EMPLOYEE_DATA", "evidence": "Filename indicates payroll data"},
+      {"pattern": ".*customer.*", "confidence": 0.5, "category": "CUSTOMER_DATA", "evidence": "Filename indicates customer data"},
+      {"pattern": ".*password.*", "confidence": 0.6, "category": "CREDENTIALS", "evidence": "Filename indicates passwords"},
+      {"pattern": ".*secret.*", "confidence": 0.6, "category": "CREDENTIALS", "evidence": "Filename indicates secrets"},
+      {"pattern": ".*confidential.*", "confidence": 0.5, "category": "CONFIDENTIAL_DOCUMENT", "evidence": "Filename indicates confidential document"},
+      {"pattern": ".*internal.*", "confidence": 0.4, "category": "INTERNAL_DOCUMENT", "evidence": "Filename indicates internal document"}
+    ],
+    "keywords": [
+      {"keyword": "confidential", "confidence": 0.4, "category": "CONFIDENTIAL_DOCUMENT", "evidence": "Confidential keyword found in text"},
+      {"keyword": "internal use only", "confidence": 0.5, "category": "INTERNAL_DOCUMENT", "evidence": "Internal use keyword found in text"},
+      {"keyword": "salary", "confidence": 0.4, "category": "EMPLOYEE_DATA", "evidence": "Salary keyword found in text"},
+      {"keyword": "credit card", "confidence": 0.6, "category": "PAYMENT_CARD_DATA", "evidence": "Credit card keyword found in text"},
+      {"keyword": "api key", "confidence": 0.6, "category": "API_KEYS", "evidence": "API key keyword found in text"},
+      {"keyword": "password", "confidence": 0.5, "category": "CREDENTIALS", "evidence": "Password keyword found in text"}
+    ],
+    "regex": [
+      {
+        "name": "email_pattern",
+        "pattern": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+        "confidence": 0.8,
+        "category": "CONTACT_INFORMATION",
+        "evidence": "Email address pattern detected",
+        "redact": true,
+        "redact_char": "*"
+      },
+      {
+        "name": "payment_card_pattern",
+        "pattern": "\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\\d{3})\\d{11})\\b",
+        "confidence": 0.9,
+        "category": "PAYMENT_CARD_DATA",
+        "evidence": "Payment card number pattern detected",
+        "redact": true,
+        "redact_char": "*"
+      },
+      {
+        "name": "api_key_pattern",
+        "pattern": "(?i)(api[\\-_]?key|token|secret).*?['\"]([a-zA-Z0-9_\\-]{16,})['\"]",
+        "confidence": 0.85,
+        "category": "API_KEYS",
+        "evidence": "API Key / Token pattern detected",
+        "redact": true,
+        "redact_char": "*"
+      }
+    ],
+    "structured_data": {
+      "sensitive_columns": {
+        "email": {"confidence": 0.6, "category": "CONTACT_INFORMATION"},
+        "phone": {"confidence": 0.6, "category": "CONTACT_INFORMATION"},
+        "salary": {"confidence": 0.7, "category": "EMPLOYEE_DATA"},
+        "ssn": {"confidence": 0.9, "category": "IDENTITY_INFORMATION"},
+        "customer_id": {"confidence": 0.5, "category": "CUSTOMER_DATA"},
+        "password": {"confidence": 0.8, "category": "CREDENTIALS"},
+        "credit_card": {"confidence": 0.9, "category": "PAYMENT_CARD_DATA"}
+      }
+    }
+  }
+}
