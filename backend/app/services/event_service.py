@@ -17,6 +17,7 @@ from app.models.enums import (
     SensitivityLevel,
 )
 from app.models.security_event import SecurityEvent
+from app.models.classification import Classification
 from app.schemas.events import BatchEventCreate, BatchEventResponse, SecurityEventCreate
 from app.services.audit_service import log_action
 from app.services.device_service import get_device
@@ -99,6 +100,24 @@ def create_event(
 
     try:
         db.add(event)
+        
+        if event_in.classification:
+            cls_in = event_in.classification
+            classification = Classification(
+                event_id=event.event_id,
+                sensitivity_level=cls_in.sensitivity_level,
+                confidence=cls_in.confidence,
+                categories_json=json.dumps(cls_in.categories) if cls_in.categories else None,
+                evidence_json=json.dumps(cls_in.evidence) if cls_in.evidence else None,
+                content_inspected=cls_in.content_inspected,
+                inspection_complete=cls_in.inspection_complete,
+                classifier_version=cls_in.classifier_version,
+                model_name=cls_in.model_name,
+                model_version=cls_in.model_version,
+                classified_at=cls_in.classified_at
+            )
+            db.add(classification)
+
         db.commit()
         db.refresh(event)
     except IntegrityError:
@@ -159,6 +178,24 @@ def create_events_batch(
             metadata_json=metadata_json,
         )
         db.add(event)
+        
+        if event_in.classification:
+            cls_in = event_in.classification
+            classification = Classification(
+                event_id=event.event_id,
+                sensitivity_level=cls_in.sensitivity_level,
+                confidence=cls_in.confidence,
+                categories_json=json.dumps(cls_in.categories) if cls_in.categories else None,
+                evidence_json=json.dumps(cls_in.evidence) if cls_in.evidence else None,
+                content_inspected=cls_in.content_inspected,
+                inspection_complete=cls_in.inspection_complete,
+                classifier_version=cls_in.classifier_version,
+                model_name=cls_in.model_name,
+                model_version=cls_in.model_version,
+                classified_at=cls_in.classified_at
+            )
+            db.add(classification)
+            
         accepted += 1
 
     try:
