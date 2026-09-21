@@ -8,6 +8,20 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from app.models.enums import EventDecision, EventType, SensitivityLevel
 
 
+class ClassificationResult(BaseModel):
+    """Result of a data sensitivity classification operation."""
+    sensitivity_level: SensitivityLevel
+    confidence: float
+    categories: list[str] = Field(default_factory=list)
+    evidence: list[dict[str, Any]] = Field(default_factory=list)
+    content_inspected: bool = False
+    inspection_complete: bool = False
+    classifier_version: str
+    model_name: str | None = None
+    model_version: str | None = None
+    classified_at: datetime | None = None
+
+
 class SecurityEventCreate(BaseModel):
     """Payload sent by endpoint agents to report a security event."""
     event_id: str
@@ -28,6 +42,7 @@ class SecurityEventCreate(BaseModel):
     process_name: str | None = None
     process_id: int | None = None
     metadata_json: dict[str, Any] | None = None
+    classification: ClassificationResult | None = None
 
 
 class BatchEventCreate(BaseModel):
@@ -74,5 +89,6 @@ class SecurityEventResponse(BaseModel):
     process_id: int | None
     metadata_json: Any | None
     created_at: datetime
+    classification: Any | None = None
 
     model_config = ConfigDict(from_attributes=True)
