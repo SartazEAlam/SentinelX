@@ -7,6 +7,7 @@ metadata before running migrations or creating tables.
 from app.models.alert import Alert
 from app.models.approval import ApprovalRequest
 from app.models.audit_log import AuditLog
+from app.models.classification import Classification
 from app.models.device import Device
 from app.models.enums import (
     AlertSeverity,
@@ -27,6 +28,7 @@ __all__ = [
     "Alert",
     "ApprovalRequest",
     "AuditLog",
+    "Classification",
     "Device",
     "Policy",
     "SecurityEvent",
