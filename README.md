@@ -282,13 +282,14 @@ Comprehensive project documentation is available in the [`docs/`](docs/) directo
 - ✅ Full automated test suite passing (42/42 tests, 0 lint errors, 0 type errors)
 - ✅ **Phase 1 Complete**: Full Alembic database migrations, comprehensive Pydantic schemas, RBAC JWT Authentication, dual-layer endpoint device auth, and global Audit Logging service.
 
-### Planned Roadmap (Phases 2–10)
+### Planned Roadmap
 
-- ✅ **Phase 1**: JWT Authentication, Device Registration, and Event Ingestion
-- ⬜ **Phase 2**: Real-time File System Monitoring (`watchdog`)
-- ⬜ **Phase 3**: Data Sensitivity Classification (Content & Metadata)
-- ⬜ **Phase 4**: Multi-factor Risk Scoring Engine
-- ⬜ **Phase 5**: Policy Evaluation & Enforcement Engine (Block / Warn / Allow)
+- [x] **Phase 0**: Project Foundation & Architecture
+- [x] **Phase 1**: Core Backend API & Telemetry Database
+- [x] **Phase 2**: Endpoint Agent & Secure Device Monitoring
+- [x] **Phase 3**: Sensitive Data Intelligence & Classification Engine
+- [ ] **Phase 4**: Security Dashboard & Real-time Analytics
+- [ ] **Phase 5**: Real-time Blocking & Policy Enforcement Engine (Block / Warn / Allow)
 - ⬜ **Phase 6**: SOC Administrator Dashboard (Live Events, Alerts, Policies)
 - ⬜ **Phase 7**: USB Device Detection and Storage Control
 - ⬜ **Phase 8**: Machine Learning Anomaly Detection
