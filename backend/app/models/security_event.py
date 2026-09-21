@@ -1,12 +1,15 @@
 """SecurityEvent model — the central event table for DLP telemetry."""
 
 from datetime import datetime
-from typing import Any
+from typing import Any, TYPE_CHECKING
 
 from sqlalchemy import DateTime, Float, Index, Integer, String, Text, func
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
+
+if TYPE_CHECKING:
+    from app.models.classification import Classification
 
 
 class SecurityEvent(Base):
@@ -51,6 +54,10 @@ class SecurityEvent(Base):
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
+
+    classification: Mapped["Classification"] = relationship(
+        "Classification", back_populates="event", cascade="all, delete-orphan", uselist=False
     )
 
     __table_args__ = (
