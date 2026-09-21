@@ -1,36 +1,20 @@
 """Data sensitivity classification.
 
-Future implementations:
-    - ContentClassifier: file content analysis (patterns, keywords)
-    - MetadataClassifier: file metadata-based classification
-    - SensitivityLevel enum: LOW, MEDIUM, HIGH, CRITICAL
+Features:
+- Hybrid classification (Rules + ML)
+- Configurable deterministic rules (Regex, Keywords, Filenames, Extensions)
+- Scikit-learn ML fallback
+- File content and structured data extraction
 """
 
-from abc import ABC, abstractmethod
-from enum import StrEnum
-from pathlib import Path
+from sentinel_agent.classification.engine import ClassificationEngine
+from sentinel_agent.classification.ml.models import MLClassifier
+from sentinel_agent.classification.result import ClassificationResult, Evidence, SensitivityLevel
 
-
-class SensitivityLevel(StrEnum):
-    """Data sensitivity classification levels."""
-
-    LOW = "LOW"
-    MEDIUM = "MEDIUM"
-    HIGH = "HIGH"
-    CRITICAL = "CRITICAL"
-
-
-class BaseClassifier(ABC):
-    """Abstract base for data classifiers."""
-
-    @abstractmethod
-    def classify(self, file_path: Path) -> SensitivityLevel:
-        """Classify the sensitivity level of a file.
-
-        Args:
-            file_path: Path to the file to classify.
-
-        Returns:
-            The determined sensitivity level.
-        """
-        ...
+__all__ = [
+    "ClassificationEngine",
+    "MLClassifier",
+    "ClassificationResult",
+    "Evidence",
+    "SensitivityLevel",
+]
