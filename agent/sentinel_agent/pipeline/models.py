@@ -7,6 +7,8 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
+from sentinel_agent.classification.result import ClassificationResult
+
 
 class EndpointEvent(BaseModel):
     """A normalised security event produced by a collector.
@@ -30,6 +32,7 @@ class EndpointEvent(BaseModel):
     process_id: int | None = None
     user_context: str = ""
     metadata: dict[str, Any] = Field(default_factory=dict)
+    classification: ClassificationResult | None = None
 
     def to_api_dict(self) -> dict[str, Any]:
         """Convert to the backend ``SecurityEventCreate``-compatible dict."""
@@ -61,6 +64,10 @@ class EndpointEvent(BaseModel):
             data["user_context"] = self.user_context
         if self.metadata:
             data["metadata_json"] = self.metadata
+        if self.classification:
+            data["classification"] = self.classification.to_api_dict()
+            # Also set sensitivity_level at top level for backward compat or direct querying
+            data["sensitivity_level"] = self.classification.sensitivity_level.value
         return data
 
 
