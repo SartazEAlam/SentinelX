@@ -6,8 +6,6 @@ from typing import Any
 
 import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +34,7 @@ class MLClassifier:
 
             self.vectorizer = joblib.load(vec_path)
             self.model = joblib.load(model_path)
-            
+
             if meta_path.exists():
                 meta = joblib.load(meta_path)
                 self.model_name = meta.get("model_name", "unknown")
@@ -56,17 +54,17 @@ class MLClassifier:
         """
         if not self.is_loaded or not self.vectorizer or not self.model:
             return {"prediction": "UNKNOWN", "probabilities": {}}
-            
+
         if not text or not text.strip():
             return {"prediction": "UNKNOWN", "probabilities": {}}
 
         try:
             # Transform text
             X = self.vectorizer.transform([text])
-            
+
             # Predict
             pred = self.model.predict(X)[0]
-            
+
             # Get probabilities if supported
             probs = {}
             if hasattr(self.model, "predict_proba"):
