@@ -4,11 +4,28 @@ import hashlib
 from datetime import UTC, datetime, timedelta
 from typing import Any, cast
 
+import bcrypt
+import passlib.handlers.bcrypt
 from app.config import get_settings
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto", bcrypt__truncate_error=True)
+# Patch passlib compatibility with bcrypt 4.x+
+if not hasattr(bcrypt, "__about__"):
+    bcrypt.__about__ = type("About", (), {"__version__": getattr(bcrypt, "__version__", "4.0.0")})  # type: ignore[attr-defined]
+
+_orig_calc_checksum = passlib.handlers.bcrypt._BcryptBackend._calc_checksum
+
+
+def _patched_calc_checksum(self: Any, secret: Any) -> Any:
+    if isinstance(secret, bytes) and len(secret) > 72:
+        secret = secret[:72]
+    return _orig_calc_checksum(self, secret)
+
+
+passlib.handlers.bcrypt._BcryptBackend._calc_checksum = _patched_calc_checksum
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def hash_password(password: str) -> str:
