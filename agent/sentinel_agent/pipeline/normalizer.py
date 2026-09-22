@@ -5,8 +5,8 @@ import logging
 from pathlib import Path
 from typing import Any
 
-from sentinel_agent.pipeline.models import EndpointEvent, get_current_user
 from sentinel_agent.classification.engine import ClassificationEngine
+from sentinel_agent.pipeline.models import EndpointEvent, get_current_user
 
 logger = logging.getLogger(__name__)
 
@@ -63,7 +63,7 @@ class EventNormalizer:
             process_id=process_id,
             user_context=get_current_user(),
         )
-        
+
         # Classification
         if self._classification_engine and event.file_path and path.exists() and path.is_file():
             try:
@@ -71,7 +71,7 @@ class EventNormalizer:
                 event.classification = result
             except Exception as exc:
                 logger.error("Classification failed for %s: %s", path, exc)
-                
+
         return event
 
     def normalize_usb_event(
