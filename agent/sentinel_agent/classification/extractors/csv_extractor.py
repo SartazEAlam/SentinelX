@@ -31,25 +31,25 @@ class CSVExtractor(Extractor):
 
         try:
             # We don't read huge CSVs into memory, we just stream the first N rows
-            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            with open(path, encoding="utf-8", errors="ignore") as f:
                 reader = csv.reader(f)
-                
+
                 rows_read = 0
                 sample_text = []
-                
+
                 for row in reader:
                     if rows_read == 0:
                         context["headers"] = row
-                    
+
                     sample_text.append(",".join(row))
                     rows_read += 1
-                    
+
                     if rows_read >= self.max_rows:
                         break
-                        
+
                 context["text"] = "\n".join(sample_text)
                 context["inspected"] = True
-                
+
                 # Check if we didn't read the whole file
                 # A robust way would be to check f.tell() vs file size, but this is an approximation
                 if rows_read >= self.max_rows:
