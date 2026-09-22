@@ -34,10 +34,10 @@ class ClassificationResult(BaseModel):
     confidence: float
     categories: list[str] = Field(default_factory=list)
     evidence: list[Evidence] = Field(default_factory=list)
-    
+
     content_inspected: bool = False
     inspection_complete: bool = False
-    
+
     classifier_version: str = "3.0.0"
     model_name: str | None = None
     model_version: str | None = None
