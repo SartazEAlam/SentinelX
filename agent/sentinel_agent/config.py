@@ -131,6 +131,11 @@ class AgentSettings(BaseSettings):
         """Max file size in bytes for hashing."""
         return self.FILE_HASH_MAX_SIZE_MB * 1024 * 1024
 
+    @property
+    def base_dir(self) -> Path:
+        """Return the base agent directory."""
+        return Path(__file__).resolve().parent.parent
+
 
 def get_agent_settings() -> AgentSettings:
     """Create and return an AgentSettings instance."""
