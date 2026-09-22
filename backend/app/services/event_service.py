@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 
 from app.config import get_settings
 from app.core.exceptions import ConflictError, NotFoundError
+from app.models.classification import Classification
 from app.models.enums import (
     AuditAction,
     DeviceStatus,
@@ -17,7 +18,6 @@ from app.models.enums import (
     SensitivityLevel,
 )
 from app.models.security_event import SecurityEvent
-from app.models.classification import Classification
 from app.schemas.events import BatchEventCreate, BatchEventResponse, SecurityEventCreate
 from app.services.audit_service import log_action
 from app.services.device_service import get_device
@@ -100,7 +100,7 @@ def create_event(
 
     try:
         db.add(event)
-        
+
         if event_in.classification:
             cls_in = event_in.classification
             classification = Classification(
@@ -178,7 +178,7 @@ def create_events_batch(
             metadata_json=metadata_json,
         )
         db.add(event)
-        
+
         if event_in.classification:
             cls_in = event_in.classification
             classification = Classification(
@@ -195,7 +195,7 @@ def create_events_batch(
                 classified_at=cls_in.classified_at
             )
             db.add(classification)
-            
+
         accepted += 1
 
     try:
