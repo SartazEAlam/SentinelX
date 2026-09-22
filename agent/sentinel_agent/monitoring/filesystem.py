@@ -3,6 +3,7 @@
 import asyncio
 import logging
 from pathlib import Path
+from typing import Any
 
 from watchdog.events import (
     FileCreatedEvent,
@@ -144,7 +145,7 @@ class FileSystemCollector:
         self._dedup = deduplicator
         self._excluded_ext = excluded_extensions or set()
         self._excluded_dirs = excluded_directories or set()
-        self._observer: Observer | None = None
+        self._observer: Any = None
 
     async def start(self) -> None:
         """Start the filesystem observer."""
