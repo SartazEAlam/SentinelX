@@ -8,6 +8,7 @@ from datetime import UTC, datetime
 from enum import StrEnum
 
 from sentinel_agent import __version__
+from sentinel_agent.classification.engine import ClassificationEngine
 from sentinel_agent.config import AgentSettings
 from sentinel_agent.identity import DeviceIdentity, IdentityManager
 from sentinel_agent.monitoring.filesystem import FileSystemCollector
@@ -16,7 +17,6 @@ from sentinel_agent.pipeline.deduplicator import EventDeduplicator
 from sentinel_agent.pipeline.dispatcher import EventDispatcher
 from sentinel_agent.pipeline.normalizer import EventNormalizer
 from sentinel_agent.pipeline.queue import EventQueue
-from sentinel_agent.classification.engine import ClassificationEngine
 from sentinel_agent.storage.event_store import LocalEventStore
 from sentinel_agent.transport.http_transport import HTTPTransport
 
@@ -149,14 +149,14 @@ class SentinelAgent:
 
             # 5. Pipeline
             self._queue = EventQueue()
-            
+
             # Classification
             config_path = self._settings.base_dir / "classification_rules.json"
             classification_engine = ClassificationEngine(
-                config_path=config_path, 
+                config_path=config_path,
                 ml_dir=self._settings.base_dir / "models" if (self._settings.base_dir / "models").exists() else None
             )
-            
+
             self._normalizer = EventNormalizer(
                 hash_enabled=self._settings.FILE_HASH_ENABLED,
                 hash_max_bytes=self._settings.file_hash_max_bytes,
