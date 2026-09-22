@@ -9,7 +9,7 @@ from sentinel_agent.classification.rules.base import ClassificationRule
 
 class ExtensionRule(ClassificationRule):
     """Matches file extensions."""
-    
+
     def __init__(self, ext: str, category: str, confidence: float, evidence_desc: str):
         super().__init__(f"ext_{ext}", category, confidence, evidence_desc)
         self.ext = ext.lower()
@@ -31,7 +31,7 @@ class ExtensionRule(ClassificationRule):
 
 class FilenameRule(ClassificationRule):
     """Matches filename patterns."""
-    
+
     def __init__(self, pattern: str, category: str, confidence: float, evidence_desc: str):
         super().__init__(f"filename_{pattern}", category, confidence, evidence_desc)
         self.pattern = re.compile(pattern, re.IGNORECASE)
@@ -53,7 +53,7 @@ class FilenameRule(ClassificationRule):
 
 class KeywordRule(ClassificationRule):
     """Matches explicit keywords in extracted text."""
-    
+
     def __init__(self, keyword: str, category: str, confidence: float, evidence_desc: str):
         super().__init__(f"keyword_{keyword}", category, confidence, evidence_desc)
         self.keyword = keyword.lower()
@@ -64,7 +64,7 @@ class KeywordRule(ClassificationRule):
         text = context.get("text", "")
         if not text:
             return []
-            
+
         if self.pattern.search(text):
             return [
                 Evidence(
@@ -80,7 +80,7 @@ class KeywordRule(ClassificationRule):
 
 class RegexRule(ClassificationRule):
     """Matches regular expressions in text (e.g., emails, credit cards, API keys)."""
-    
+
     def __init__(
         self, name: str, pattern: str, category: str, confidence: float, evidence_desc: str,
         redact: bool = True, redact_char: str = "*"
@@ -100,10 +100,10 @@ class RegexRule(ClassificationRule):
         for match in self.pattern.finditer(text):
             val = match.group(0)
             redacted = self._redact(val) if self.redact else None
-            
+
             # Contextual validation for things like credit cards (Luhn check) could go here
             # For this phase, we rely on the regex
-            
+
             evidences.append(
                 Evidence(
                     source="regex",
@@ -114,11 +114,11 @@ class RegexRule(ClassificationRule):
                     description=self.evidence_desc
                 )
             )
-            
+
             # Limit the number of evidence items for a single rule to avoid blowing up memory
             if len(evidences) >= 10:
                 break
-                
+
         return evidences
 
     def _redact(self, value: str) -> str:
@@ -129,7 +129,7 @@ class RegexRule(ClassificationRule):
 
 class StructuredDataRule(ClassificationRule):
     """Matches sensitive columns in structured data (CSV)."""
-    
+
     def __init__(self, column: str, category: str, confidence: float):
         super().__init__(f"column_{column}", category, confidence, f"Sensitive column name matched: {column}")
         self.column = column.lower()
