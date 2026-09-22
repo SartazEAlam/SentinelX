@@ -14,7 +14,7 @@ class TextExtractor(Extractor):
     
     Supported files: .txt, .md, .json, source code.
     """
-    
+
     SUPPORTED_EXTENSIONS = {
         ".txt", ".md", ".json", ".yaml", ".yml", ".xml", ".log",
         ".py", ".js", ".ts", ".java", ".cpp", ".c", ".go", ".rs", ".sql", ".env"
@@ -38,7 +38,7 @@ class TextExtractor(Extractor):
         try:
             stat = path.stat()
             file_size = stat.st_size
-            
+
             if file_size == 0:
                 context["reason"] = "EMPTY_FILE"
                 context["inspected"] = True
@@ -47,13 +47,13 @@ class TextExtractor(Extractor):
 
             # Only read up to max_bytes
             read_size = min(file_size, self.max_bytes)
-            
-            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+
+            with open(path, encoding="utf-8", errors="ignore") as f:
                 text = f.read(read_size)
-                
+
             context["text"] = text
             context["inspected"] = True
-            
+
             if file_size > self.max_bytes:
                 context["complete"] = False
                 context["reason"] = "SIZE_LIMIT"
