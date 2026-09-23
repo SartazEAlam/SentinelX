@@ -10,6 +10,7 @@ from app.schemas.users import UserResponse
 
 class PolicyCreate(BaseModel):
     """Payload for creating a new DLP policy."""
+
     name: str = Field(..., min_length=3, max_length=128)
     description: str | None = None
     enabled: bool = True
@@ -25,6 +26,7 @@ class PolicyCreate(BaseModel):
 
 class PolicyUpdate(BaseModel):
     """Payload for updating an existing DLP policy."""
+
     name: str | None = Field(default=None, min_length=3, max_length=128)
     description: str | None = None
     enabled: bool | None = None
@@ -38,6 +40,7 @@ class PolicyUpdate(BaseModel):
 
 class PolicyResponse(BaseModel):
     """Standard policy representation in the API."""
+
     id: int
     name: str
     description: str | None
@@ -67,4 +70,3 @@ class PolicyResponse(BaseModel):
             except Exception:
                 return v
         return v
-

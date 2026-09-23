@@ -15,17 +15,35 @@ def engine(tmp_path: Path):
 
     config = {
         "sensitivity_levels": {
-            "UNKNOWN": 0, "PUBLIC": 10, "INTERNAL": 30, "CONFIDENTIAL": 60, "HIGHLY_CONFIDENTIAL": 90
+            "UNKNOWN": 0,
+            "PUBLIC": 10,
+            "INTERNAL": 30,
+            "CONFIDENTIAL": 60,
+            "HIGHLY_CONFIDENTIAL": 90,
         },
         "rules": {
             "extensions": {
-                ".env": {"confidence": 0.8, "category": "AUTHENTICATION_SECRETS", "evidence": "env file"}
+                ".env": {
+                    "confidence": 0.8,
+                    "category": "AUTHENTICATION_SECRETS",
+                    "evidence": "env file",
+                }
             },
             "filenames": [
-                {"pattern": ".*salary.*", "confidence": 0.7, "category": "EMPLOYEE_DATA", "evidence": "salary file"}
+                {
+                    "pattern": ".*salary.*",
+                    "confidence": 0.7,
+                    "category": "EMPLOYEE_DATA",
+                    "evidence": "salary file",
+                }
             ],
             "keywords": [
-                {"keyword": "confidential", "confidence": 0.4, "category": "CONFIDENTIAL_DOCUMENT", "evidence": "keyword"}
+                {
+                    "keyword": "confidential",
+                    "confidence": 0.4,
+                    "category": "CONFIDENTIAL_DOCUMENT",
+                    "evidence": "keyword",
+                }
             ],
             "regex": [
                 {
@@ -33,10 +51,10 @@ def engine(tmp_path: Path):
                     "pattern": "AKIA[0-9A-Z]{16}",
                     "confidence": 0.9,
                     "category": "CREDENTIALS",
-                    "evidence": "AWS Key"
+                    "evidence": "AWS Key",
                 }
-            ]
-        }
+            ],
+        },
     }
 
     with open(config_path, "w") as f:

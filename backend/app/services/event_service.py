@@ -114,7 +114,7 @@ def create_event(
                 classifier_version=cls_in.classifier_version,
                 model_name=cls_in.model_name,
                 model_version=cls_in.model_version,
-                classified_at=cls_in.classified_at
+                classified_at=cls_in.classified_at,
             )
             db.add(classification)
 
@@ -192,7 +192,7 @@ def create_events_batch(
                 classifier_version=cls_in.classifier_version,
                 model_name=cls_in.model_name,
                 model_version=cls_in.model_version,
-                classified_at=cls_in.classified_at
+                classified_at=cls_in.classified_at,
             )
             db.add(classification)
 

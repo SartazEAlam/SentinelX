@@ -10,6 +10,7 @@ from app.models.enums import AuditAction
 
 class AuditLogResponse(BaseModel):
     """Standard audit log representation in the API."""
+
     id: int
     actor_user_id: int | None
     actor_device_id: str | None

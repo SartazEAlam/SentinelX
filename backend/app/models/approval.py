@@ -19,24 +19,16 @@ class ApprovalRequest(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     request_id: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
-    event_id: Mapped[int] = mapped_column(
-        Integer, ForeignKey("security_events.id"), nullable=False
-    )
-    requested_by: Mapped[int] = mapped_column(
-        Integer, ForeignKey("users.id"), nullable=False
-    )
-    assigned_to: Mapped[int | None] = mapped_column(
-        Integer, ForeignKey("users.id"), nullable=True
-    )
+    event_id: Mapped[int] = mapped_column(Integer, ForeignKey("security_events.id"), nullable=False)
+    requested_by: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
+    assigned_to: Mapped[int | None] = mapped_column(Integer, ForeignKey("users.id"), nullable=True)
     status: Mapped[str] = mapped_column(String(16), nullable=False, default="PENDING")
     reason: Mapped[str | None] = mapped_column(Text, nullable=True)
     reviewer_comment: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
-    reviewed_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     # Relationships
     event = relationship("SecurityEvent", foreign_keys=[event_id], lazy="joined")

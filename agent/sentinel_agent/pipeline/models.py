@@ -78,6 +78,7 @@ def get_current_user() -> str:
     except OSError:
         try:
             import getpass
+
             return getpass.getuser()
         except Exception:
             return "unknown"

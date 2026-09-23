@@ -28,9 +28,7 @@ def test_get_approval_not_found(client: TestClient, admin_token: str) -> None:
     assert response.json()["error"]["code"] == "NOT_FOUND"
 
 
-def test_approve_and_conflict_handling(
-    client: TestClient, db: Session, admin_token: str
-) -> None:
+def test_approve_and_conflict_handling(client: TestClient, db: Session, admin_token: str) -> None:
     """Test approving a request and verifying subsequent approve attempts conflict."""
     approval = create_approval(db, event_id=101, requested_by=1, reason="Need USB access")
     approval_id = approval.id
@@ -79,4 +77,3 @@ def test_create_approval_request(client: TestClient, viewer_token: str) -> None:
     assert data["status"] == "PENDING"
     assert data["reason"] == "Need temporary access to file"
     assert "request_id" in data
-

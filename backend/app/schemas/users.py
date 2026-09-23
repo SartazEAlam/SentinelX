@@ -9,6 +9,7 @@ from app.models.enums import UserRole
 
 class UserCreate(BaseModel):
     """Schema for creating a new user."""
+
     username: str = Field(..., min_length=3, max_length=64)
     email: EmailStr
     password: str = Field(..., min_length=8)
@@ -18,6 +19,7 @@ class UserCreate(BaseModel):
 
 class UserUpdate(BaseModel):
     """Schema for updating an existing user."""
+
     email: EmailStr | None = None
     full_name: str | None = None
     role: UserRole | None = None
@@ -26,6 +28,7 @@ class UserUpdate(BaseModel):
 
 class UserResponse(BaseModel):
     """Schema for returning user information."""
+
     id: int
     username: str
     email: EmailStr

@@ -10,17 +10,20 @@ from app.schemas.users import UserResponse
 
 class ApprovalCreate(BaseModel):
     """Payload for requesting an approval for a security event."""
+
     event_id: int
     reason: str | None = None
 
 
 class ApprovalActionRequest(BaseModel):
     """Payload for approving or rejecting a request."""
+
     comment: str | None = None
 
 
 class ApprovalResponse(BaseModel):
     """Standard approval request representation in the API."""
+
     id: int
     request_id: str
     event_id: int

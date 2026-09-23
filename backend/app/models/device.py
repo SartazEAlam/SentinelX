@@ -26,12 +26,8 @@ class Device(Base):
     os_version: Mapped[str | None] = mapped_column(String(64), nullable=True)
     agent_version: Mapped[str | None] = mapped_column(String(32), nullable=True)
     ip_address: Mapped[str | None] = mapped_column(String(45), nullable=True)
-    status: Mapped[str] = mapped_column(
-        String(16), nullable=False, default=DeviceStatus.UNKNOWN
-    )
-    last_seen_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    status: Mapped[str] = mapped_column(String(16), nullable=False, default=DeviceStatus.UNKNOWN)
+    last_seen_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     registered_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )

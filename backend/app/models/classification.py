@@ -19,7 +19,11 @@ class Classification(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     event_id: Mapped[str] = mapped_column(
-        String(64), ForeignKey("security_events.event_id", ondelete="CASCADE"), unique=True, nullable=False, index=True
+        String(64),
+        ForeignKey("security_events.event_id", ondelete="CASCADE"),
+        unique=True,
+        nullable=False,
+        index=True,
     )
 
     sensitivity_level: Mapped[str] = mapped_column(String(32), nullable=False)
@@ -44,4 +48,7 @@ class Classification(Base):
     event: Mapped["SecurityEvent"] = relationship("SecurityEvent", back_populates="classification")
 
     def __repr__(self) -> str:
-        return f"<Classification id={self.id} event_id={self.event_id!r} sensitivity={self.sensitivity_level}>"
+        return (
+            f"<Classification id={self.id} event_id={self.event_id!r} "
+            f"sensitivity={self.sensitivity_level}>"
+        )

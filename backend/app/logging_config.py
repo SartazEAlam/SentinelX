@@ -12,17 +12,19 @@ class SensitiveFieldFilter(logging.Filter):
     sensitive file contents.
     """
 
-    SENSITIVE_PATTERNS: frozenset[str] = frozenset({
-        "password",
-        "passwd",
-        "secret",
-        "token",
-        "api_key",
-        "apikey",
-        "jwt",
-        "authorization",
-        "credential",
-    })
+    SENSITIVE_PATTERNS: frozenset[str] = frozenset(
+        {
+            "password",
+            "passwd",
+            "secret",
+            "token",
+            "api_key",
+            "apikey",
+            "jwt",
+            "authorization",
+            "credential",
+        }
+    )
 
     def filter(self, record: logging.LogRecord) -> bool:
         """Allow the record but redact any sensitive content."""
@@ -90,6 +92,4 @@ def setup_logging(level: str = "INFO") -> None:
         logging.INFO if level.upper() == "DEBUG" else logging.WARNING
     )
 
-    logging.getLogger(__name__).info(
-        "Logging initialized - level=%s", level.upper()
-    )
+    logging.getLogger(__name__).info("Logging initialized - level=%s", level.upper())

@@ -34,7 +34,7 @@ def test_create_user(client: TestClient, admin_token: str) -> None:
             "email": "analyst@test.com",
             "password": "StrongPassword123!",
             "full_name": "New Analyst",
-            "role": "SECURITY_ANALYST"
+            "role": "SECURITY_ANALYST",
         },
     )
     assert response.status_code == 201
@@ -55,7 +55,7 @@ def test_create_duplicate_user(client: TestClient, admin_token: str) -> None:
             "username": "dup_user",
             "email": "dup@test.com",
             "password": "StrongPassword123!",
-            "role": "VIEWER"
+            "role": "VIEWER",
         },
     )
 
@@ -103,4 +103,3 @@ def test_deactivate_user(client: TestClient, admin_token: str) -> None:
     )
     assert login_resp.status_code == 401
     assert "inactive" in login_resp.json()["error"]["message"].lower()
-

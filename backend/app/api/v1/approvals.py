@@ -68,7 +68,6 @@ def create_approval_request(
     )
 
 
-
 @router.post("/{approval_id}/approve", response_model=ApprovalResponse)
 def approve_request(
     approval_id: int,

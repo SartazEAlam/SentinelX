@@ -135,9 +135,7 @@ class LocalEventStore:
         """Get event counts by status."""
         if self._db is None:
             return {}
-        cursor = await self._db.execute(
-            "SELECT status, COUNT(*) FROM events GROUP BY status"
-        )
+        cursor = await self._db.execute("SELECT status, COUNT(*) FROM events GROUP BY status")
         rows = await cursor.fetchall()
         return {status: count for status, count in rows}
 
@@ -145,8 +143,6 @@ class LocalEventStore:
         """Get the count of pending events."""
         if self._db is None:
             return 0
-        cursor = await self._db.execute(
-            "SELECT COUNT(*) FROM events WHERE status = 'PENDING'"
-        )
+        cursor = await self._db.execute("SELECT COUNT(*) FROM events WHERE status = 'PENDING'")
         row = await cursor.fetchone()
         return row[0] if row else 0

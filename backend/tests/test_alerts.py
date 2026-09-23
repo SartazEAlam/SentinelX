@@ -49,4 +49,3 @@ def test_alert_lifecycle(client: TestClient, admin_token: str) -> None:
     )
     assert res_resp.status_code == 200
     assert res_resp.json()["status"] == "RESOLVED"
-

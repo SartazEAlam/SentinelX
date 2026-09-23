@@ -13,7 +13,7 @@ def test_device_registration_and_heartbeat(client: TestClient) -> None:
             "device_id": "hw-id-12345",
             "device_name": "Test Laptop",
             "operating_system": "Windows 11",
-            "agent_version": "1.0.0"
+            "agent_version": "1.0.0",
         },
     )
     assert reg_response.status_code == 201
@@ -27,10 +27,7 @@ def test_device_registration_and_heartbeat(client: TestClient) -> None:
     hb_response = client.post(
         "/api/v1/devices/heartbeat",
         headers={"Authorization": f"Bearer {device_token}"},
-        json={
-            "agent_version": "1.0.1",
-            "ip_address": "192.168.1.100"
-        },
+        json={"agent_version": "1.0.1", "ip_address": "192.168.1.100"},
     )
     assert hb_response.status_code == 200
     hb_data = hb_response.json()
@@ -44,10 +41,7 @@ def test_device_ingest_event(client: TestClient) -> None:
     # Register device
     reg_response = client.post(
         "/api/v1/devices/register",
-        json={
-            "device_id": "hw-id-event-test",
-            "device_name": "Event Test Machine"
-        },
+        json={"device_id": "hw-id-event-test", "device_name": "Event Test Machine"},
     )
     device_token = reg_response.json()["token"]
 
@@ -61,7 +55,7 @@ def test_device_ingest_event(client: TestClient) -> None:
             "event_type": "FILE_ACCESS",
             "file_name": "secret.pdf",
             "sensitivity_level": "CONFIDENTIAL",
-            "risk_score": 85.0
+            "risk_score": 85.0,
         },
     )
     if event_response.status_code != 201:
@@ -77,10 +71,7 @@ def test_list_devices_as_analyst(client: TestClient, admin_token: str) -> None:
     # Ensure there is at least one device
     client.post(
         "/api/v1/devices/register",
-        json={
-            "device_id": "hw-list-test",
-            "device_name": "List Test Machine"
-        },
+        json={"device_id": "hw-list-test", "device_name": "List Test Machine"},
     )
 
     response = client.get(

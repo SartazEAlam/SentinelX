@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 
 class SensitivityLevel(StrEnum):
     """Data sensitivity classification levels."""
+
     UNKNOWN = "UNKNOWN"
     PUBLIC = "PUBLIC"
     INTERNAL = "INTERNAL"
@@ -19,6 +20,7 @@ class SensitivityLevel(StrEnum):
 
 class Evidence(BaseModel):
     """Structured evidence found during classification."""
+
     source: str
     rule: str
     category: str
@@ -30,6 +32,7 @@ class Evidence(BaseModel):
 
 class ClassificationResult(BaseModel):
     """The result of a data sensitivity classification operation."""
+
     sensitivity_level: SensitivityLevel
     confidence: float
     categories: list[str] = Field(default_factory=list)

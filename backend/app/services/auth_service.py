@@ -27,7 +27,7 @@ def authenticate_user(db: Session, login_data: LoginRequest, ip_address: str | N
             db,
             action=AuditAction.USER_LOGIN_FAILED,
             ip_address=ip_address,
-            metadata={"username": login_data.username, "reason": "User not found"}
+            metadata={"username": login_data.username, "reason": "User not found"},
         )
         raise UnauthorizedError("Incorrect username or password")
 
@@ -37,7 +37,7 @@ def authenticate_user(db: Session, login_data: LoginRequest, ip_address: str | N
             action=AuditAction.USER_LOGIN_FAILED,
             actor_user_id=user.id,
             ip_address=ip_address,
-            metadata={"username": user.username, "reason": "Invalid password"}
+            metadata={"username": user.username, "reason": "Invalid password"},
         )
         raise UnauthorizedError("Incorrect username or password")
 
@@ -47,7 +47,7 @@ def authenticate_user(db: Session, login_data: LoginRequest, ip_address: str | N
             action=AuditAction.USER_LOGIN_FAILED,
             actor_user_id=user.id,
             ip_address=ip_address,
-            metadata={"username": user.username, "reason": "Account disabled"}
+            metadata={"username": user.username, "reason": "Account disabled"},
         )
         raise UnauthorizedError("Inactive user")
 
@@ -114,4 +114,3 @@ def change_password(
         ip_address=ip_address,
         metadata={"action": "password_changed"},
     )
-

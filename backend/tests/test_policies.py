@@ -24,7 +24,7 @@ def test_create_policy(client: TestClient, admin_token: str) -> None:
             "description": "Block all external USB mass storage devices.",
             "decision": "BLOCK",
             "enabled": True,
-            "conditions": {"device_type": "mass_storage"}
+            "conditions": {"device_type": "mass_storage"},
         },
     )
     assert response.status_code == 201
@@ -43,7 +43,7 @@ def test_create_policy_as_viewer_fails(client: TestClient, viewer_token: str) ->
             "description": "Should fail",
             "decision": "ALLOW",
             "enabled": True,
-            "conditions": {}
+            "conditions": {},
         },
     )
     assert response.status_code == 403

@@ -24,9 +24,7 @@ from app.services.user_service import create_user
 
 # Use an in-memory SQLite database for testing
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
+engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
@@ -63,6 +61,7 @@ def db() -> Generator[Session, None, None]:
 @pytest.fixture
 def client(db: Session) -> Generator[TestClient, None, None]:
     """Provide a FastAPI TestClient with the database dependency overridden."""
+
     def override_get_db() -> Generator[Session, None, None]:
         yield db
 

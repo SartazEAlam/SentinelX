@@ -1,6 +1,5 @@
 """Tests for agent configuration and lifecycle."""
 
-
 import pytest
 from sentinel_agent.agent import AgentState, SentinelAgent
 from sentinel_agent.config import AgentSettings, MonitoringMode

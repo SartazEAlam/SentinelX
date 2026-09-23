@@ -58,10 +58,12 @@ class TestHTTPTransport:
         mock_client.is_closed = False
         transport._client = mock_client
 
-        result = await transport.register_device({
-            "device_id": "agent-abc",
-            "device_name": "test-device",
-        })
+        result = await transport.register_device(
+            {
+                "device_id": "agent-abc",
+                "device_name": "test-device",
+            }
+        )
 
         assert result.success
         assert result.data["token"] == "device-token-xyz"

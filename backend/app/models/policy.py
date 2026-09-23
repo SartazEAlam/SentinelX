@@ -32,9 +32,7 @@ class Policy(Base):
     conditions: Mapped[Any | None] = mapped_column(Text, nullable=True)
 
     # Ownership
-    created_by: Mapped[int] = mapped_column(
-        Integer, ForeignKey("users.id"), nullable=False
-    )
+    created_by: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()

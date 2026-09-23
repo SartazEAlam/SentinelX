@@ -137,9 +137,8 @@ def seed_db() -> None:
                     ip_address=d["ip_address"],
                     status=d["status"],
                     token_hash=token_hash,
-                    last_seen_at=now - timedelta(
-                        minutes=5 if d["status"] == DeviceStatus.ONLINE else 120
-                    ),
+                    last_seen_at=now
+                    - timedelta(minutes=5 if d["status"] == DeviceStatus.ONLINE else 120),
                     is_active=True,
                 )
                 db.add(dev)
@@ -275,9 +274,7 @@ def seed_db() -> None:
         if len(created_events) > 1:
             held_event = created_events[1]
             appr_existing = (
-                db.query(ApprovalRequest)
-                .filter(ApprovalRequest.event_id == held_event.id)
-                .first()
+                db.query(ApprovalRequest).filter(ApprovalRequest.event_id == held_event.id).first()
             )
             if not appr_existing:
                 sample_approval = ApprovalRequest(

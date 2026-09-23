@@ -88,9 +88,7 @@ class IdentityManager:
 
         self._dir.mkdir(parents=True, exist_ok=True)
         data = asdict(self._identity)
-        self._identity_file.write_text(
-            json.dumps(data, indent=2), encoding="utf-8"
-        )
+        self._identity_file.write_text(json.dumps(data, indent=2), encoding="utf-8")
         logger.info("Saved identity to %s", self._identity_file)
 
     def set_token(self, token: str) -> None:

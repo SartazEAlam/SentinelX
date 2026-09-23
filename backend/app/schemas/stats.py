@@ -5,12 +5,14 @@ from pydantic import BaseModel
 
 class EventTrend(BaseModel):
     """Daily or hourly trend data point."""
+
     timestamp: str
     count: int
 
 
 class OverviewStats(BaseModel):
     """Aggregated dashboard statistics."""
+
     total_devices: int
     active_devices: int
     total_events_24h: int

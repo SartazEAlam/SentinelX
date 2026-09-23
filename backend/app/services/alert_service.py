@@ -45,9 +45,7 @@ def list_alerts(
     return alerts, total
 
 
-def create_alert(
-    db: Session, alert_in: AlertCreate, actor_id: int | None = None
-) -> Alert:
+def create_alert(db: Session, alert_in: AlertCreate, actor_id: int | None = None) -> Alert:
     """Create a new security alert."""
     alert = Alert(
         alert_id=str(uuid4()),

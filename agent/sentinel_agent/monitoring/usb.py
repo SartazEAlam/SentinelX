@@ -66,7 +66,8 @@ class USBCollector:
         self._task = asyncio.create_task(self._poll_loop())
         logger.info(
             "USB collector started (poll_interval=%ds, known_devices=%d)",
-            self._poll_interval, len(self._known_devices),
+            self._poll_interval,
+            len(self._known_devices),
         )
 
     async def stop(self) -> None:

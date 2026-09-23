@@ -42,10 +42,7 @@ class TestLocalEventStore:
         store = LocalEventStore(tmp_path / "test.db")
         await store.init_db()
 
-        events = [
-            {"event_id": f"evt-{i}", "event_type": "FILE_ACCESS"}
-            for i in range(5)
-        ]
+        events = [{"event_id": f"evt-{i}", "event_type": "FILE_ACCESS"} for i in range(5)]
         await store.store_events(events)
 
         pending = await store.get_pending_events()

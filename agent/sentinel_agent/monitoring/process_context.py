@@ -49,4 +49,5 @@ class ProcessContextEnricher:
     def get_current_pid_info() -> dict[str, Any]:
         """Get info about the current process."""
         import os
+
         return ProcessContextEnricher.get_process_info(os.getpid())

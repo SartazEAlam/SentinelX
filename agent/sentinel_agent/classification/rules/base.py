@@ -18,10 +18,10 @@ class ClassificationRule(ABC):
     @abstractmethod
     def evaluate(self, context: dict[str, Any]) -> list[Evidence]:
         """Evaluate the rule against the provided context.
-        
+
         Args:
             context: Dictionary containing 'filename', 'extension', 'text', 'headers', etc.
-            
+
         Returns:
             A list of Evidence objects found by this rule.
         """

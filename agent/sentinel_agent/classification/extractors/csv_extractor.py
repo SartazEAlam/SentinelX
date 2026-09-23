@@ -22,7 +22,7 @@ class CSVExtractor(Extractor):
             "text": "",
             "inspected": False,
             "complete": False,
-            "reason": None
+            "reason": None,
         }
 
         if path.suffix.lower() != ".csv":

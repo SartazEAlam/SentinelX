@@ -53,8 +53,11 @@ class EventDispatcher:
             return
         self._running = True
         self._task = asyncio.create_task(self._run_loop())
-        logger.info("Event dispatcher started (batch_size=%d, interval=%.1fs)",
-                     self._batch_size, self._flush_interval)
+        logger.info(
+            "Event dispatcher started (batch_size=%d, interval=%.1fs)",
+            self._batch_size,
+            self._flush_interval,
+        )
 
     async def stop(self) -> None:
         """Stop the dispatcher, flushing any remaining events."""
@@ -75,7 +78,9 @@ class EventDispatcher:
         await self._retry_local_store()
         logger.info(
             "Dispatcher stopped — sent=%d, failed=%d, batches=%d",
-            self.events_sent, self.events_failed, self.batches_sent,
+            self.events_sent,
+            self.events_failed,
+            self.batches_sent,
         )
 
     async def _run_loop(self) -> None:
@@ -122,7 +127,8 @@ class EventDispatcher:
             else:
                 logger.warning(
                     "Failed to send %d events — storing locally: %s",
-                    count, result.error,
+                    count,
+                    result.error,
                 )
                 self.events_failed += count
                 await self._store.store_events(api_dicts)

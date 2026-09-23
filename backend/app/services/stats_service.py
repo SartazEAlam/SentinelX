@@ -23,9 +23,7 @@ def get_overview_stats(db: Session) -> OverviewStats:
     active_devices = db.query(Device).filter(Device.status == DeviceStatus.ONLINE).count()
 
     # 2. Event stats (last 24h)
-    total_events_24h = (
-        db.query(SecurityEvent).filter(SecurityEvent.timestamp >= day_ago).count()
-    )
+    total_events_24h = db.query(SecurityEvent).filter(SecurityEvent.timestamp >= day_ago).count()
 
     # 3. Critical Alerts
     critical_alerts = (
@@ -39,9 +37,7 @@ def get_overview_stats(db: Session) -> OverviewStats:
 
     # 4. Pending Approvals
     pending_approvals = (
-        db.query(ApprovalRequest)
-        .filter(ApprovalRequest.status == ApprovalStatus.PENDING)
-        .count()
+        db.query(ApprovalRequest).filter(ApprovalRequest.status == ApprovalStatus.PENDING).count()
     )
 
     # 5. Events Trend (simplified: just grouping by hour for the last 24h)
@@ -69,17 +65,12 @@ def get_overview_stats(db: Session) -> OverviewStats:
         if key in buckets:
             buckets[key] += 1
 
-    events_trend = [
-        EventTrend(timestamp=k, count=v) for k, v in sorted(buckets.items())
-    ]
+    events_trend = [EventTrend(timestamp=k, count=v) for k, v in sorted(buckets.items())]
 
     # 6. Top Violators (Devices with most events)
     # Group by device_id
     top_devices = (
-        db.query(
-            SecurityEvent.device_id,
-            func.count(SecurityEvent.id).label("count")
-        )
+        db.query(SecurityEvent.device_id, func.count(SecurityEvent.id).label("count"))
         .group_by(SecurityEvent.device_id)
         .order_by(desc("count"))
         .limit(5)
@@ -91,13 +82,7 @@ def get_overview_stats(db: Session) -> OverviewStats:
         # Get device name
         device = db.query(Device.device_name).filter(Device.device_id == device_id).first()
         name = device[0] if device else "Unknown"
-        top_violators.append(
-            {
-                "device_id": device_id,
-                "device_name": name,
-                "event_count": count
-            }
-        )
+        top_violators.append({"device_id": device_id, "device_name": name, "event_count": count})
 
     return OverviewStats(
         total_devices=total_devices,

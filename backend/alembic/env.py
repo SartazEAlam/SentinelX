@@ -23,10 +23,12 @@ logger = logging.getLogger("alembic.env")
 # for 'autogenerate' support
 target_metadata = Base.metadata
 
+
 def get_url() -> str:
     """Get the database URL from SentinelX settings."""
     settings = get_settings()
     return settings.DATABASE_URL
+
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.

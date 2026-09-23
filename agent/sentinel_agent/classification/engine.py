@@ -46,35 +46,63 @@ class ClassificationEngine:
             with open(self.config_path, encoding="utf-8") as f:
                 config = json.load(f)
 
-            self.sensitivity_levels = config.get("sensitivity_levels", {
-                "UNKNOWN": 0, "PUBLIC": 10, "INTERNAL": 30, "CONFIDENTIAL": 60, "HIGHLY_CONFIDENTIAL": 90
-            })
+            self.sensitivity_levels = config.get(
+                "sensitivity_levels",
+                {
+                    "UNKNOWN": 0,
+                    "PUBLIC": 10,
+                    "INTERNAL": 30,
+                    "CONFIDENTIAL": 60,
+                    "HIGHLY_CONFIDENTIAL": 90,
+                },
+            )
 
             rules_config = config.get("rules", {})
 
             # Load extension rules
             for ext, details in rules_config.get("extensions", {}).items():
-                self.rules.append(ExtensionRule(ext, details["category"], details["confidence"], details["evidence"]))
+                self.rules.append(
+                    ExtensionRule(
+                        ext, details["category"], details["confidence"], details["evidence"]
+                    )
+                )
 
             # Load filename rules
             for rule in rules_config.get("filenames", []):
-                self.rules.append(FilenameRule(rule["pattern"], rule["category"], rule["confidence"], rule["evidence"]))
+                self.rules.append(
+                    FilenameRule(
+                        rule["pattern"], rule["category"], rule["confidence"], rule["evidence"]
+                    )
+                )
 
             # Load keyword rules
             for rule in rules_config.get("keywords", []):
-                self.rules.append(KeywordRule(rule["keyword"], rule["category"], rule["confidence"], rule["evidence"]))
+                self.rules.append(
+                    KeywordRule(
+                        rule["keyword"], rule["category"], rule["confidence"], rule["evidence"]
+                    )
+                )
 
             # Load regex rules
             for rule in rules_config.get("regex", []):
-                self.rules.append(RegexRule(
-                    rule["name"], rule["pattern"], rule["category"], rule["confidence"],
-                    rule["evidence"], rule.get("redact", True), rule.get("redact_char", "*")
-                ))
+                self.rules.append(
+                    RegexRule(
+                        rule["name"],
+                        rule["pattern"],
+                        rule["category"],
+                        rule["confidence"],
+                        rule["evidence"],
+                        rule.get("redact", True),
+                        rule.get("redact_char", "*"),
+                    )
+                )
 
             # Load structured data rules
             sensitive_cols = rules_config.get("structured_data", {}).get("sensitive_columns", {})
             for col, details in sensitive_cols.items():
-                self.rules.append(StructuredDataRule(col, details["category"], details["confidence"]))
+                self.rules.append(
+                    StructuredDataRule(col, details["category"], details["confidence"])
+                )
 
             logger.info("Classification engine loaded %d rules", len(self.rules))
         except Exception as exc:
@@ -121,7 +149,9 @@ class ClassificationEngine:
         # 4. Aggregation
         return self._aggregate(evidences, ml_pred, context)
 
-    def _aggregate(self, evidences: list[Evidence], ml_pred: dict[str, Any] | None, context: dict[str, Any]) -> ClassificationResult:
+    def _aggregate(
+        self, evidences: list[Evidence], ml_pred: dict[str, Any] | None, context: dict[str, Any]
+    ) -> ClassificationResult:
         """Combine evidence and ML predictions into a final sensitivity level."""
         # Start with base score 0 (UNKNOWN)
         total_confidence = 0.0
@@ -162,7 +192,7 @@ class ClassificationEngine:
                         rule=ml_pred.get("model_name", "model"),
                         category="OTHER_SENSITIVE",
                         confidence=prob,
-                        description=f"ML model predicted {ml_sens}"
+                        description=f"ML model predicted {ml_sens}",
                     )
                 )
                 total_confidence = max(total_confidence, prob)
@@ -211,8 +241,8 @@ class ClassificationEngine:
                     rule="failure",
                     category="UNKNOWN",
                     confidence=0.0,
-                    description=f"Classification failed: {reason}"
+                    description=f"Classification failed: {reason}",
                 )
             ],
-            classifier_version=self.version
+            classifier_version=self.version,
         )

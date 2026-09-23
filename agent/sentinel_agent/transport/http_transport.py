@@ -122,13 +122,21 @@ class HTTPTransport:
                 wait = self._backoff_seconds * (2 ** (attempt - 1))
                 logger.warning(
                     "Request %s %s failed (attempt %d/%d): %s — retrying in %.1fs",
-                    method, path, attempt, max_attempts, last_error, wait,
+                    method,
+                    path,
+                    attempt,
+                    max_attempts,
+                    last_error,
+                    wait,
                 )
                 await asyncio.sleep(wait)
 
         logger.error(
             "Request %s %s failed after %d attempts: %s",
-            method, path, max_attempts, last_error,
+            method,
+            path,
+            max_attempts,
+            last_error,
         )
         return TransportResult(success=False, error=last_error)
 
@@ -163,9 +171,7 @@ class HTTPTransport:
 
         POST /api/v1/events
         """
-        return await self._request_with_retry(
-            "POST", "/api/v1/events", json_data=event_data
-        )
+        return await self._request_with_retry("POST", "/api/v1/events", json_data=event_data)
 
     async def send_events_batch(self, events: list[dict[str, Any]]) -> TransportResult:
         """Send a batch of security events.

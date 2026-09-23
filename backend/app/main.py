@@ -46,9 +46,9 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
     # Bootstrap operations
     try:
-        if (
-            settings.DATABASE_URL.startswith("sqlite")
-            or settings.ENVIRONMENT in ("development", "testing")
+        if settings.DATABASE_URL.startswith("sqlite") or settings.ENVIRONMENT in (
+            "development",
+            "testing",
         ):
             Base.metadata.create_all(bind=engine)
         with SessionLocal() as db:

@@ -23,7 +23,7 @@ class ExtensionRule(ClassificationRule):
                     rule=self.name,
                     category=self.category,
                     confidence=self.confidence,
-                    description=self.evidence_desc
+                    description=self.evidence_desc,
                 )
             ]
         return []
@@ -45,7 +45,7 @@ class FilenameRule(ClassificationRule):
                     rule=self.name,
                     category=self.category,
                     confidence=self.confidence,
-                    description=self.evidence_desc
+                    description=self.evidence_desc,
                 )
             ]
         return []
@@ -72,7 +72,7 @@ class KeywordRule(ClassificationRule):
                     rule=self.name,
                     category=self.category,
                     confidence=self.confidence,
-                    description=self.evidence_desc
+                    description=self.evidence_desc,
                 )
             ]
         return []
@@ -82,8 +82,14 @@ class RegexRule(ClassificationRule):
     """Matches regular expressions in text (e.g., emails, credit cards, API keys)."""
 
     def __init__(
-        self, name: str, pattern: str, category: str, confidence: float, evidence_desc: str,
-        redact: bool = True, redact_char: str = "*"
+        self,
+        name: str,
+        pattern: str,
+        category: str,
+        confidence: float,
+        evidence_desc: str,
+        redact: bool = True,
+        redact_char: str = "*",
     ):
         super().__init__(name, category, confidence, evidence_desc)
         self.pattern = re.compile(pattern)
@@ -111,7 +117,7 @@ class RegexRule(ClassificationRule):
                     category=self.category,
                     confidence=self.confidence,
                     redacted_value=redacted,
-                    description=self.evidence_desc
+                    description=self.evidence_desc,
                 )
             )
 
@@ -131,7 +137,9 @@ class StructuredDataRule(ClassificationRule):
     """Matches sensitive columns in structured data (CSV)."""
 
     def __init__(self, column: str, category: str, confidence: float):
-        super().__init__(f"column_{column}", category, confidence, f"Sensitive column name matched: {column}")
+        super().__init__(
+            f"column_{column}", category, confidence, f"Sensitive column name matched: {column}"
+        )
         self.column = column.lower()
 
     def evaluate(self, context: dict[str, Any]) -> list[Evidence]:
@@ -144,7 +152,7 @@ class StructuredDataRule(ClassificationRule):
                         rule=self.name,
                         category=self.category,
                         confidence=self.confidence,
-                        description=self.evidence_desc
+                        description=self.evidence_desc,
                     )
                 ]
         return []

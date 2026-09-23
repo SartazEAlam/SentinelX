@@ -61,7 +61,6 @@ def create_alert(
     return alert_service.create_alert(db, alert_in, actor_id=current_user.id)
 
 
-
 @router.post("/{alert_id}/acknowledge", response_model=AlertResponse)
 def acknowledge_alert(
     alert_id: int,

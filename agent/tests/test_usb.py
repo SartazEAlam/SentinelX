@@ -78,9 +78,7 @@ class TestUSBCollector:
 
         # Mock detection of a new device
         with patch("sentinel_agent.monitoring.usb._get_removable_partitions") as mock_get:
-            mock_get.return_value = {
-                "E:\\": {"mountpoint": "E:\\", "fstype": "FAT32"}
-            }
+            mock_get.return_value = {"E:\\": {"mountpoint": "E:\\", "fstype": "FAT32"}}
             await collector._check_devices()
 
         events = await queue.drain(max_count=10)
@@ -100,9 +98,7 @@ class TestUSBCollector:
             poll_interval=1,
         )
         # Set known state with a device
-        collector._known_devices = {
-            "E:\\": {"mountpoint": "E:\\", "fstype": "FAT32"}
-        }
+        collector._known_devices = {"E:\\": {"mountpoint": "E:\\", "fstype": "FAT32"}}
 
         # Mock: device gone
         with patch("sentinel_agent.monitoring.usb._get_removable_partitions") as mock_get:

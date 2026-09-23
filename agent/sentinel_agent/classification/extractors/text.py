@@ -11,13 +11,28 @@ logger = logging.getLogger(__name__)
 
 class TextExtractor(Extractor):
     """Extracts raw text from common text-based files, with strict limits.
-    
+
     Supported files: .txt, .md, .json, source code.
     """
 
     SUPPORTED_EXTENSIONS = {
-        ".txt", ".md", ".json", ".yaml", ".yml", ".xml", ".log",
-        ".py", ".js", ".ts", ".java", ".cpp", ".c", ".go", ".rs", ".sql", ".env"
+        ".txt",
+        ".md",
+        ".json",
+        ".yaml",
+        ".yml",
+        ".xml",
+        ".log",
+        ".py",
+        ".js",
+        ".ts",
+        ".java",
+        ".cpp",
+        ".c",
+        ".go",
+        ".rs",
+        ".sql",
+        ".env",
     }
 
     def __init__(self, max_bytes: int = 10 * 1024 * 1024):  # 10MB default
@@ -28,7 +43,7 @@ class TextExtractor(Extractor):
             "text": "",
             "inspected": False,
             "complete": False,
-            "reason": None
+            "reason": None,
         }
 
         if path.suffix.lower() not in self.SUPPORTED_EXTENSIONS:

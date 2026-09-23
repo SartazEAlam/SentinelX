@@ -10,6 +10,7 @@ from app.models.enums import EventDecision, EventType, SensitivityLevel
 
 class ClassificationResult(BaseModel):
     """Result of a data sensitivity classification operation."""
+
     sensitivity_level: SensitivityLevel
     confidence: float
     categories: list[str] = Field(default_factory=list)
@@ -24,6 +25,7 @@ class ClassificationResult(BaseModel):
 
 class SecurityEventCreate(BaseModel):
     """Payload sent by endpoint agents to report a security event."""
+
     event_id: str
     timestamp: datetime
     event_type: EventType
@@ -47,6 +49,7 @@ class SecurityEventCreate(BaseModel):
 
 class BatchEventCreate(BaseModel):
     """Batch payload of multiple security events."""
+
     events: list[SecurityEventCreate]
 
     @field_validator("events")
@@ -61,6 +64,7 @@ class BatchEventCreate(BaseModel):
 
 class BatchEventResponse(BaseModel):
     """Result of a batch ingestion operation."""
+
     accepted: int
     rejected: int
     errors: list[dict[str, Any]] | None = None
@@ -68,6 +72,7 @@ class BatchEventResponse(BaseModel):
 
 class SecurityEventResponse(BaseModel):
     """Standard security event representation in the API."""
+
     id: int
     event_id: str
     device_id: str

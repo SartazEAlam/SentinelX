@@ -38,22 +38,14 @@ def create_policy(db: Session, policy_in: PolicyCreate, creator_id: int) -> Poli
         description=policy_in.description,
         enabled=policy_in.enabled,
         sensitivity_levels=(
-            json.dumps(policy_in.sensitivity_levels)
-            if policy_in.sensitivity_levels
-            else None
+            json.dumps(policy_in.sensitivity_levels) if policy_in.sensitivity_levels else None
         ),
         risk_threshold=policy_in.risk_threshold,
         allowed_actions=(
-            json.dumps(policy_in.allowed_actions)
-            if policy_in.allowed_actions
-            else None
+            json.dumps(policy_in.allowed_actions) if policy_in.allowed_actions else None
         ),
         decision=policy_in.decision,
-        conditions=(
-            json.dumps(policy_in.conditions)
-            if policy_in.conditions
-            else None
-        ),
+        conditions=(json.dumps(policy_in.conditions) if policy_in.conditions else None),
         created_by=creator_id,
     )
 

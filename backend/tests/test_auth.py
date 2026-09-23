@@ -90,4 +90,3 @@ def test_change_password(client: TestClient, admin_token: str) -> None:
         json={"username": "pwd_user", "password": "NewPassword123!"},
     )
     assert new_login.status_code == 200
-

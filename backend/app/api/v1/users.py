@@ -52,9 +52,7 @@ def create_user(
 ) -> User:
     """Create a new user (Admin only)."""
     ip_address = request.client.host if request.client else None
-    return user_service.create_user(
-        db, user_in, actor_id=current_user.id, ip_address=ip_address
-    )
+    return user_service.create_user(db, user_in, actor_id=current_user.id, ip_address=ip_address)
 
 
 @router.patch("/{user_id}", response_model=UserResponse)
@@ -65,9 +63,7 @@ def update_user(
     current_user: Annotated[User, Depends(require_admin)],
 ) -> User:
     """Update user attributes or role (Admin only)."""
-    return user_service.update_user(
-        db, user_id, user_in, actor_id=current_user.id
-    )
+    return user_service.update_user(db, user_id, user_in, actor_id=current_user.id)
 
 
 @router.delete("/{user_id}", response_model=UserResponse)
@@ -80,4 +76,3 @@ def deactivate_user(
     return user_service.update_user(
         db, user_id, UserUpdate(is_active=False), actor_id=current_user.id
     )
-

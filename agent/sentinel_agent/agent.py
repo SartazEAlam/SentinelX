@@ -154,13 +154,15 @@ class SentinelAgent:
             config_path = self._settings.base_dir / "classification_rules.json"
             classification_engine = ClassificationEngine(
                 config_path=config_path,
-                ml_dir=self._settings.base_dir / "models" if (self._settings.base_dir / "models").exists() else None
+                ml_dir=self._settings.base_dir / "models"
+                if (self._settings.base_dir / "models").exists()
+                else None,
             )
 
             self._normalizer = EventNormalizer(
                 hash_enabled=self._settings.FILE_HASH_ENABLED,
                 hash_max_bytes=self._settings.file_hash_max_bytes,
-                classification_engine=classification_engine
+                classification_engine=classification_engine,
             )
             self._dedup = EventDeduplicator()
 
