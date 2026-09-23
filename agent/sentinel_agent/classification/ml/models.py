@@ -49,7 +49,7 @@ class MLClassifier:
 
     def predict(self, text: str) -> dict[str, Any]:
         """Predict the sensitivity class of the text.
-        
+
         Returns a dict with 'prediction' and 'probabilities'.
         """
         if not self.is_loaded or not self.vectorizer or not self.model:
@@ -60,15 +60,15 @@ class MLClassifier:
 
         try:
             # Transform text
-            X = self.vectorizer.transform([text])
+            x = self.vectorizer.transform([text])
 
             # Predict
-            pred = self.model.predict(X)[0]
+            pred = self.model.predict(x)[0]
 
             # Get probabilities if supported
             probs = {}
             if hasattr(self.model, "predict_proba"):
-                proba_array = self.model.predict_proba(X)[0]
+                proba_array = self.model.predict_proba(x)[0]
                 classes = self.model.classes_
                 probs = {cls: float(prob) for cls, prob in zip(classes, proba_array)}
 
@@ -76,7 +76,7 @@ class MLClassifier:
                 "prediction": pred,
                 "probabilities": probs,
                 "model_name": self.model_name,
-                "model_version": self.model_version
+                "model_version": self.model_version,
             }
         except Exception as exc:
             logger.error("ML prediction failed: %s", exc)
