@@ -300,5 +300,5 @@ Comprehensive project documentation is available in the [`docs/`](docs/) directo
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This software and associated documentation are the proprietary information of SentinelX. All Rights Reserved. See the [LICENSE](LICENSE) file for details.
 
