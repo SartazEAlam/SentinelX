@@ -7,7 +7,7 @@ name = "sentinelx"
 version = "0.1.0"
 description = "SentinelX: Intelligent Data Loss Prevention and Exfiltration Detection System"
 readme = "README.md"
-license = "MIT"
+license = "Proprietary"
 requires-python = ">=3.11"
 
 [project.optional-dependencies]
