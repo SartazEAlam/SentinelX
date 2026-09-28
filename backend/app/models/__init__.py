@@ -21,6 +21,7 @@ from app.models.enums import (
     UserRole,
 )
 from app.models.policy import Policy
+from app.models.risk_assessment import RiskAssessment
 from app.models.security_event import SecurityEvent
 from app.models.user import User
 
@@ -31,6 +32,7 @@ __all__ = [
     "Classification",
     "Device",
     "Policy",
+    "RiskAssessment",
     "SecurityEvent",
     "User",
     # Enums
