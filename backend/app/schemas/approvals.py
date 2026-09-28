@@ -1,4 +1,7 @@
-"""Approval workflow schemas."""
+"""Approval workflow schemas — enhanced for Phase 4.
+
+Phase 4 adds risk_assessment_id and policy linkage to approvals.
+"""
 
 from datetime import datetime
 
@@ -13,6 +16,10 @@ class ApprovalCreate(BaseModel):
 
     event_id: int
     reason: str | None = None
+    risk_assessment_id: int | None = None
+    requested_action: str | None = None
+    policy_id: int | None = None
+    policy_version: int | None = None
 
 
 class ApprovalActionRequest(BaseModel):
@@ -32,6 +39,13 @@ class ApprovalResponse(BaseModel):
     reviewer_comment: str | None
     created_at: datetime
     reviewed_at: datetime | None
+
+    # Phase 4 additions
+    risk_assessment_id: int | None = None
+    requested_action: str | None = None
+    expires_at: datetime | None = None
+    policy_id: int | None = None
+    policy_version: int | None = None
 
     # Nested relationships
     requester: UserResponse | None = None
