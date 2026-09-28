@@ -1,3 +1,9 @@
+"""Policy schemas — enhanced for Phase 4 policy engine.
+
+Preserves backward compatibility with Phase 1 while adding version tracking,
+soft-delete awareness, risk-score range conditions, and richer criteria.
+"""
+
 import json
 from datetime import datetime
 from typing import Any
@@ -23,6 +29,12 @@ class PolicyCreate(BaseModel):
     decision: EventDecision | None = None
     conditions: dict[str, Any] | None = None
 
+    # Phase 4 additions
+    min_risk_score: float | None = Field(default=None, ge=0.0, le=100.0)
+    max_risk_score: float | None = Field(default=None, ge=0.0, le=100.0)
+    action_types: list[str] | None = None
+    destination_types: list[str] | None = None
+
 
 class PolicyUpdate(BaseModel):
     """Payload for updating an existing DLP policy."""
@@ -36,6 +48,12 @@ class PolicyUpdate(BaseModel):
     allowed_actions: list[str] | None = None
     decision: EventDecision | None = None
     conditions: dict[str, Any] | None = None
+
+    # Phase 4 additions
+    min_risk_score: float | None = Field(default=None, ge=0.0, le=100.0)
+    max_risk_score: float | None = Field(default=None, ge=0.0, le=100.0)
+    action_types: list[str] | None = None
+    destination_types: list[str] | None = None
 
 
 class PolicyResponse(BaseModel):
@@ -53,6 +71,14 @@ class PolicyResponse(BaseModel):
     decision: EventDecision | None = None
     conditions: Any | None = None
 
+    # Phase 4 additions
+    min_risk_score: float | None = None
+    max_risk_score: float | None = None
+    action_types: Any | None = None
+    destination_types: Any | None = None
+    version: int = 1
+    is_deleted: bool = False
+
     created_at: datetime
     updated_at: datetime
 
@@ -61,7 +87,11 @@ class PolicyResponse(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
-    @field_validator("sensitivity_levels", "allowed_actions", "conditions", mode="before")
+    @field_validator(
+        "sensitivity_levels", "allowed_actions", "conditions",
+        "action_types", "destination_types",
+        mode="before",
+    )
     @classmethod
     def parse_json_fields(cls, v: Any) -> Any:
         if isinstance(v, str):
