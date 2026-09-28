@@ -1,7 +1,7 @@
 """Pydantic schemas for the SentinelX API."""
 
 from app.schemas.alerts import AlertActionRequest, AlertResponse
-from app.schemas.approvals import ApprovalActionRequest, ApprovalResponse
+from app.schemas.approvals import ApprovalActionRequest, ApprovalCreate, ApprovalResponse
 from app.schemas.audit import AuditLogResponse
 from app.schemas.auth import LoginRequest, TokenResponse, UserMeResponse
 from app.schemas.common import ErrorDetail, ErrorResponse, PaginatedResponse, PaginationParams
@@ -19,6 +19,15 @@ from app.schemas.events import (
     SecurityEventResponse,
 )
 from app.schemas.policies import PolicyCreate, PolicyResponse, PolicyUpdate
+from app.schemas.risk import (
+    PolicySimulationRequest,
+    PolicySimulationResponse,
+    RiskAssessmentListResponse,
+    RiskAssessmentResponse,
+    RiskContextInput,
+    RiskEvaluateRequest,
+    RiskFactor,
+)
 from app.schemas.stats import EventTrend, OverviewStats
 from app.schemas.users import UserCreate, UserResponse, UserUpdate
 
@@ -49,11 +58,20 @@ __all__ = [
     "SecurityEventResponse",
     # Approvals
     "ApprovalActionRequest",
+    "ApprovalCreate",
     "ApprovalResponse",
     # Policies
     "PolicyCreate",
     "PolicyResponse",
     "PolicyUpdate",
+    # Risk (Phase 4)
+    "RiskAssessmentListResponse",
+    "RiskAssessmentResponse",
+    "RiskContextInput",
+    "RiskEvaluateRequest",
+    "RiskFactor",
+    "PolicySimulationRequest",
+    "PolicySimulationResponse",
     # Alerts
     "AlertActionRequest",
     "AlertResponse",
