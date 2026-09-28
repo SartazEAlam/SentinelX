@@ -1,4 +1,11 @@
-"""ApprovalRequest model — hold/review workflow for security events."""
+"""ApprovalRequest model — hold/review workflow for security events.
+
+Phase 4 extends the Phase 1 approval model with:
+  - risk_assessment_id linking to the risk assessment that triggered the hold
+  - requested_action — the operation that was held
+  - expires_at — automatic expiry for pending approvals
+  - policy_id / policy_version — tracks which policy triggered the hold
+"""
 
 from datetime import datetime
 
@@ -25,6 +32,14 @@ class ApprovalRequest(Base):
     status: Mapped[str] = mapped_column(String(16), nullable=False, default="PENDING")
     reason: Mapped[str | None] = mapped_column(Text, nullable=True)
     reviewer_comment: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+    # Phase 4: link to risk assessment
+    risk_assessment_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    requested_action: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    policy_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    policy_version: Mapped[int | None] = mapped_column(Integer, nullable=True)
+
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
