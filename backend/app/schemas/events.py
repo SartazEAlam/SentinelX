@@ -3,7 +3,7 @@
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, AliasChoices
 
 from app.models.enums import EventDecision, EventType, SensitivityLevel
 
@@ -70,6 +70,34 @@ class BatchEventResponse(BaseModel):
     errors: list[dict[str, Any]] | None = None
 
 
+class ClassificationResponse(BaseModel):
+    id: int
+    event_id: str
+    sensitivity_level: SensitivityLevel
+    confidence: float
+    categories: list[str] = Field(default_factory=list, validation_alias=AliasChoices("categories", "categories_json"))
+    evidence: list[dict[str, Any]] = Field(default_factory=list, validation_alias=AliasChoices("evidence", "evidence_json"))
+    content_inspected: bool
+    inspection_complete: bool
+    classifier_version: str
+    model_name: str | None
+    model_version: str | None
+    classified_at: datetime | None
+
+    model_config = ConfigDict(from_attributes=True, populate_by_name=True)
+
+    @field_validator("categories", "evidence", mode="before")
+    @classmethod
+    def parse_json_fields(cls, v: Any) -> Any:
+        import json
+        if isinstance(v, str):
+            try:
+                return json.loads(v)
+            except Exception:
+                return []
+        return v or []
+
+
 class SecurityEventResponse(BaseModel):
     """Standard security event representation in the API."""
 
@@ -94,6 +122,6 @@ class SecurityEventResponse(BaseModel):
     process_id: int | None
     metadata_json: Any | None
     created_at: datetime
-    classification: Any | None = None
+    classification: ClassificationResponse | None = None
 
     model_config = ConfigDict(from_attributes=True)
