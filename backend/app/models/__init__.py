@@ -9,6 +9,7 @@ from app.models.approval import ApprovalRequest
 from app.models.audit_log import AuditLog
 from app.models.classification import Classification
 from app.models.device import Device
+from app.models.enforcement import EnforcementResultRecord
 from app.models.enums import (
     AlertSeverity,
     AlertStatus,
@@ -31,6 +32,7 @@ __all__ = [
     "AuditLog",
     "Classification",
     "Device",
+    "EnforcementResultRecord",
     "Policy",
     "RiskAssessment",
     "SecurityEvent",
