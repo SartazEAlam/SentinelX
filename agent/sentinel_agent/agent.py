@@ -10,6 +10,7 @@ from enum import StrEnum
 from sentinel_agent import __version__
 from sentinel_agent.classification.engine import ClassificationEngine
 from sentinel_agent.config import AgentSettings
+from sentinel_agent.enforcement.manager import EnforcementManager
 from sentinel_agent.identity import DeviceIdentity, IdentityManager
 from sentinel_agent.monitoring.filesystem import FileSystemCollector
 from sentinel_agent.monitoring.usb import USBCollector
@@ -57,6 +58,7 @@ class SentinelAgent:
         self._dispatcher: EventDispatcher | None = None
         self._fs_collector: FileSystemCollector | None = None
         self._usb_collector: USBCollector | None = None
+        self._enforcement: EnforcementManager | None = None
         self._heartbeat_task: asyncio.Task[None] | None = None
 
     @property
@@ -176,7 +178,19 @@ class SentinelAgent:
             )
             await self._dispatcher.start()
 
-            # 7. Filesystem collector
+            # 7. Enforcement (Phase 5)
+            if self._settings.ENFORCEMENT_ENABLED:
+                self._enforcement = EnforcementManager(
+                    transport=self._transport,
+                    base_dir=self._settings.base_dir,
+                    trusted_paths=self._settings.trusted_path_list,
+                    max_staging_mb=self._settings.MAX_STAGING_SIZE_MB,
+                    approval_timeout=self._settings.APPROVAL_TIMEOUT_SECONDS,
+                    offline_policy_high=self._settings.OFFLINE_POLICY_HIGH,
+                )
+                await self._enforcement.start()
+
+            # 8. Filesystem collector
             paths = self._settings.protected_path_list
             if paths:
                 self._fs_collector = FileSystemCollector(
@@ -186,18 +200,20 @@ class SentinelAgent:
                     deduplicator=self._dedup,
                     excluded_extensions=self._settings.excluded_extension_set,
                     excluded_directories=self._settings.excluded_directory_set,
+                    enforcement=self._enforcement,
                 )
                 await self._fs_collector.start()
 
-            # 8. USB collector
+            # 9. USB collector
             self._usb_collector = USBCollector(
                 event_queue=self._queue,
                 normalizer=self._normalizer,
                 poll_interval=self._settings.USB_POLL_INTERVAL_SECONDS,
+                enforcement=self._enforcement,
             )
             await self._usb_collector.start()
 
-            # 9. Heartbeat
+            # 10. Heartbeat
             self._heartbeat_task = asyncio.create_task(self._heartbeat_loop())
 
             self._set_state(AgentState.RUNNING)
@@ -236,6 +252,10 @@ class SentinelAgent:
             await self._fs_collector.stop()
         if self._usb_collector is not None:
             await self._usb_collector.stop()
+            
+        # Stop enforcement
+        if self._enforcement is not None:
+            await self._enforcement.stop()
 
         # Stop dispatcher (flushes remaining events)
         if self._dispatcher is not None:
