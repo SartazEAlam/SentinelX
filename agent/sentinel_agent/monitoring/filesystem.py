@@ -15,6 +15,7 @@ from watchdog.events import (
 )
 from watchdog.observers import Observer
 
+from sentinel_agent.enforcement.manager import EnforcementManager
 from sentinel_agent.pipeline.deduplicator import EventDeduplicator
 from sentinel_agent.pipeline.normalizer import EventNormalizer
 from sentinel_agent.pipeline.queue import EventQueue
@@ -55,7 +56,11 @@ class SentinelXFileHandler(FileSystemEventHandler):
         self._dedup = deduplicator
         self._excluded_ext = excluded_extensions
         self._excluded_dirs = excluded_directories
+        self._enforcement = None
         self._loop = loop
+        
+    def set_enforcement(self, enforcement: EnforcementManager | None) -> None:
+        self._enforcement = enforcement
 
     def _should_ignore(self, path: str) -> bool:
         """Check if the path should be excluded from monitoring."""
@@ -101,9 +106,21 @@ class SentinelXFileHandler(FileSystemEventHandler):
         if self._dedup.is_duplicate(endpoint_event):
             return
 
-        # Schedule async put from the watchdog thread
-        asyncio.run_coroutine_threadsafe(self._queue.put(endpoint_event), self._loop)
-        logger.debug("FS event queued: %s %s", action, src_path)
+        # If enforcement is enabled, let it evaluate the event asynchronously
+        if self._enforcement:
+            async def _enforce_and_queue():
+                # For Phase 5, we do passive enforcement on file system watchdog events
+                # (since watchdog is post-facto for normal operations)
+                result = await self._enforcement.evaluate_and_enforce(endpoint_event, controlled=False)
+                # Still queue the event for audit logging
+                await self._queue.put(endpoint_event)
+            
+            asyncio.run_coroutine_threadsafe(_enforce_and_queue(), self._loop)
+        else:
+            # Schedule async put from the watchdog thread
+            asyncio.run_coroutine_threadsafe(self._queue.put(endpoint_event), self._loop)
+            
+        logger.debug("FS event processed: %s %s", action, src_path)
 
     def on_created(self, event: FileCreatedEvent) -> None:  # type: ignore[override]
         """Handle file creation."""
@@ -138,6 +155,7 @@ class FileSystemCollector:
         deduplicator: EventDeduplicator,
         excluded_extensions: set[str] | None = None,
         excluded_directories: set[str] | None = None,
+        enforcement: EnforcementManager | None = None,
     ) -> None:
         self._paths = paths
         self._queue = event_queue
@@ -145,6 +163,7 @@ class FileSystemCollector:
         self._dedup = deduplicator
         self._excluded_ext = excluded_extensions or set()
         self._excluded_dirs = excluded_directories or set()
+        self._enforcement = enforcement
         self._observer: Any = None
 
     async def start(self) -> None:
@@ -162,6 +181,7 @@ class FileSystemCollector:
             excluded_directories=self._excluded_dirs,
             loop=loop,
         )
+        handler.set_enforcement(self._enforcement)
 
         self._observer = Observer()
         for path in self._paths:
