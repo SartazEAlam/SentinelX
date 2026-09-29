@@ -5,6 +5,7 @@ import logging
 
 import psutil
 
+from sentinel_agent.enforcement.manager import EnforcementManager
 from sentinel_agent.pipeline.normalizer import EventNormalizer
 from sentinel_agent.pipeline.queue import EventQueue
 
@@ -48,10 +49,12 @@ class USBCollector:
         event_queue: EventQueue,
         normalizer: EventNormalizer,
         poll_interval: int = 5,
+        enforcement: EnforcementManager | None = None,
     ) -> None:
         self._queue = event_queue
         self._normalizer = normalizer
         self._poll_interval = poll_interval
+        self._enforcement = enforcement
         self._known_devices: dict[str, dict[str, str]] = {}
         self._task: asyncio.Task[None] | None = None
         self._running = False
