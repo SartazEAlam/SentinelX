@@ -110,7 +110,7 @@ Full technical documentation is located in the `docs/` folder:
 - **[Architecture](docs/architecture.md)**
 - **[API Reference](docs/api.md)**
 - **[Threat Model](docs/threat_model.md)**
-- **[Demo Guide](demo_guide.md)** (A step-by-step walkthrough of Phase 5 Enforcement)
+- **[Demo Guide](docs/demo_guide.md)** (A step-by-step walkthrough of Phase 5 Enforcement)
 
 ## License
 
