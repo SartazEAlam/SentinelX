@@ -7,6 +7,7 @@ from app.api.v1.approvals import router as approvals_router
 from app.api.v1.audit import router as audit_router
 from app.api.v1.auth import router as auth_router
 from app.api.v1.devices import router as devices_router
+from app.api.v1.enforcement import router as enforcement_router
 from app.api.v1.events import router as events_router
 from app.api.v1.policies import router as policies_router
 from app.api.v1.risk import router as risk_router
@@ -24,4 +25,5 @@ api_router.include_router(policies_router, prefix="/policies")
 api_router.include_router(risk_router, prefix="/risk")
 api_router.include_router(alerts_router, prefix="/alerts")
 api_router.include_router(audit_router, prefix="/audit")
+api_router.include_router(enforcement_router, prefix="/enforcement")
 api_router.include_router(stats_router, prefix="/stats")
