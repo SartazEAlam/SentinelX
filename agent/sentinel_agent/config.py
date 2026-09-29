@@ -20,6 +20,7 @@ class MonitoringMode(StrEnum):
     STRICT = "STRICT"
 
 
+
 class AgentSettings(BaseSettings):
     """Configuration for the SentinelX endpoint agent.
 
@@ -74,8 +75,15 @@ class AgentSettings(BaseSettings):
 
     # --- USB polling ---
     USB_POLL_INTERVAL_SECONDS: int = 5
+    
+    # --- Enforcement (Phase 5) ---
+    ENFORCEMENT_ENABLED: bool = True
+    MAX_STAGING_SIZE_MB: int = 500
+    APPROVAL_TIMEOUT_SECONDS: int = 300
+    OFFLINE_POLICY_HIGH: str = "BLOCK"
 
     @field_validator("LOG_LEVEL")
+
     @classmethod
     def validate_log_level(cls, v: str) -> str:
         """Ensure log level is valid."""
