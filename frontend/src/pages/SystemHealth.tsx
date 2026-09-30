@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AlertOctagon, RefreshCw } from 'lucide-react';
-import { getHealth, type HealthResponse } from '../services/apiClient';
+import { healthApi } from '../services/api';
+import type { HealthResponse } from '../types';
 import StatusIndicator from '../components/StatusIndicator';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -20,7 +21,7 @@ export default function SystemHealth() {
     }
     setError(null);
     try {
-      const data = await getHealth();
+      const data = await healthApi.check();
       setHealth(data);
       setLastChecked(new Date().toLocaleTimeString());
     } catch (err: unknown) {
@@ -37,7 +38,7 @@ export default function SystemHealth() {
 
     const loadInitialHealth = async () => {
       try {
-        const data = await getHealth();
+        const data = await healthApi.check();
         if (isMounted) {
           setHealth(data);
           setError(null);
