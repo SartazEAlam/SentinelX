@@ -4,13 +4,11 @@ Tests the risk engine in isolation (no database, no FastAPI).
 Covers all 18+ test scenarios required by the Phase 4 specification.
 """
 
-import pytest
-from datetime import datetime, timezone, timedelta
 
+import pytest
 from app.risk_policy_config.risk_config import (
     RiskConfig,
     RiskLevelThreshold,
-    RiskLevel,
     get_default_risk_config,
 )
 from app.services.risk_engine import RiskContext, RiskEngine

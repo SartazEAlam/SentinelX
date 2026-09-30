@@ -4,9 +4,7 @@ Tests the policy engine in isolation (no database, no FastAPI).
 """
 
 import pytest
-
-from app.risk_policy_config.policy_config import get_default_policy_config
-from app.services.policy_engine import PolicyDecision, PolicyEngine, PolicyRule
+from app.services.policy_engine import PolicyEngine, PolicyRule
 from app.services.risk_engine import RiskAssessmentOutput, RiskContext, RiskFactorResult
 
 

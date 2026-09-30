@@ -13,12 +13,15 @@ The engine is testable without FastAPI.
 
 from __future__ import annotations
 
-import json
 import logging
 from dataclasses import dataclass, field
 from typing import Any
 
-from app.risk_policy_config.policy_config import POLICY_ENGINE_VERSION, PolicyConfig, get_default_policy_config
+from app.risk_policy_config.policy_config import (
+    POLICY_ENGINE_VERSION,
+    PolicyConfig,
+    get_default_policy_config,
+)
 from app.services.risk_engine import RiskAssessmentOutput, RiskContext
 
 logger = logging.getLogger(__name__)

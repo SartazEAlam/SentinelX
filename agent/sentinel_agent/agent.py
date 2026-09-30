@@ -252,7 +252,7 @@ class SentinelAgent:
             await self._fs_collector.stop()
         if self._usb_collector is not None:
             await self._usb_collector.stop()
-            
+
         # Stop enforcement
         if self._enforcement is not None:
             await self._enforcement.stop()

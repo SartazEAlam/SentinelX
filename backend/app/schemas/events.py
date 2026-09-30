@@ -3,7 +3,7 @@
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, AliasChoices
+from pydantic import AliasChoices, BaseModel, ConfigDict, Field, field_validator
 
 from app.models.enums import EventDecision, EventType, SensitivityLevel
 

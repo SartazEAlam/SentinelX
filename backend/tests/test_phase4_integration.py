@@ -4,13 +4,10 @@ Tests the complete Phase 2 → Phase 3 → Phase 4 pipeline using the
 FastAPI TestClient and database.  All data is synthetic.
 """
 
-import json
-import pytest
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
-
 
 # ═══════════════════════════════════════════════════════════════════════════
 # Helpers
@@ -66,7 +63,7 @@ def _ingest_event(
     """Ingest a security event and return the response."""
     payload = {
         "event_id": event_id,
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
         "event_type": event_type,
         "action": action,
         "destination": destination,

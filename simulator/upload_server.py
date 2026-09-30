@@ -8,7 +8,6 @@ before it is persisted.
 
 import argparse
 import logging
-import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
@@ -42,7 +41,7 @@ class UploadHandler(BaseHTTPRequestHandler):
         try:
             with open(target_path, "wb") as f:
                 f.write(file_data)
-            
+
             logger.info("Received upload: %s (%d bytes)", target_path, content_length)
 
             self.send_response(200)
@@ -73,7 +72,7 @@ def main():
     server = HTTPServer(("localhost", args.port), UploadHandler)
     logger.info("Upload simulator listening on port %d", args.port)
     logger.info("Drop directory: %s", DROP_DIR)
-    
+
     try:
         server.serve_forever()
     except KeyboardInterrupt:

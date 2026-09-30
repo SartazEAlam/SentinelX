@@ -7,7 +7,6 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
 
-
 # ── Risk Context (input to the risk engine) ──────────────────────────────────
 
 class SensitivityContext(BaseModel):

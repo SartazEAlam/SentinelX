@@ -15,7 +15,7 @@ from sentinel_agent.enforcement.backend_client import EnforcementBackendClient
 from sentinel_agent.enforcement.block_handler import BlockHandler
 from sentinel_agent.enforcement.destination_detector import DestinationDetector
 from sentinel_agent.enforcement.hold_handler import HoldHandler
-from sentinel_agent.enforcement.models import EnforcementResult, EnforcementStatus
+from sentinel_agent.enforcement.models import EnforcementResult
 from sentinel_agent.enforcement.operation_controller import OperationController
 from sentinel_agent.enforcement.rollback import RollbackManager
 from sentinel_agent.enforcement.staging import StagingManager
@@ -89,7 +89,7 @@ class EnforcementManager:
         if self._running:
             return
         self._running = True
-        
+
         # Clean up any orphaned staging files on startup
         cleaned = self._staging.cleanup_all()
         if cleaned > 0:
@@ -110,7 +110,7 @@ class EnforcementManager:
             except asyncio.CancelledError:
                 pass
             self._task = None
-        
+
         # Emergency cleanup on shutdown
         self._staging.cleanup_all()
         logger.info("Enforcement Manager stopped")
@@ -156,12 +156,12 @@ class EnforcementManager:
     async def _queue_result(self, result: EnforcementResult) -> None:
         """Queue and attempt to send the result to the server."""
         r_dict = result.to_api_dict()
-        
+
         if len(self._result_queue) < self._max_queue:
             self._result_queue.append(r_dict)
-            
+
         # We will let the background loop drain the queue
-        
+
     async def _background_loop(self) -> None:
         """Background loop for polling approvals, cleanup, and result sending."""
         poll_interval = 2.0
@@ -170,7 +170,7 @@ class EnforcementManager:
         while self._running:
             try:
                 await asyncio.sleep(poll_interval)
-                
+
                 # 1. Send queued results
                 await self._drain_results()
 
@@ -192,27 +192,27 @@ class EnforcementManager:
         """Attempt to send all queued results."""
         if not self._result_queue:
             return
-            
+
         failed = []
         for r_dict in self._result_queue:
             success = await self._client.submit_result(r_dict)
             if not success:
                 failed.append(r_dict)
-                
+
         self._result_queue = failed
 
     async def _poll_approvals(self) -> None:
         """Check the server for updates on pending HOLD operations."""
         pending_ops = self._controller.get_pending_approvals()
-        
+
         for op_id in pending_ops:
             op = self._controller.get_operation(op_id)
             if not op:
                 continue
-                
+
             status_data = await self._client.check_approval_status(op_id, op.event_id)
             status = status_data.get("status")
-            
+
             if status == "APPROVED":
                 result = self._controller.handle_approval_response(
                     operation_id=op_id,
@@ -222,7 +222,7 @@ class EnforcementManager:
                 )
                 await self._queue_result(result)
                 self._controller.cleanup_operation(op_id)
-                
+
             elif status == "REJECTED":
                 result = self._controller.handle_approval_response(
                     operation_id=op_id,

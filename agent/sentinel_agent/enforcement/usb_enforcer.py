@@ -11,7 +11,7 @@ import logging
 from pathlib import Path
 
 from sentinel_agent.enforcement.destination_detector import DestinationDetector, DestinationInfo
-from sentinel_agent.enforcement.models import Decision, DestinationType, EnforcementResult
+from sentinel_agent.enforcement.models import DestinationType
 
 logger = logging.getLogger(__name__)
 

@@ -75,7 +75,7 @@ class AgentSettings(BaseSettings):
 
     # --- USB polling ---
     USB_POLL_INTERVAL_SECONDS: int = 5
-    
+
     # --- Enforcement (Phase 5) ---
     ENFORCEMENT_ENABLED: bool = True
     MAX_STAGING_SIZE_MB: int = 500

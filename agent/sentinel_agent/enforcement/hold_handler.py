@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import logging
 from datetime import UTC, datetime
-from pathlib import Path
 
 from sentinel_agent.enforcement.errors import EnforcementErrorCode, StagingError
 from sentinel_agent.enforcement.models import Decision, EnforcementResult, EnforcementStatus

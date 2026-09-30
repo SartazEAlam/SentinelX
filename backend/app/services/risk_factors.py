@@ -12,8 +12,7 @@ Design:
 
 from __future__ import annotations
 
-from datetime import datetime, timedelta
-from typing import Any
+from datetime import datetime
 
 from app.risk_policy_config.risk_config import (
     BusinessHoursConfig,

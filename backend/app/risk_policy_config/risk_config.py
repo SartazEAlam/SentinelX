@@ -13,7 +13,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import StrEnum
 
-
 # ── Version ──────────────────────────────────────────────────────────────────
 RISK_ENGINE_VERSION = "1.0.0"
 RISK_CONFIG_VERSION = "1.0.0"

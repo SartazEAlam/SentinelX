@@ -10,7 +10,7 @@ import logging
 import shutil
 from pathlib import Path
 
-from sentinel_agent.enforcement.errors import EnforcementErrorCode, HashMismatchError
+from sentinel_agent.enforcement.errors import EnforcementErrorCode
 from sentinel_agent.enforcement.models import Decision, EnforcementResult, EnforcementStatus
 
 logger = logging.getLogger(__name__)

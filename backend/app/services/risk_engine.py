@@ -33,7 +33,12 @@ import logging
 from dataclasses import dataclass, field
 from datetime import datetime
 
-from app.risk_policy_config.risk_config import RISK_ENGINE_VERSION, RiskConfig, RiskLevel, get_default_risk_config
+from app.risk_policy_config.risk_config import (
+    RISK_ENGINE_VERSION,
+    RiskConfig,
+    RiskLevel,
+    get_default_risk_config,
+)
 from app.services.risk_factors import (
     calculate_action_score,
     calculate_behavior_score,

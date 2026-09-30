@@ -6,7 +6,6 @@ Determines destination type from path, OS metadata, and configuration.
 from __future__ import annotations
 
 import logging
-import os
 import platform
 from pathlib import Path
 

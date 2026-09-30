@@ -1,7 +1,6 @@
 """Pydantic schemas for enforcement API endpoints."""
 
 from datetime import datetime
-from typing import Optional
 
 from pydantic import BaseModel, ConfigDict
 
@@ -12,14 +11,14 @@ class EnforcementResultCreate(BaseModel):
     operation_id: str
     status: str
     decision: str
-    started_at: Optional[datetime] = None
+    started_at: datetime | None = None
     completed_at: datetime
-    source_hash: Optional[str] = None
-    destination_hash: Optional[str] = None
+    source_hash: str | None = None
+    destination_hash: str | None = None
     bytes_transferred: int = 0
-    reason_code: Optional[str] = None
-    error_code: Optional[str] = None
-    message: Optional[str] = None
+    reason_code: str | None = None
+    error_code: str | None = None
+    message: str | None = None
 
 
 class EnforcementResultResponse(EnforcementResultCreate):

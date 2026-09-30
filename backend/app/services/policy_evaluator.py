@@ -23,15 +23,15 @@ from uuid import uuid4
 from sqlalchemy import desc
 from sqlalchemy.orm import Session
 
-from app.risk_policy_config.risk_config import get_default_risk_config
-from app.risk_policy_config.policy_config import get_default_policy_config
-from app.core.exceptions import NotFoundError, SentinelXError
+from app.core.exceptions import NotFoundError
 from app.models.approval import ApprovalRequest
 from app.models.classification import Classification
 from app.models.enums import ApprovalStatus, AuditAction
 from app.models.policy import Policy
 from app.models.risk_assessment import RiskAssessment
 from app.models.security_event import SecurityEvent
+from app.risk_policy_config.policy_config import get_default_policy_config
+from app.risk_policy_config.risk_config import get_default_risk_config
 from app.schemas.risk import (
     RiskAssessmentResponse,
     RiskContextInput,

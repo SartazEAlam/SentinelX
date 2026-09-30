@@ -7,10 +7,9 @@ to demonstrate prevention without needing a full proxy architecture.
 from __future__ import annotations
 
 import logging
-from pathlib import Path
 
 from sentinel_agent.enforcement.destination_detector import DestinationDetector, DestinationInfo
-from sentinel_agent.enforcement.models import Decision, DestinationType, EnforcementResult
+from sentinel_agent.enforcement.models import DestinationType
 
 logger = logging.getLogger(__name__)
 

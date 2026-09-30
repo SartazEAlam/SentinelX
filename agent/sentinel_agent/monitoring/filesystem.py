@@ -58,7 +58,7 @@ class SentinelXFileHandler(FileSystemEventHandler):
         self._excluded_dirs = excluded_directories
         self._enforcement = None
         self._loop = loop
-        
+
     def set_enforcement(self, enforcement: EnforcementManager | None) -> None:
         self._enforcement = enforcement
 
@@ -111,15 +111,15 @@ class SentinelXFileHandler(FileSystemEventHandler):
             async def _enforce_and_queue():
                 # For Phase 5, we do passive enforcement on file system watchdog events
                 # (since watchdog is post-facto for normal operations)
-                result = await self._enforcement.evaluate_and_enforce(endpoint_event, controlled=False)
+                await self._enforcement.evaluate_and_enforce(endpoint_event, controlled=False)
                 # Still queue the event for audit logging
                 await self._queue.put(endpoint_event)
-            
+
             asyncio.run_coroutine_threadsafe(_enforce_and_queue(), self._loop)
         else:
             # Schedule async put from the watchdog thread
             asyncio.run_coroutine_threadsafe(self._queue.put(endpoint_event), self._loop)
-            
+
         logger.debug("FS event processed: %s %s", action, src_path)
 
     def on_created(self, event: FileCreatedEvent) -> None:  # type: ignore[override]
