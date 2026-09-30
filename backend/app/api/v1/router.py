@@ -6,6 +6,7 @@ from app.api.v1.alerts import router as alerts_router
 from app.api.v1.approvals import router as approvals_router
 from app.api.v1.audit import router as audit_router
 from app.api.v1.auth import router as auth_router
+from app.api.v1.dashboard import router as dashboard_router
 from app.api.v1.devices import router as devices_router
 from app.api.v1.enforcement import router as enforcement_router
 from app.api.v1.events import router as events_router
@@ -13,6 +14,7 @@ from app.api.v1.policies import router as policies_router
 from app.api.v1.risk import router as risk_router
 from app.api.v1.stats import router as stats_router
 from app.api.v1.users import router as users_router
+from app.api.v1.ws import router as ws_router
 
 api_router = APIRouter()
 
@@ -27,3 +29,5 @@ api_router.include_router(alerts_router, prefix="/alerts")
 api_router.include_router(audit_router, prefix="/audit")
 api_router.include_router(enforcement_router, prefix="/enforcement")
 api_router.include_router(stats_router, prefix="/stats")
+api_router.include_router(dashboard_router, prefix="/dashboard")
+api_router.include_router(ws_router)
