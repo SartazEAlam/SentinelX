@@ -17,19 +17,20 @@ SentinelX uses a client-server architecture:
 1. **Endpoint Agent (`agent/`)**: Native Windows service monitoring file operations, USB events, and network activity. Enforces Blocks and Holds in real-time.
 2. **Central Server (`backend/`)**: FastAPI backend providing REST API, event processing, risk scoring, and policy management.
 3. **Database**: SQLite (dev) or PostgreSQL (prod) for events, policies, and audit logs. Automatically initialized on startup.
-4. **Dashboard (`frontend/`)**: React-based SOC interface for administrators.
+4. **Dashboard (`frontend/`)**: React-based SOC interface for administrators with live WebSockets.
 5. **Simulators (`simulator/`)**: Testing tools like the web upload simulator to demonstrate enforcement.
 
 ## Development Status
 
-> **Current Status: Phase 5 (Enforcement & Prevention Layer) — Complete**
+> **Current Status: Phase 6 (Admin Dashboard & Real-Time Monitoring) — Complete**
 
 ### Core Features Working Today:
-- ✅ **Phase 1 (Backend Core)**: FastAPI server, SQLite/PostgreSQL DB auto-initialization, JWT Authentication, and Audit Logging.
+- ✅ **Phase 1 (Backend Core)**: FastAPI server, DB auto-initialization, JWT Authentication, and Audit Logging.
 - ✅ **Phase 2 (Endpoint Agent)**: Real-time file system monitoring, USB detection, and reliable async event queuing.
 - ✅ **Phase 3 (Classification)**: PII/PHI pattern recognition and sensitivity classification engine.
 - ✅ **Phase 4 (Risk Engine)**: Centralized policy evaluation and risk scoring framework.
 - ✅ **Phase 5 (Enforcement)**: Real-time blocking, HOLD quarantine workflows, and secure staging.
+- ✅ **Phase 6 (Admin Dashboard)**: React frontend with Recharts analytics, real-time WebSocket updates, and approval workflows.
 
 *(See `docs/implementation_plan.md` for the full 10-phase roadmap).*
 
@@ -110,7 +111,7 @@ Full technical documentation is located in the `docs/` folder:
 - **[Architecture](docs/architecture.md)**
 - **[API Reference](docs/api.md)**
 - **[Threat Model](docs/threat_model.md)**
-- **[Demo Guide](docs/demo_guide.md)** (A step-by-step walkthrough of Phase 5 Enforcement)
+- **[Demo Guide](docs/demo_guide.md)** (A step-by-step walkthrough of Enforcement and Dashboard features)
 
 ## License
 
