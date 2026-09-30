@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Events from './pages/Events';
@@ -17,22 +19,28 @@ import SystemHealth from './pages/SystemHealth';
 export default function App() {
   return (
     <ErrorBoundary>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route element={<Layout />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/approvals" element={<Approvals />} />
-            <Route path="/devices" element={<Devices />} />
-            <Route path="/policies" element={<Policies />} />
-            <Route path="/alerts" element={<Alerts />} />
-            <Route path="/analytics" element={<Analytics />} />
-            <Route path="/system-health" element={<SystemHealth />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            
+            {/* Protected Routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route element={<Layout />}>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/events" element={<Events />} />
+                <Route path="/approvals" element={<Approvals />} />
+                <Route path="/devices" element={<Devices />} />
+                <Route path="/policies" element={<Policies />} />
+                <Route path="/alerts" element={<Alerts />} />
+                <Route path="/analytics" element={<Analytics />} />
+                <Route path="/system-health" element={<SystemHealth />} />
+              </Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </ErrorBoundary>
   );
 }
