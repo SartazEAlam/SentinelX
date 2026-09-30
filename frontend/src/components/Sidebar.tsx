@@ -67,7 +67,7 @@ export default function Sidebar() {
       </nav>
 
       <div className="sidebar-footer">
-        <div className="sidebar-version">v0.1.0 — Phase 0</div>
+        <div className="sidebar-version">v0.1.0 — Phase 6</div>
       </div>
     </aside>
   );
