@@ -1,6 +1,8 @@
 """Security event service for ingestion and querying."""
 
+import asyncio
 import json
+import logging
 from datetime import datetime
 
 from sqlalchemy import desc
@@ -21,6 +23,46 @@ from app.models.security_event import SecurityEvent
 from app.schemas.events import BatchEventCreate, BatchEventResponse, SecurityEventCreate
 from app.services.audit_service import log_action
 from app.services.device_service import get_device
+
+logger = logging.getLogger(__name__)
+
+
+def _broadcast_event(event: SecurityEvent) -> None:
+    """Fire-and-forget broadcast of a new security event to WebSocket clients."""
+    try:
+        from app.realtime.broadcaster import broadcaster
+        loop = asyncio.get_event_loop()
+        if loop.is_running():
+            event_data = {
+                "event_id": event.event_id,
+                "device_id": event.device_id,
+                "event_type": str(event.event_type),
+                "risk_score": event.risk_score,
+                "decision": str(event.decision) if event.decision else None,
+                "sensitivity_level": (
+                    str(event.sensitivity_level)
+                    if event.sensitivity_level
+                    else None
+                ),
+                "file_name": event.file_name,
+                "destination": event.destination,
+                "timestamp": (
+                    event.timestamp.isoformat()
+                    if event.timestamp
+                    else None
+                ),
+            }
+
+            event_type = "SECURITY_EVENT"
+            if (
+                event.risk_score
+                and event.risk_score >= 70
+            ):
+                event_type = "HIGH_RISK_ALERT"
+
+            loop.create_task(broadcaster.publish(event_type, event_data))
+    except Exception:
+        logger.debug("Failed to broadcast event", exc_info=True)
 
 
 def get_event(db: Session, event_id: str) -> SecurityEvent:
@@ -133,6 +175,7 @@ def create_event(
             resource_id=event.event_id,
         )
 
+    _broadcast_event(event)
     return event
 
 
