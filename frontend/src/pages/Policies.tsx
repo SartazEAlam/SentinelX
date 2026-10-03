@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ScrollText, Plus, Shield, ShieldAlert, Clock, ShieldCheck, Settings } from 'lucide-react';
 import { policiesApi } from '../services/api';
 import type { Policy, PaginatedResponse } from '../types';
 
 const Policies: React.FC = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState<PaginatedResponse<Policy> | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -72,7 +74,8 @@ const Policies: React.FC = () => {
           data?.items.map((policy) => (
             <div 
               key={policy.id} 
-              className={`rounded-xl border ${policy.is_active ? 'border-cyan-900/50 shadow-cyan-900/10' : 'border-gray-700'} bg-gray-800 p-5 shadow-lg flex flex-col transition-all`}
+              className={`rounded-xl border ${policy.is_active ? 'border-cyan-900/50 shadow-cyan-900/10' : 'border-gray-700'} bg-gray-800 p-5 shadow-lg flex flex-col transition-all cursor-pointer hover:border-cyan-700`}
+              onClick={() => navigate(`/policies/${policy.id}`)}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -138,7 +141,13 @@ const Policies: React.FC = () => {
               </div>
               
               <div className="mt-6 flex justify-end">
-                <button className="flex items-center gap-1.5 text-xs font-medium text-gray-400 hover:text-white transition-colors">
+                <button 
+                  className="flex items-center gap-1.5 text-xs font-medium text-gray-400 hover:text-white transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/policies/${policy.id}`);
+                  }}
+                >
                   <Settings size={14} />
                   Configure
                 </button>

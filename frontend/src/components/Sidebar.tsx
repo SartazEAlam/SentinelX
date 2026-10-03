@@ -8,6 +8,9 @@ import {
   Bell,
   TrendingUp,
   HeartPulse,
+  Shield,
+  History,
+  Settings,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -25,7 +28,10 @@ const navItems: NavItem[] = [
   { path: '/policies', label: 'Policies', icon: ScrollText },
   { path: '/alerts', label: 'Alerts', icon: Bell },
   { path: '/analytics', label: 'Analytics', icon: TrendingUp },
+  { path: '/enforcement', label: 'Enforcement', icon: Shield },
+  { path: '/audit', label: 'Audit Log', icon: History },
   { path: '/system-health', label: 'System Health', icon: HeartPulse },
+  { path: '/settings', label: 'Settings', icon: Settings },
 ];
 
 /**
@@ -67,7 +73,7 @@ export default function Sidebar() {
       </nav>
 
       <div className="sidebar-footer">
-        <div className="sidebar-version">v0.1.0 — Phase 6</div>
+        <div className="sidebar-version">v0.1.0 — Phase 7</div>
       </div>
     </aside>
   );
