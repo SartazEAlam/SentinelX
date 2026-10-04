@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Laptop, Search, Monitor, Terminal, ShieldX, Server, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { devicesApi } from '../services/api';
 import type { Device, PaginatedResponse } from '../types';
@@ -17,6 +18,7 @@ const getStatusBadge = (status: string) => {
 };
 
 const Devices: React.FC = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState<PaginatedResponse<Device> | null>(null);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -68,7 +70,11 @@ const Devices: React.FC = () => {
           </div>
         ) : (
           data?.items.map((device) => (
-            <div key={device.id} className="rounded-xl border border-gray-700 bg-gray-800 p-5 shadow-lg flex flex-col hover:border-cyan-900/50 transition-colors">
+            <div 
+              key={device.id} 
+              className="rounded-xl border border-gray-700 bg-gray-800 p-5 shadow-lg flex flex-col hover:border-cyan-900/50 cursor-pointer transition-colors"
+              onClick={() => navigate(`/devices/${device.device_id}`)}
+            >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className="rounded-lg bg-gray-700 p-2 text-cyan-400">
