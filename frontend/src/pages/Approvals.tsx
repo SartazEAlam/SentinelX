@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CheckCircle2, XCircle, Clock, FileText, User, ShieldAlert, Check } from 'lucide-react';
 import { approvalsApi } from '../services/api';
 import type { Approval, PaginatedResponse } from '../types';
+import ApprovalDialog from '../components/ApprovalDialog';
 
 const getStatusBadge = (status: string) => {
   switch (status) {
@@ -25,6 +26,10 @@ const Approvals: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'PENDING' | 'ALL'>('PENDING');
   const size = 20;
 
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedApproval, setSelectedApproval] = useState<Approval | null>(null);
+  const [dialogType, setDialogType] = useState<'approve' | 'reject'>('approve');
+
   const fetchApprovals = async () => {
     setLoading(true);
     try {
@@ -45,15 +50,21 @@ const Approvals: React.FC = () => {
     fetchApprovals();
   }, [page, activeTab]);
 
-  const handleAction = async (id: number, action: 'approve' | 'reject') => {
+  const openDialog = (approval: Approval, type: 'approve' | 'reject') => {
+    setSelectedApproval(approval);
+    setDialogType(type);
+    setDialogOpen(true);
+  };
+
+  const handleAction = async (id: number, action: 'approve' | 'reject', comment?: string) => {
     try {
       if (action === 'approve') {
-        await approvalsApi.approve(id);
+        await approvalsApi.approve(id, comment);
       } else {
-        await approvalsApi.reject(id);
+        await approvalsApi.reject(id, comment);
       }
-      // Refresh list
-      fetchApprovals();
+      setDialogOpen(false);
+      fetchApprovals(); // Refresh list
     } catch (err) {
       console.error(`Failed to ${action} request`, err);
       alert(`Failed to ${action} request. Check console for details.`);
@@ -144,14 +155,14 @@ const Approvals: React.FC = () => {
                   {approval.status === 'PENDING' && (
                     <div className="flex sm:flex-col gap-2 shrink-0">
                       <button
-                        onClick={() => handleAction(approval.id, 'approve')}
+                        onClick={() => openDialog(approval, 'approve')}
                         className="flex items-center justify-center gap-1.5 rounded-md bg-emerald-600/20 px-4 py-2 text-sm font-medium text-emerald-400 border border-emerald-500/30 hover:bg-emerald-600/30 transition-colors"
                       >
                         <Check size={16} />
                         Approve
                       </button>
                       <button
-                        onClick={() => handleAction(approval.id, 'reject')}
+                        onClick={() => openDialog(approval, 'reject')}
                         className="flex items-center justify-center gap-1.5 rounded-md bg-red-600/20 px-4 py-2 text-sm font-medium text-red-400 border border-red-500/30 hover:bg-red-600/30 transition-colors"
                       >
                         <XCircle size={16} />
@@ -174,6 +185,14 @@ const Approvals: React.FC = () => {
           </div>
         )}
       </div>
+
+      <ApprovalDialog
+        isOpen={dialogOpen}
+        approval={selectedApproval}
+        type={dialogType}
+        onClose={() => setDialogOpen(false)}
+        onConfirm={handleAction}
+      />
     </div>
   );
 };
