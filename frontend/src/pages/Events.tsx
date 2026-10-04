@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Activity, Search, Filter, ShieldAlert, Shield, ShieldCheck, Clock, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import { eventsApi } from '../services/api';
 import type { SecurityEvent, PaginatedResponse } from '../types';
@@ -26,6 +27,7 @@ const getDecisionBadge = (decision: string | null) => {
 };
 
 const Events: React.FC = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState<PaginatedResponse<SecurityEvent> | null>(null);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -100,7 +102,11 @@ const Events: React.FC = () => {
                 </tr>
               ) : (
                 data?.items.map((event) => (
-                  <tr key={event.id} className="hover:bg-gray-700/50 transition-colors">
+                  <tr 
+                    key={event.id} 
+                    className="hover:bg-gray-700/50 transition-colors cursor-pointer"
+                    onClick={() => navigate(`/events/${event.event_id}`)}
+                  >
                     <td className="whitespace-nowrap px-4 py-3 font-medium text-gray-300">
                       {new Date(event.timestamp).toLocaleString()}
                     </td>
