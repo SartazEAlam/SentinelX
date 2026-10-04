@@ -5,11 +5,13 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 
-from app.core.dependencies import require_analyst_or_above, require_viewer_or_above
+from app.core.dependencies import require_analyst_or_above, require_viewer_or_above, get_current_user_or_device
 from app.db.database import get_db
 from app.models.approval import ApprovalRequest
 from app.models.enums import ApprovalStatus
 from app.models.user import User
+from app.models.device import Device
+from app.models.security_event import SecurityEvent
 from app.schemas.approvals import (
     ApprovalActionRequest,
     ApprovalCreate,
@@ -25,13 +27,14 @@ router = APIRouter(tags=["Approvals"])
 def get_approvals(
     params: Annotated[PaginationParams, Depends()],
     db: Annotated[Session, Depends(get_db)],
-    current_user: Annotated[User, Depends(require_viewer_or_above)],
+    current_user: Annotated[User | Device, Depends(get_current_user_or_device)],
     status: ApprovalStatus | None = None,
+    event_id: str | None = None,
 ) -> dict:
     """List approval requests."""
     skip = (params.page - 1) * params.size
     approvals, total = approval_service.list_approvals(
-        db, skip=skip, limit=params.size, status=status
+        db, skip=skip, limit=params.size, status=status, event_id_str=event_id
     )
 
     return {

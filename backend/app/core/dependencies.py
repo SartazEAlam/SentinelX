@@ -89,3 +89,17 @@ def get_current_device(
         raise UnauthorizedError("Invalid device token")
 
     return device
+
+def get_current_user_or_device(
+    token: Annotated[HTTPAuthorizationCredentials | None, Depends(oauth2_scheme)],
+    db: Annotated[Session, Depends(get_db)],
+) -> User | Device:
+    """Validate token and return either User or Device."""
+    if not token:
+        raise UnauthorizedError("Not authenticated")
+
+    # If it's a device token, it has a dot but isn't a 3-part JWT
+    parts = token.credentials.split(".")
+    if len(parts) == 2:
+        return get_current_device(token, db)
+    return get_current_user(token, db)

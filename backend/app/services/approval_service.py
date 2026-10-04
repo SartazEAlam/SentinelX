@@ -11,6 +11,7 @@ from app.models.approval import ApprovalRequest
 from app.models.enums import ApprovalStatus, AuditAction
 from app.schemas.approvals import ApprovalActionRequest
 from app.services.audit_service import log_action
+from app.models.security_event import SecurityEvent
 
 
 def get_approval(db: Session, approval_id: int) -> ApprovalRequest:
@@ -22,10 +23,12 @@ def get_approval(db: Session, approval_id: int) -> ApprovalRequest:
 
 
 def list_approvals(
-    db: Session, skip: int = 0, limit: int = 50, status: ApprovalStatus | None = None
+    db: Session, skip: int = 0, limit: int = 50, status: ApprovalStatus | None = None, event_id_str: str | None = None
 ) -> tuple[list[ApprovalRequest], int]:
-    """List approval requests with optional status filtering."""
+    """List approval requests with optional status and event UUID filtering."""
     query = db.query(ApprovalRequest)
+    if event_id_str:
+        query = query.join(SecurityEvent).filter(SecurityEvent.event_id == event_id_str)
     if status:
         query = query.filter(ApprovalRequest.status == status)
 

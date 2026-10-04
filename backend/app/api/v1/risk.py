@@ -12,7 +12,9 @@ from typing import Annotated, Any
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy.orm import Session
 
-from app.core.dependencies import require_analyst_or_above, require_viewer_or_above
+from app.core.dependencies import require_analyst_or_above, require_viewer_or_above, get_current_device
+from fastapi import APIRouter, Depends, Query, status, Security
+from app.models.device import Device
 from app.db.database import get_db
 from app.models.user import User
 from app.schemas.common import PaginatedResponse, PaginationParams
@@ -41,14 +43,14 @@ router = APIRouter(tags=["Risk Assessment"])
 def evaluate_risk(
     request: RiskEvaluateRequest,
     db: Annotated[Session, Depends(get_db)],
-    current_user: Annotated[User, Depends(require_analyst_or_above)],
+    current_device: Device = Depends(get_current_device),
 ) -> RiskAssessmentResponse:
-    """Evaluate the risk of an existing security event."""
+    """Evaluate the risk of an existing security event (Agent API)."""
     return policy_evaluator.evaluate_event(
         db,
         event_id=request.event_id,
         classification_id=request.classification_id,
-        actor_user_id=current_user.id,
+        actor_user_id=None,
     )
 
 
