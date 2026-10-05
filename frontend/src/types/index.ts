@@ -274,7 +274,8 @@ export interface AuditLog {
   resource_id: string | null;
   ip_address: string | null;
   metadata_json: string | null;
-  created_at: string;
+  timestamp: string;
+  created_at?: string;
 }
 
 // ── WebSocket ───────────────────────────────────────────────────────────────

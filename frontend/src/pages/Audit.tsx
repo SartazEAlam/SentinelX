@@ -74,7 +74,7 @@ export default function Audit() {
                 data?.items.map((log) => (
                   <tr key={log.id} className="hover:bg-gray-700/50 transition-colors">
                     <td className="whitespace-nowrap px-4 py-3 font-medium text-gray-300">
-                      {new Date(log.created_at).toLocaleString()}
+                      {log.timestamp ? new Date(log.timestamp).toLocaleString() : (log.created_at ? new Date(log.created_at).toLocaleString() : '-')}
                     </td>
                     <td className="px-4 py-3">
                       <span className="inline-flex rounded bg-blue-900/30 border border-blue-500/30 px-2 py-0.5 text-xs font-medium text-blue-400">
