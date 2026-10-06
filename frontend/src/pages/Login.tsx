@@ -27,7 +27,7 @@ const Login: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      await login({ username, password });
+      await login({ username: username.trim(), password: password.trim() });
       navigate(from, { replace: true });
     } catch (err: any) {
       if (err.response?.status === 401) {
