@@ -51,6 +51,7 @@ docker-compose.override.yml
 # ML artifacts
 ml/models/*.pkl
 ml/models/*.joblib
+evaluation/results/*.joblib
 ml/datasets/*.csv
 ml/datasets/*.json
 *.h5
