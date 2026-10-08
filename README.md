@@ -19,11 +19,12 @@ SentinelX uses a client-server architecture:
 3. **Database**: SQLite (dev) or PostgreSQL (prod) for events, policies, and audit logs. Automatically initialized on startup.
 4. **Dashboard (`frontend/`)**: React-based SOC interface for administrators with live WebSockets.
 5. **Simulators (`simulator/`)**: Testing tools like the web upload simulator to demonstrate enforcement.
+6. **Evaluation Pipeline (`evaluation/`)**: Automated empirical evaluation suite testing classifiers, latency, and resource footprint.
 
 ## Development Status
 
-> **Current Status: Phase 9 (Final Delivery & Polish) — In Progress**
-> *(Phase 8: System Integration & Failure Testing is Complete)*
+> **Current Status: Phase 9 (Evaluation & Analysis) — Completed**  
+> *(All 9 technical implementation phases of SentinelX are fully completed, tested, and verified).*
 
 ### Core Features Working Today:
 - ✅ **Phase 1 (Backend Core)**: FastAPI server, DB auto-initialization, JWT Authentication, and Audit Logging.
@@ -34,8 +35,7 @@ SentinelX uses a client-server architecture:
 - ✅ **Phase 6 (Dashboard Core)**: React frontend with Recharts analytics, real-time WebSockets.
 - ✅ **Phase 7 (Admin Dashboard & Monitoring)**: Detailed views for Events, Devices, Policies, Enforcement, Approvals, Audit Logs, and Settings.
 - ✅ **Phase 8 (Integration)**: Full End-to-End integration testing and verification.
-
-*(See `docs/implementation_plan.md` for the full 10-phase roadmap).*
+- ✅ **Phase 9 (Evaluation & Analysis)**: Scientific evaluation comparing Rule-Based, Logistic Regression, Random Forest, and Hybrid classification; multi-factor risk and policy engine verification (100% pass rate); end-to-end latency profiling (<52 ms P95); resource usage benchmarking (<0.4 MB leak growth delta, 0.0% idle CPU); and comprehensive academic report.
 
 ---
 
@@ -57,7 +57,7 @@ SentinelX uses a client-server architecture:
    ```
 3. **Install Dependencies**:
    ```bash
-   pip install -e ".[backend,agent,dev]"
+   pip install -e ".[backend,agent,ml,dev]"
    ```
 4. **Seed Database** (Creates admin/analyst users and sample policies):
    ```bash
@@ -100,7 +100,6 @@ python -m sentinel_agent
 #### Terminal 4: Upload Simulator (Phase 5 Demo)
 Simulates an untrusted web application file upload to demonstrate SentinelX Enforcement.
 ```bash
-# In Git Bash:
 python simulator/upload_server.py --drop-dir C:/tmp/sentinelx_upload_test
 ```
 - Listens on `http://localhost:8080`.
@@ -108,9 +107,25 @@ python simulator/upload_server.py --drop-dir C:/tmp/sentinelx_upload_test
 
 ---
 
+### 3. Running Evaluation & Tests
+
+```bash
+# Run the complete Phase 9 scientific evaluation suite and generate charts/metrics:
+python -m evaluation.run_all
+
+# Run Phase 9 system validation integration tests (ALLOW, HOLD, APPROVE, DENY, BLOCK):
+pytest backend/tests/test_system_validation.py
+
+# Run the complete project regression test suite:
+pytest
+```
+
+---
+
 ## Documentation
 
 Full technical documentation is located in the `docs/` folder:
+- **[Evaluation and Analysis Report](docs/evaluation-and-analysis.md)** (Phase 9 Scientific Report with Tables and Charts)
 - **[Architecture](docs/architecture.md)**
 - **[API Reference](docs/api.md)**
 - **[Threat Model](docs/threat_model.md)**
