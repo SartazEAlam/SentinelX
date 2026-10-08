@@ -1,0 +1,819 @@
+{
+  "summary": {
+    "rule_based_false_positives": 34,
+    "rule_based_false_negatives": 5,
+    "hybrid_false_positives": 23,
+    "hybrid_false_negatives": 10
+  },
+  "rule_based_errors": {
+    "false_positives": [
+      {
+        "id": "BEN_CODE_0464",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-i..."
+      },
+      {
+        "id": "BEN_EDGE_0546",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Credit card processing fees typically range between 1.5% and 3.5% per merchant t..."
+      },
+      {
+        "id": "BEN_EDGE_0595",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Learn the difference between debit card and credit card consumer fraud protectio..."
+      },
+      {
+        "id": "BEN_NUM_0516",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "HTTP 200 GET /index.html 192.168.1.1 Mozilla/5.0 45ms bytes_sent=14092"
+      },
+      {
+        "id": "BEN_EDGE_0586",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Email address pattern detected"
+        ],
+        "text_preview": "Public support contact for general questions: info@example-company.org, toll-fre..."
+      },
+      {
+        "id": "BEN_NUM_0499",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Order shipment tracking status: Package #99281-TRACK delivery confirmed at front..."
+      },
+      {
+        "id": "BEN_NUM_0519",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Order shipment tracking status: Package #99281-TRACK delivery confirmed at front..."
+      },
+      {
+        "id": "BEN_CODE_0421",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "def calculate_fibonacci(n):\n    if n <= 1: return n\n    return calculate_fibonac..."
+      },
+      {
+        "id": "BEN_EDGE_0578",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Password keyword found in text"
+        ],
+        "text_preview": "Password managers allow users to store complex credentials securely without writ..."
+      },
+      {
+        "id": "BEN_NUM_0531",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Server uptime report: System active for 142 days, 18 hours, 32 minutes without r..."
+      },
+      {
+        "id": "BEN_EDGE_0565",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Password keyword found in text"
+        ],
+        "text_preview": "Always choose a strong, unique password consisting of letters, numbers, and symb..."
+      },
+      {
+        "id": "BEN_EDGE_0577",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Password keyword found in text"
+        ],
+        "text_preview": "Always choose a strong, unique password consisting of letters, numbers, and symb..."
+      },
+      {
+        "id": "BEN_CODE_0444",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-i..."
+      },
+      {
+        "id": "BEN_NUM_0514",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Flight schedule: Flight AA-1049 departing JFK at 08:30 EST, arriving LAX at 11:4..."
+      },
+      {
+        "id": "BEN_NUM_0534",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Flight schedule: Flight AA-1049 departing JFK at 08:30 EST, arriving LAX at 11:4..."
+      },
+      {
+        "id": "BEN_NUM_0496",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "HTTP 200 GET /index.html 192.168.1.1 Mozilla/5.0 45ms bytes_sent=14092"
+      },
+      {
+        "id": "BEN_EDGE_0583",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Learn the difference between debit card and credit card consumer fraud protectio..."
+      },
+      {
+        "id": "BEN_EDGE_0559",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Learn the difference between debit card and credit card consumer fraud protectio..."
+      },
+      {
+        "id": "BEN_CODE_0430",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "git checkout -b feature/new-login-ui\ngit add .\ngit commit -m 'Implement responsi..."
+      },
+      {
+        "id": "BEN_CODE_0423",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / ..."
+      },
+      {
+        "id": "BEN_NUM_0540",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Benchmark run #42 completed in 1.482 seconds across 10,000 simulated iterations."
+      },
+      {
+        "id": "BEN_EDGE_0557",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Salary keyword found in text"
+        ],
+        "text_preview": "Negotiating your base salary requires understanding industry benchmarks and mark..."
+      },
+      {
+        "id": "BEN_CODE_0462",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button..."
+      },
+      {
+        "id": "BEN_NUM_0498",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Weather station telemetry: Temperature 22.4 C, Humidity 58%, Barometric Pressure..."
+      },
+      {
+        "id": "BEN_CODE_0448",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>Home Page</title></head>\n<body><h1..."
+      },
+      {
+        "id": "BEN_EDGE_0545",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Salary keyword found in text"
+        ],
+        "text_preview": "Negotiating your base salary requires understanding industry benchmarks and mark..."
+      },
+      {
+        "id": "BEN_CODE_0463",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / ..."
+      },
+      {
+        "id": "BEN_CODE_0467",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "// Unit test for string manipulation utility\ndescribe('slugify', () => {\n  it('c..."
+      },
+      {
+        "id": "BEN_CODE_0422",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button..."
+      },
+      {
+        "id": "BEN_NUM_0493",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Warehouse inventory count: SKU-998821 quantity: 420 units, warehouse location: A..."
+      },
+      {
+        "id": "BEN_CODE_0465",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY depar..."
+      },
+      {
+        "id": "BEN_NUM_0512",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "NORMAL_NUMBERS",
+        "evidences": [
+          "Database/Spreadsheet file extension"
+        ],
+        "text_preview": "Public company earnings: Total revenue for Q2 reached $42.5 million, up 12% year..."
+      },
+      {
+        "id": "BEN_EDGE_0558",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "EDGE_CASE_BENIGN",
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Credit card processing fees typically range between 1.5% and 3.5% per merchant t..."
+      },
+      {
+        "id": "BEN_CODE_0425",
+        "true_label": 0,
+        "predicted_label": 1,
+        "category": "BENIGN_CODE",
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY depar..."
+      }
+    ],
+    "false_negatives": [
+      {
+        "id": "SENS_CRED_0011",
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "CREDENTIALS",
+        "evidences": [],
+        "text_preview": "DB_PASSWORD=demo_secret_pass_11!"
+      },
+      {
+        "id": "SENS_ID_0089",
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "IDENTITY_INFORMATION",
+        "evidences": [],
+        "text_preview": "Applicant background verification: Social Security: 123-99-6789, DOB: 1985-04-12"
+      },
+      {
+        "id": "SENS_CRED_0019",
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "CREDENTIALS",
+        "evidences": [],
+        "text_preview": "Here are your initial credentials: username: jdoe, temporary_password: InitPass1..."
+      },
+      {
+        "id": "SENS_ID_0088",
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "IDENTITY_INFORMATION",
+        "evidences": [],
+        "text_preview": "Employee SSN record: 987-98-4321, Full Name: Taylor Swiftly"
+      },
+      {
+        "id": "SENS_ID_0092",
+        "true_label": 1,
+        "predicted_label": 0,
+        "category": "IDENTITY_INFORMATION",
+        "evidences": [],
+        "text_preview": "Government ID verification: US Passport #P00001284, Country of Issuance: USA"
+      }
+    ]
+  },
+  "hybrid_errors": {
+    "false_positives": [
+      {
+        "id": "BEN_CODE_0464",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-i..."
+      },
+      {
+        "id": "BEN_EDGE_0546",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.6,
+        "sensitivity_level": "CONFIDENTIAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Credit card processing fees typically range between 1.5% and 3.5% per merchant t..."
+      },
+      {
+        "id": "BEN_EDGE_0595",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.6,
+        "sensitivity_level": "CONFIDENTIAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Learn the difference between debit card and credit card consumer fraud protectio..."
+      },
+      {
+        "id": "BEN_EDGE_0586",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.8,
+        "sensitivity_level": "CONFIDENTIAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Email address pattern detected"
+        ],
+        "text_preview": "Public support contact for general questions: info@example-company.org, toll-fre..."
+      },
+      {
+        "id": "BEN_CODE_0421",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "def calculate_fibonacci(n):\n    if n <= 1: return n\n    return calculate_fibonac..."
+      },
+      {
+        "id": "BEN_EDGE_0578",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.5,
+        "sensitivity_level": "INTERNAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Password keyword found in text"
+        ],
+        "text_preview": "Password managers allow users to store complex credentials securely without writ..."
+      },
+      {
+        "id": "BEN_EDGE_0565",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.5,
+        "sensitivity_level": "INTERNAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Password keyword found in text"
+        ],
+        "text_preview": "Always choose a strong, unique password consisting of letters, numbers, and symb..."
+      },
+      {
+        "id": "BEN_EDGE_0577",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.5,
+        "sensitivity_level": "INTERNAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Password keyword found in text"
+        ],
+        "text_preview": "Always choose a strong, unique password consisting of letters, numbers, and symb..."
+      },
+      {
+        "id": "BEN_CODE_0444",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-i..."
+      },
+      {
+        "id": "BEN_EDGE_0583",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.6,
+        "sensitivity_level": "CONFIDENTIAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Learn the difference between debit card and credit card consumer fraud protectio..."
+      },
+      {
+        "id": "BEN_EDGE_0559",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.6,
+        "sensitivity_level": "CONFIDENTIAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Learn the difference between debit card and credit card consumer fraud protectio..."
+      },
+      {
+        "id": "BEN_CODE_0430",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "git checkout -b feature/new-login-ui\ngit add .\ngit commit -m 'Implement responsi..."
+      },
+      {
+        "id": "BEN_CODE_0423",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / ..."
+      },
+      {
+        "id": "BEN_EDGE_0557",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.4,
+        "sensitivity_level": "INTERNAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Salary keyword found in text"
+        ],
+        "text_preview": "Negotiating your base salary requires understanding industry benchmarks and mark..."
+      },
+      {
+        "id": "BEN_CODE_0462",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button..."
+      },
+      {
+        "id": "BEN_CODE_0448",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>Home Page</title></head>\n<body><h1..."
+      },
+      {
+        "id": "BEN_EDGE_0545",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.4,
+        "sensitivity_level": "INTERNAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Salary keyword found in text"
+        ],
+        "text_preview": "Negotiating your base salary requires understanding industry benchmarks and mark..."
+      },
+      {
+        "id": "BEN_CODE_0463",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / ..."
+      },
+      {
+        "id": "BEN_CODE_0467",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "// Unit test for string manipulation utility\ndescribe('slugify', () => {\n  it('c..."
+      },
+      {
+        "id": "BEN_CODE_0422",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button..."
+      },
+      {
+        "id": "BEN_CODE_0465",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY depar..."
+      },
+      {
+        "id": "BEN_EDGE_0558",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.6,
+        "sensitivity_level": "CONFIDENTIAL",
+        "category": "EDGE_CASE_BENIGN",
+        "evidence_count": 1,
+        "evidences": [
+          "Credit card keyword found in text"
+        ],
+        "text_preview": "Credit card processing fees typically range between 1.5% and 3.5% per merchant t..."
+      },
+      {
+        "id": "BEN_CODE_0425",
+        "true_label": 0,
+        "predicted_label": 1,
+        "confidence": 0.3,
+        "sensitivity_level": "INTERNAL",
+        "category": "BENIGN_CODE",
+        "evidence_count": 1,
+        "evidences": [
+          "Python source code extension"
+        ],
+        "text_preview": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY depar..."
+      }
+    ],
+    "false_negatives": [
+      {
+        "id": "SENS_ID_0097",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.2,
+        "sensitivity_level": "PUBLIC",
+        "category": "IDENTITY_INFORMATION",
+        "evidence_count": 1,
+        "evidences": [
+          "Spreadsheet file extension"
+        ],
+        "text_preview": "Tax filing form W-2: Taxpayer SSN: 456-17-0123, Adjusted Gross Income: $84,200"
+      },
+      {
+        "id": "SENS_ID_0114",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.2,
+        "sensitivity_level": "PUBLIC",
+        "category": "IDENTITY_INFORMATION",
+        "evidence_count": 1,
+        "evidences": [
+          "Spreadsheet file extension"
+        ],
+        "text_preview": "Identity docket: SSN 999-34-1111, Driver License: DL00000034TX"
+      },
+      {
+        "id": "SENS_CRED_0011",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.0,
+        "sensitivity_level": "PUBLIC",
+        "category": "CREDENTIALS",
+        "evidence_count": 0,
+        "evidences": [],
+        "text_preview": "DB_PASSWORD=demo_secret_pass_11!"
+      },
+      {
+        "id": "SENS_ID_0089",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.0,
+        "sensitivity_level": "PUBLIC",
+        "category": "IDENTITY_INFORMATION",
+        "evidence_count": 0,
+        "evidences": [],
+        "text_preview": "Applicant background verification: Social Security: 123-99-6789, DOB: 1985-04-12"
+      },
+      {
+        "id": "SENS_CRED_0019",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.0,
+        "sensitivity_level": "PUBLIC",
+        "category": "CREDENTIALS",
+        "evidence_count": 0,
+        "evidences": [],
+        "text_preview": "Here are your initial credentials: username: jdoe, temporary_password: InitPass1..."
+      },
+      {
+        "id": "SENS_ID_0081",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.2,
+        "sensitivity_level": "PUBLIC",
+        "category": "IDENTITY_INFORMATION",
+        "evidence_count": 1,
+        "evidences": [
+          "Spreadsheet file extension"
+        ],
+        "text_preview": "Employee SSN record: 987-91-4321, Full Name: Taylor Swiftly"
+      },
+      {
+        "id": "SENS_ID_0098",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.2,
+        "sensitivity_level": "PUBLIC",
+        "category": "IDENTITY_INFORMATION",
+        "evidence_count": 1,
+        "evidences": [
+          "Spreadsheet file extension"
+        ],
+        "text_preview": "HR compliance record: SSN 000-18-9999 for identity verification step 2"
+      },
+      {
+        "id": "SENS_ID_0088",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.0,
+        "sensitivity_level": "PUBLIC",
+        "category": "IDENTITY_INFORMATION",
+        "evidence_count": 0,
+        "evidences": [],
+        "text_preview": "Employee SSN record: 987-98-4321, Full Name: Taylor Swiftly"
+      },
+      {
+        "id": "SENS_ID_0092",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.0,
+        "sensitivity_level": "PUBLIC",
+        "category": "IDENTITY_INFORMATION",
+        "evidence_count": 0,
+        "evidences": [],
+        "text_preview": "Government ID verification: US Passport #P00001284, Country of Issuance: USA"
+      },
+      {
+        "id": "SENS_ID_0087",
+        "true_label": 1,
+        "predicted_label": 0,
+        "confidence": 0.2,
+        "sensitivity_level": "PUBLIC",
+        "category": "IDENTITY_INFORMATION",
+        "evidence_count": 1,
+        "evidences": [
+          "Spreadsheet file extension"
+        ],
+        "text_preview": "Patient identity registry: SSN: 321-97-9876, State ID: CA0000097"
+      }
+    ]
+  }
+}
