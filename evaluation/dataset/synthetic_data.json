@@ -1,0 +1,4202 @@
+[
+  {
+    "id": "BEN_NUM_0537",
+    "text": "Event counter: Total website visitors today: 184,920 unique IP addresses recorded.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_537.csv"
+  },
+  {
+    "id": "BEN_EDGE_0600",
+    "text": "Our public GitHub repository contains open source documentation and example code templates.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_600.md"
+  },
+  {
+    "id": "BEN_CODE_0429",
+    "text": "import math\ndef compute_hypotenuse(a: float, b: float) -> float:\n    return math.sqrt(a**2 + b**2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_429.py"
+  },
+  {
+    "id": "BEN_CODE_0425",
+    "text": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY department_id ORDER BY employee_count DESC;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_425.py"
+  },
+  {
+    "id": "BEN_PUB_0304",
+    "text": "Getting Started Guide: To install the package, execute `npm install --save my-package` in your terminal.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_304.md"
+  },
+  {
+    "id": "BEN_CODE_0466",
+    "text": "class TemperatureConverter:\n    @staticmethod\n    def celsius_to_fahrenheit(c):\n        return (c * 9/5) + 32",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_466.py"
+  },
+  {
+    "id": "SENS_API_0131",
+    "text": "const OPENAI_API_KEY = 'mock_openai_secret_token_0131_simulated';",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_131.env"
+  },
+  {
+    "id": "SENS_CONF_0213",
+    "text": "INTERNAL USE ONLY: Board of Directors meeting minutes regarding Q3 financial performance and layoffs",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_213.pdf"
+  },
+  {
+    "id": "BEN_CODE_0477",
+    "text": "// Unit test for string manipulation utility\ndescribe('slugify', () => {\n  it('converts title to kebab-case', () => {\n    expect(slugify('Hello World')).toBe('hello-world');\n  });\n});",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_477.tsx"
+  },
+  {
+    "id": "BEN_PUB_0315",
+    "text": "System requirements: Minimum 4GB RAM, dual-core CPU, and 20GB of available disk space required.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_315.html"
+  },
+  {
+    "id": "SENS_ID_0093",
+    "text": "Identity docket: SSN 999-13-1111, Driver License: DL00000013TX",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_93.txt"
+  },
+  {
+    "id": "SENS_CONT_0266",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor266@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_266.txt"
+  },
+  {
+    "id": "BEN_EDGE_0546",
+    "text": "Credit card processing fees typically range between 1.5% and 3.5% per merchant transaction.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_546.md"
+  },
+  {
+    "id": "BEN_NUM_0481",
+    "text": "Server uptime report: System active for 142 days, 18 hours, 32 minutes without restart.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_481.log"
+  },
+  {
+    "id": "SENS_CONF_0236",
+    "text": "Attorney-client privileged communication regarding pending intellectual property patent dispute",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_236.pdf"
+  },
+  {
+    "id": "SENS_EMP_0189",
+    "text": "Employee compensation ledger: department=Security, base_salary=$190000, equity_grant=4500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_189.txt"
+  },
+  {
+    "id": "BEN_CODE_0440",
+    "text": "git checkout -b feature/new-login-ui\ngit add .\ngit commit -m 'Implement responsive layout'",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_440.tsx"
+  },
+  {
+    "id": "BEN_OFF_0397",
+    "text": "Happy work anniversary to our front-end engineer on completing 3 years with the company!",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_397.txt"
+  },
+  {
+    "id": "BEN_EDGE_0541",
+    "text": "Always choose a strong, unique password consisting of letters, numbers, and symbols for each account.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_541.md"
+  },
+  {
+    "id": "BEN_PUB_0347",
+    "text": "Release Notes v1.2: Fixed minor rendering bug on high-DPI displays and optimized image caching mechanism.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_347.md"
+  },
+  {
+    "id": "BEN_EDGE_0596",
+    "text": "Shipping tracking code: 4111-9988-2233 (UPS ground delivery parcel identifier).",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_596.md"
+  },
+  {
+    "id": "BEN_CODE_0426",
+    "text": "class TemperatureConverter:\n    @staticmethod\n    def celsius_to_fahrenheit(c):\n        return (c * 9/5) + 32",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_426.py"
+  },
+  {
+    "id": "BEN_PUB_0326",
+    "text": "Our customer support team is available 24/7 to answer general inquiries about service uptime and features.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_326.md"
+  },
+  {
+    "id": "BEN_NUM_0482",
+    "text": "Public company earnings: Total revenue for Q2 reached $42.5 million, up 12% year-over-year.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_482.log"
+  },
+  {
+    "id": "SENS_CONT_0279",
+    "text": "Whistleblower confidential tip contact: anon_source279@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_279.txt"
+  },
+  {
+    "id": "BEN_OFF_0420",
+    "text": "The company book club will discuss chapters 4 and 5 of Designing Data-Intensive Applications on Thursday.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_420.txt"
+  },
+  {
+    "id": "BEN_EDGE_0582",
+    "text": "Credit card processing fees typically range between 1.5% and 3.5% per merchant transaction.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_582.txt"
+  },
+  {
+    "id": "BEN_PUB_0340",
+    "text": "API Reference Guide: The `/health` endpoint returns HTTP 200 OK with the current service status.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_340.html"
+  },
+  {
+    "id": "SENS_CONF_0231",
+    "text": "CONFIDENTIAL AND PROPRIETARY: Strategic acquisition roadmap for Project Titan Q4",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_231.pdf"
+  },
+  {
+    "id": "SENS_CARD_0060",
+    "text": "Credit card storage record: 4123456789011060 holder: Jordan Lee",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_60.txt"
+  },
+  {
+    "id": "BEN_PUB_0317",
+    "text": "Release Notes v1.2: Fixed minor rendering bug on high-DPI displays and optimized image caching mechanism.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_317.html"
+  },
+  {
+    "id": "SENS_CONF_0242",
+    "text": "STRICTLY CONFIDENTIAL: Merger & acquisition preliminary term sheet between Sentinel Corp and Target Ltd",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_242.docx"
+  },
+  {
+    "id": "BEN_PUB_0305",
+    "text": "System requirements: Minimum 4GB RAM, dual-core CPU, and 20GB of available disk space required.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_305.md"
+  },
+  {
+    "id": "SENS_CONT_0254",
+    "text": "Whistleblower confidential tip contact: anon_source254@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_254.csv"
+  },
+  {
+    "id": "SENS_CRED_0013",
+    "text": "redis://user:p@ssword13_secret@cache.internal.net:6379",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_13.conf"
+  },
+  {
+    "id": "BEN_OFF_0372",
+    "text": "Thanks for the update on the sprint board. Let us review the user stories during the morning standup.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_372.txt"
+  },
+  {
+    "id": "BEN_PUB_0346",
+    "text": "Our customer support team is available 24/7 to answer general inquiries about service uptime and features.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_346.md"
+  },
+  {
+    "id": "BEN_NUM_0488",
+    "text": "Weather station telemetry: Temperature 22.4 C, Humidity 58%, Barometric Pressure 1013.2 hPa.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_488.log"
+  },
+  {
+    "id": "BEN_CODE_0445",
+    "text": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY department_id ORDER BY employee_count DESC;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_445.py"
+  },
+  {
+    "id": "SENS_CRED_0022",
+    "text": "admin_password = 'SecretAdminKey22#$'",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_22.env"
+  },
+  {
+    "id": "SENS_API_0139",
+    "text": "SENDGRID_API_KEY = 'mock_sendgrid_secret_key_0139_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_139.py"
+  },
+  {
+    "id": "BEN_CODE_0436",
+    "text": "class TemperatureConverter:\n    @staticmethod\n    def celsius_to_fahrenheit(c):\n        return (c * 9/5) + 32",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_436.tsx"
+  },
+  {
+    "id": "SENS_ID_0089",
+    "text": "Applicant background verification: Social Security: 123-99-6789, DOB: 1985-04-12",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_89.txt"
+  },
+  {
+    "id": "BEN_CODE_0424",
+    "text": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_424.py"
+  },
+  {
+    "id": "SENS_CONT_0252",
+    "text": "VIP customer escalation registry: contact email mark.watney252@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_252.csv"
+  },
+  {
+    "id": "SENS_API_0146",
+    "text": "api_key = 'mock_stripe_secret_token_0146xyz_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_146.env"
+  },
+  {
+    "id": "SENS_API_0133",
+    "text": "api_secret = 'mock_api_secret_key_token_0133_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_133.env"
+  },
+  {
+    "id": "BEN_PUB_0330",
+    "text": "API Reference Guide: The `/health` endpoint returns HTTP 200 OK with the current service status.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_330.md"
+  },
+  {
+    "id": "BEN_PUB_0316",
+    "text": "Our customer support team is available 24/7 to answer general inquiries about service uptime and features.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_316.html"
+  },
+  {
+    "id": "BEN_PUB_0308",
+    "text": "The annual cybersecurity symposium will be held in San Francisco from October 12 to 14, 2026.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_308.md"
+  },
+  {
+    "id": "BEN_CODE_0437",
+    "text": "// Unit test for string manipulation utility\ndescribe('slugify', () => {\n  it('converts title to kebab-case', () => {\n    expect(slugify('Hello World')).toBe('hello-world');\n  });\n});",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_437.tsx"
+  },
+  {
+    "id": "SENS_CONF_0241",
+    "text": "CONFIDENTIAL AND PROPRIETARY: Strategic acquisition roadmap for Project Titan Q4",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_241.docx"
+  },
+  {
+    "id": "BEN_OFF_0418",
+    "text": "The AC maintenance in building B is scheduled for Saturday morning between 9 AM and 1 PM.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_418.txt"
+  },
+  {
+    "id": "SENS_CONT_0298",
+    "text": "Executive emergency contact roster: CTO email david.banner298@gamma-labs.org, mobile: +44 20 7946 09298",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_298.txt"
+  },
+  {
+    "id": "SENS_EMP_0183",
+    "text": "Internal salary adjustment request for contractor team, hourly rate increased to $145/hr",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_183.csv"
+  },
+  {
+    "id": "SENS_CONF_0219",
+    "text": "Confidential audit findings: Major compliance deficiency observed in EU customer data segregation",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_219.pdf"
+  },
+  {
+    "id": "BEN_OFF_0413",
+    "text": "Office supply order placed: whiteboard markers, printer paper, sticky notes, and replacement coffee filters.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_413.txt"
+  },
+  {
+    "id": "SENS_CONT_0294",
+    "text": "Whistleblower confidential tip contact: anon_source294@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_294.csv"
+  },
+  {
+    "id": "SENS_ID_0084",
+    "text": "HR compliance record: SSN 000-94-9999 for identity verification step 2",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_84.xlsx"
+  },
+  {
+    "id": "BEN_OFF_0384",
+    "text": "The conference room projector is now working properly after the cable replacement.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_384.txt"
+  },
+  {
+    "id": "BEN_PUB_0320",
+    "text": "API Reference Guide: The `/health` endpoint returns HTTP 200 OK with the current service status.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_320.html"
+  },
+  {
+    "id": "BEN_EDGE_0555",
+    "text": "To reset your forgotten password, click the public recovery link on our help center webpage.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_555.txt"
+  },
+  {
+    "id": "SENS_API_0119",
+    "text": "api_key = 'mock_stripe_secret_token_0119xyz_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_119.py"
+  },
+  {
+    "id": "BEN_OFF_0395",
+    "text": "Team lunch vote: Please react with pizza or sushi emoji to choose tomorrow's catered lunch.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_395.txt"
+  },
+  {
+    "id": "BEN_NUM_0505",
+    "text": "Telemetry metric: CPU load 18.4%, memory utilization 42.1%, disk I/O 2.3 MB/s.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_505.log"
+  },
+  {
+    "id": "SENS_EMP_0187",
+    "text": "HR Payroll run: Employee ID EMP00187, Net Pay: $6,420.00, Direct deposit account verified",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_187.txt"
+  },
+  {
+    "id": "SENS_CARD_0076",
+    "text": "Direct debit card recorded: 5555555555551076, auth code: 49201",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_76.txt"
+  },
+  {
+    "id": "BEN_OFF_0379",
+    "text": "Please remember to mute your microphone when not speaking during large group meetings.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_379.txt"
+  },
+  {
+    "id": "SENS_API_0117",
+    "text": "AWS_ACCESS_KEY_ID = 'mock_aws_access_key_id_117_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_117.py"
+  },
+  {
+    "id": "BEN_NUM_0515",
+    "text": "Telemetry metric: CPU load 18.4%, memory utilization 42.1%, disk I/O 2.3 MB/s.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_515.csv"
+  },
+  {
+    "id": "BEN_EDGE_0580",
+    "text": "According to the 2025 Tech Careers Survey, average software engineering salaries grew by 4.2% nationwide.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_580.txt"
+  },
+  {
+    "id": "BEN_EDGE_0565",
+    "text": "Always choose a strong, unique password consisting of letters, numbers, and symbols for each account.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_565.md"
+  },
+  {
+    "id": "BEN_EDGE_0564",
+    "text": "Our public GitHub repository contains open source documentation and example code templates.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_564.txt"
+  },
+  {
+    "id": "BEN_EDGE_0553",
+    "text": "Always choose a strong, unique password consisting of letters, numbers, and symbols for each account.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_553.txt"
+  },
+  {
+    "id": "BEN_PUB_0336",
+    "text": "Our customer support team is available 24/7 to answer general inquiries about service uptime and features.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_336.html"
+  },
+  {
+    "id": "BEN_CODE_0463",
+    "text": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / 100);\n  return price - discount;\n};",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_463.py"
+  },
+  {
+    "id": "BEN_CODE_0434",
+    "text": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_434.tsx"
+  },
+  {
+    "id": "SENS_CONF_0208",
+    "text": "Trade secret disclosure: Proprietary heuristic scoring formula and machine learning weights",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_208.docx"
+  },
+  {
+    "id": "SENS_CONT_0255",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet255@estate-trust.co.uk, Telephone: 07700 900255",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_255.csv"
+  },
+  {
+    "id": "SENS_CONF_0202",
+    "text": "STRICTLY CONFIDENTIAL: Merger & acquisition preliminary term sheet between Sentinel Corp and Target Ltd",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_202.docx"
+  },
+  {
+    "id": "SENS_EMP_0180",
+    "text": "Annual bonus allocation table: Engineering Lead bonus compensation $35,000 payable Q1",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_180.csv"
+  },
+  {
+    "id": "SENS_CRED_0016",
+    "text": "export FTP_PASSWORD='SuperSafeFtpPass16!'",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_16.conf"
+  },
+  {
+    "id": "SENS_ID_0107",
+    "text": "Identity docket: SSN 999-27-1111, Driver License: DL00000027TX",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_107.txt"
+  },
+  {
+    "id": "BEN_EDGE_0549",
+    "text": "Invoice order number: INV-123-45-6789 created for office stationery bulk purchase.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_549.md"
+  },
+  {
+    "id": "BEN_EDGE_0557",
+    "text": "Negotiating your base salary requires understanding industry benchmarks and market rate data points.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_557.txt"
+  },
+  {
+    "id": "SENS_ID_0097",
+    "text": "Tax filing form W-2: Taxpayer SSN: 456-17-0123, Adjusted Gross Income: $84,200",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_97.xlsx"
+  },
+  {
+    "id": "SENS_CRED_0009",
+    "text": "Here are your initial credentials: username: jdoe, temporary_password: InitPass9!@#",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_9.env"
+  },
+  {
+    "id": "SENS_CONT_0280",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet280@estate-trust.co.uk, Telephone: 07700 900280",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_280.txt"
+  },
+  {
+    "id": "BEN_NUM_0495",
+    "text": "Telemetry metric: CPU load 18.4%, memory utilization 42.1%, disk I/O 2.3 MB/s.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_495.csv"
+  },
+  {
+    "id": "BEN_NUM_0496",
+    "text": "HTTP 200 GET /index.html 192.168.1.1 Mozilla/5.0 45ms bytes_sent=14092",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_496.csv"
+  },
+  {
+    "id": "SENS_CONT_0295",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet295@estate-trust.co.uk, Telephone: 07700 900295",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_295.csv"
+  },
+  {
+    "id": "BEN_PUB_0313",
+    "text": "Press Release: Open Source Community releases new version 4.2 of the data visualization library.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_313.html"
+  },
+  {
+    "id": "BEN_CODE_0421",
+    "text": "def calculate_fibonacci(n):\n    if n <= 1: return n\n    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_421.py"
+  },
+  {
+    "id": "SENS_CARD_0067",
+    "text": "Merchant terminal swipe record: Pan: 4242424242421067 Service code: 201",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_67.csv"
+  },
+  {
+    "id": "BEN_CODE_0480",
+    "text": "git checkout -b feature/new-login-ui\ngit add .\ngit commit -m 'Implement responsive layout'",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_480.tsx"
+  },
+  {
+    "id": "BEN_CODE_0461",
+    "text": "def calculate_fibonacci(n):\n    if n <= 1: return n\n    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_461.py"
+  },
+  {
+    "id": "SENS_EMP_0199",
+    "text": "Internal salary adjustment request for contractor team, hourly rate increased to $145/hr",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_199.csv"
+  },
+  {
+    "id": "BEN_NUM_0532",
+    "text": "Public company earnings: Total revenue for Q2 reached $42.5 million, up 12% year-over-year.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_532.csv"
+  },
+  {
+    "id": "SENS_EMP_0172",
+    "text": "Annual bonus allocation table: Engineering Lead bonus compensation $35,000 payable Q1",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_172.txt"
+  },
+  {
+    "id": "BEN_NUM_0493",
+    "text": "Warehouse inventory count: SKU-998821 quantity: 420 units, warehouse location: Aisle 4, Shelf 12.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_493.csv"
+  },
+  {
+    "id": "BEN_NUM_0536",
+    "text": "HTTP 200 GET /index.html 192.168.1.1 Mozilla/5.0 45ms bytes_sent=14092",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_536.csv"
+  },
+  {
+    "id": "BEN_CODE_0453",
+    "text": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / 100);\n  return price - discount;\n};",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_453.tsx"
+  },
+  {
+    "id": "SENS_API_0120",
+    "text": "SLACK_BOT_TOKEN = 'mock_slack_bot_token_0120_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_120.py"
+  },
+  {
+    "id": "BEN_OFF_0410",
+    "text": "The company book club will discuss chapters 4 and 5 of Designing Data-Intensive Applications on Thursday.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_410.txt"
+  },
+  {
+    "id": "BEN_OFF_0377",
+    "text": "Happy work anniversary to our front-end engineer on completing 3 years with the company!",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_377.txt"
+  },
+  {
+    "id": "SENS_EMP_0173",
+    "text": "Employee compensation ledger: department=Security, base_salary=$190000, equity_grant=4500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_173.txt"
+  },
+  {
+    "id": "SENS_API_0148",
+    "text": "SENDGRID_API_KEY = 'mock_sendgrid_secret_key_0148_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_148.env"
+  },
+  {
+    "id": "SENS_ID_0101",
+    "text": "Patient identity registry: SSN: 321-21-9876, State ID: CA0000021",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_101.xlsx"
+  },
+  {
+    "id": "SENS_EMP_0169",
+    "text": "Executive payroll memo: John Doe, Chief Architect, base salary $245,000, bonus 25%",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_169.txt"
+  },
+  {
+    "id": "BEN_EDGE_0561",
+    "text": "Invoice order number: INV-123-45-6789 created for office stationery bulk purchase.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_561.txt"
+  },
+  {
+    "id": "BEN_PUB_0341",
+    "text": "SentinelX is an intelligent Data Loss Prevention system designed to detect and prevent unauthorized exfiltration.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_341.md"
+  },
+  {
+    "id": "BEN_EDGE_0587",
+    "text": "Customer feedback ticket #49281: 'The checkout page button was easy to click, great job!'",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_587.txt"
+  },
+  {
+    "id": "SENS_CONF_0201",
+    "text": "CONFIDENTIAL AND PROPRIETARY: Strategic acquisition roadmap for Project Titan Q4",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_201.docx"
+  },
+  {
+    "id": "BEN_CODE_0452",
+    "text": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_452.tsx"
+  },
+  {
+    "id": "SENS_API_0141",
+    "text": "authorization_token = 'mock_bearer_jwt_authorization_token_0141'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_141.py"
+  },
+  {
+    "id": "SENS_CARD_0075",
+    "text": "Please charge 4000123456781075 for invoice #99281, authorization approved",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_75.txt"
+  },
+  {
+    "id": "SENS_CRED_0023",
+    "text": "redis://user:p@ssword23_secret@cache.internal.net:6379",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_23.env"
+  },
+  {
+    "id": "SENS_EMP_0193",
+    "text": "Executive payroll memo: John Doe, Chief Architect, base salary $245,000, bonus 25%",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_193.csv"
+  },
+  {
+    "id": "BEN_PUB_0325",
+    "text": "System requirements: Minimum 4GB RAM, dual-core CPU, and 20GB of available disk space required.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_325.md"
+  },
+  {
+    "id": "SENS_CRED_0015",
+    "text": "mongodb+srv://admin:ClusterPass1599@cluster0.internal.net/analytics",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_15.conf"
+  },
+  {
+    "id": "BEN_OFF_0417",
+    "text": "Happy work anniversary to our front-end engineer on completing 3 years with the company!",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_417.txt"
+  },
+  {
+    "id": "SENS_CONT_0259",
+    "text": "Whistleblower confidential tip contact: anon_source259@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_259.txt"
+  },
+  {
+    "id": "SENS_CARD_0043",
+    "text": "MasterCard auth token requested for 5105105105101043, expiration date 09/27",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_43.csv"
+  },
+  {
+    "id": "SENS_API_0149",
+    "text": "const OPENAI_API_KEY = 'mock_openai_secret_token_0149_simulated';",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_149.env"
+  },
+  {
+    "id": "SENS_ID_0108",
+    "text": "Patient identity registry: SSN: 321-28-9876, State ID: CA0000028",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_108.txt"
+  },
+  {
+    "id": "SENS_CONT_0263",
+    "text": "Executive emergency contact roster: CTO email david.banner263@gamma-labs.org, mobile: +44 20 7946 09263",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_263.csv"
+  },
+  {
+    "id": "SENS_ID_0087",
+    "text": "Patient identity registry: SSN: 321-97-9876, State ID: CA0000097",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_87.xlsx"
+  },
+  {
+    "id": "SENS_CONT_0270",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet270@estate-trust.co.uk, Telephone: 07700 900270",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_270.txt"
+  },
+  {
+    "id": "SENS_EMP_0179",
+    "text": "HR Payroll run: Employee ID EMP00179, Net Pay: $6,420.00, Direct deposit account verified",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_179.csv"
+  },
+  {
+    "id": "SENS_API_0132",
+    "text": "authorization_token = 'mock_bearer_jwt_authorization_token_0132'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_132.env"
+  },
+  {
+    "id": "BEN_EDGE_0563",
+    "text": "Customer feedback ticket #49281: 'The checkout page button was easy to click, great job!'",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_563.txt"
+  },
+  {
+    "id": "BEN_CODE_0464",
+    "text": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_464.py"
+  },
+  {
+    "id": "BEN_CODE_0444",
+    "text": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_444.py"
+  },
+  {
+    "id": "BEN_OFF_0396",
+    "text": "Good morning team, please make sure your timecards are submitted by end of day today.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_396.txt"
+  },
+  {
+    "id": "BEN_CODE_0473",
+    "text": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / 100);\n  return price - discount;\n};",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_473.tsx"
+  },
+  {
+    "id": "BEN_CODE_0447",
+    "text": "// Unit test for string manipulation utility\ndescribe('slugify', () => {\n  it('converts title to kebab-case', () => {\n    expect(slugify('Hello World')).toBe('hello-world');\n  });\n});",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_447.py"
+  },
+  {
+    "id": "BEN_CODE_0427",
+    "text": "// Unit test for string manipulation utility\ndescribe('slugify', () => {\n  it('converts title to kebab-case', () => {\n    expect(slugify('Hello World')).toBe('hello-world');\n  });\n});",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_427.py"
+  },
+  {
+    "id": "BEN_EDGE_0560",
+    "text": "Shipping tracking code: 4111-9988-2233 (UPS ground delivery parcel identifier).",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_560.txt"
+  },
+  {
+    "id": "BEN_NUM_0503",
+    "text": "Warehouse inventory count: SKU-998821 quantity: 420 units, warehouse location: Aisle 4, Shelf 12.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_503.log"
+  },
+  {
+    "id": "SENS_CONT_0287",
+    "text": "VIP customer escalation registry: contact email mark.watney287@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_287.txt"
+  },
+  {
+    "id": "BEN_CODE_0456",
+    "text": "class TemperatureConverter:\n    @staticmethod\n    def celsius_to_fahrenheit(c):\n        return (c * 9/5) + 32",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_456.tsx"
+  },
+  {
+    "id": "SENS_CARD_0052",
+    "text": "Billing account update: Visa ending in 4532015099881052, cardholder: Alex Morgan",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_52.txt"
+  },
+  {
+    "id": "BEN_NUM_0491",
+    "text": "Server uptime report: System active for 142 days, 18 hours, 32 minutes without restart.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_491.csv"
+  },
+  {
+    "id": "BEN_PUB_0318",
+    "text": "The annual cybersecurity symposium will be held in San Francisco from October 12 to 14, 2026.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_318.html"
+  },
+  {
+    "id": "SENS_EMP_0178",
+    "text": "Confidential compensation review: Staff salary band 7 approved at $175,000 per annum",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_178.csv"
+  },
+  {
+    "id": "BEN_PUB_0356",
+    "text": "Our customer support team is available 24/7 to answer general inquiries about service uptime and features.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_356.html"
+  },
+  {
+    "id": "BEN_EDGE_0585",
+    "text": "Invoice order number: INV-123-45-6789 created for office stationery bulk purchase.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_585.txt"
+  },
+  {
+    "id": "SENS_CONF_0238",
+    "text": "Trade secret disclosure: Proprietary heuristic scoring formula and machine learning weights",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_238.pdf"
+  },
+  {
+    "id": "SENS_CARD_0069",
+    "text": "Batch card reconciliation: 5200828282821069 status approved",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_69.csv"
+  },
+  {
+    "id": "SENS_EMP_0165",
+    "text": "Employee compensation ledger: department=Security, base_salary=$190000, equity_grant=4500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_165.csv"
+  },
+  {
+    "id": "SENS_CONF_0212",
+    "text": "STRICTLY CONFIDENTIAL: Merger & acquisition preliminary term sheet between Sentinel Corp and Target Ltd",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_212.pdf"
+  },
+  {
+    "id": "SENS_EMP_0194",
+    "text": "Confidential compensation review: Staff salary band 7 approved at $175,000 per annum",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_194.csv"
+  },
+  {
+    "id": "SENS_API_0156",
+    "text": "SLACK_BOT_TOKEN = 'mock_slack_bot_token_0156_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_156.py"
+  },
+  {
+    "id": "BEN_EDGE_0576",
+    "text": "Our public GitHub repository contains open source documentation and example code templates.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_576.md"
+  },
+  {
+    "id": "SENS_ID_0106",
+    "text": "Government ID verification: US Passport #P00002684, Country of Issuance: USA",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_106.txt"
+  },
+  {
+    "id": "SENS_CARD_0046",
+    "text": "Direct debit card recorded: 5555555555551046, auth code: 49201",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_46.csv"
+  },
+  {
+    "id": "SENS_EMP_0190",
+    "text": "Staff payroll list: ID=0190, Role=Senior Developer, Monthly Salary=$12,500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_190.txt"
+  },
+  {
+    "id": "SENS_CARD_0061",
+    "text": "Customer payment processed: Card number 4111222233331061, exp 12/28, CVV 842",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_61.csv"
+  },
+  {
+    "id": "BEN_OFF_0404",
+    "text": "The conference room projector is now working properly after the cable replacement.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_404.txt"
+  },
+  {
+    "id": "SENS_API_0159",
+    "text": "authorization_token = 'mock_bearer_jwt_authorization_token_0159'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_159.py"
+  },
+  {
+    "id": "SENS_CONT_0267",
+    "text": "VIP customer escalation registry: contact email mark.watney267@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_267.txt"
+  },
+  {
+    "id": "SENS_EMP_0185",
+    "text": "Executive payroll memo: John Doe, Chief Architect, base salary $245,000, bonus 25%",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_185.txt"
+  },
+  {
+    "id": "SENS_ID_0091",
+    "text": "HR compliance record: SSN 000-11-9999 for identity verification step 2",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_91.txt"
+  },
+  {
+    "id": "SENS_CONF_0222",
+    "text": "STRICTLY CONFIDENTIAL: Merger & acquisition preliminary term sheet between Sentinel Corp and Target Ltd",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_222.docx"
+  },
+  {
+    "id": "SENS_CARD_0064",
+    "text": "Amex corporate transaction: 378282246311064, amount $1,420.50",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_64.csv"
+  },
+  {
+    "id": "BEN_OFF_0392",
+    "text": "Thanks for the update on the sprint board. Let us review the user stories during the morning standup.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_392.txt"
+  },
+  {
+    "id": "BEN_CODE_0450",
+    "text": "git checkout -b feature/new-login-ui\ngit add .\ngit commit -m 'Implement responsive layout'",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_450.py"
+  },
+  {
+    "id": "BEN_NUM_0489",
+    "text": "Order shipment tracking status: Package #99281-TRACK delivery confirmed at front porch.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_489.log"
+  },
+  {
+    "id": "BEN_PUB_0327",
+    "text": "Release Notes v1.2: Fixed minor rendering bug on high-DPI displays and optimized image caching mechanism.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_327.md"
+  },
+  {
+    "id": "BEN_CODE_0439",
+    "text": "import math\ndef compute_hypotenuse(a: float, b: float) -> float:\n    return math.sqrt(a**2 + b**2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_439.tsx"
+  },
+  {
+    "id": "BEN_OFF_0381",
+    "text": "Reminder: The kitchen refrigerator will be cleaned on Friday afternoon at 4:00 PM. Please label your food.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_381.txt"
+  },
+  {
+    "id": "BEN_NUM_0506",
+    "text": "HTTP 200 GET /index.html 192.168.1.1 Mozilla/5.0 45ms bytes_sent=14092",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_506.log"
+  },
+  {
+    "id": "SENS_ID_0111",
+    "text": "Tax filing form W-2: Taxpayer SSN: 456-31-0123, Adjusted Gross Income: $84,200",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_111.xlsx"
+  },
+  {
+    "id": "SENS_CONT_0286",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor286@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_286.txt"
+  },
+  {
+    "id": "SENS_EMP_0188",
+    "text": "Annual bonus allocation table: Engineering Lead bonus compensation $35,000 payable Q1",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_188.txt"
+  },
+  {
+    "id": "SENS_API_0150",
+    "text": "authorization_token = 'mock_bearer_jwt_authorization_token_0150'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_150.env"
+  },
+  {
+    "id": "BEN_OFF_0362",
+    "text": "Thanks for the update on the sprint board. Let us review the user stories during the morning standup.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_362.txt"
+  },
+  {
+    "id": "BEN_CODE_0428",
+    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>Home Page</title></head>\n<body><h1>Welcome to our Portal</h1></body>\n</html>",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_428.py"
+  },
+  {
+    "id": "SENS_CONT_0256",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor256@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_256.txt"
+  },
+  {
+    "id": "BEN_NUM_0519",
+    "text": "Order shipment tracking status: Package #99281-TRACK delivery confirmed at front porch.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_519.csv"
+  },
+  {
+    "id": "SENS_EMP_0177",
+    "text": "Executive payroll memo: John Doe, Chief Architect, base salary $245,000, bonus 25%",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_177.csv"
+  },
+  {
+    "id": "SENS_CRED_0020",
+    "text": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3MockRsaKeyLine20 root@internal-host",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_20.conf"
+  },
+  {
+    "id": "SENS_CRED_0029",
+    "text": "Here are your initial credentials: username: jdoe, temporary_password: InitPass29!@#",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_29.env"
+  },
+  {
+    "id": "SENS_CONF_0228",
+    "text": "Trade secret disclosure: Proprietary heuristic scoring formula and machine learning weights",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_228.docx"
+  },
+  {
+    "id": "SENS_API_0144",
+    "text": "AWS_ACCESS_KEY_ID = 'mock_aws_access_key_id_144_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_144.env"
+  },
+  {
+    "id": "BEN_PUB_0310",
+    "text": "API Reference Guide: The `/health` endpoint returns HTTP 200 OK with the current service status.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_310.md"
+  },
+  {
+    "id": "BEN_EDGE_0581",
+    "text": "Negotiating your base salary requires understanding industry benchmarks and market rate data points.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_581.txt"
+  },
+  {
+    "id": "SENS_CONF_0216",
+    "text": "Attorney-client privileged communication regarding pending intellectual property patent dispute",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_216.pdf"
+  },
+  {
+    "id": "SENS_ID_0114",
+    "text": "Identity docket: SSN 999-34-1111, Driver License: DL00000034TX",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_114.xlsx"
+  },
+  {
+    "id": "BEN_NUM_0502",
+    "text": "Public company earnings: Total revenue for Q2 reached $42.5 million, up 12% year-over-year.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_502.log"
+  },
+  {
+    "id": "BEN_OFF_0412",
+    "text": "Thanks for the update on the sprint board. Let us review the user stories during the morning standup.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_412.txt"
+  },
+  {
+    "id": "BEN_EDGE_0583",
+    "text": "Learn the difference between debit card and credit card consumer fraud protection rights under Federal law.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_583.txt"
+  },
+  {
+    "id": "BEN_OFF_0403",
+    "text": "Office supply order placed: whiteboard markers, printer paper, sticky notes, and replacement coffee filters.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_403.txt"
+  },
+  {
+    "id": "BEN_PUB_0314",
+    "text": "Getting Started Guide: To install the package, execute `npm install --save my-package` in your terminal.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_314.html"
+  },
+  {
+    "id": "BEN_CODE_0432",
+    "text": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_432.tsx"
+  },
+  {
+    "id": "SENS_CRED_0012",
+    "text": "admin_password = 'SecretAdminKey12#$'",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_12.conf"
+  },
+  {
+    "id": "BEN_NUM_0498",
+    "text": "Weather station telemetry: Temperature 22.4 C, Humidity 58%, Barometric Pressure 1013.2 hPa.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_498.csv"
+  },
+  {
+    "id": "BEN_OFF_0401",
+    "text": "Reminder: The kitchen refrigerator will be cleaned on Friday afternoon at 4:00 PM. Please label your food.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_401.txt"
+  },
+  {
+    "id": "BEN_PUB_0309",
+    "text": "Read our whitepaper on Modern Zero Trust Network Architecture and Endpoint Security Best Practices.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_309.md"
+  },
+  {
+    "id": "SENS_CRED_0024",
+    "text": "DATABASE_URL=postgres://app_user:db_pass_xyz_24@db.prod.internal/main",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_24.env"
+  },
+  {
+    "id": "SENS_CRED_0014",
+    "text": "DATABASE_URL=postgres://app_user:db_pass_xyz_14@db.prod.internal/main",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_14.conf"
+  },
+  {
+    "id": "BEN_NUM_0523",
+    "text": "Warehouse inventory count: SKU-998821 quantity: 420 units, warehouse location: Aisle 4, Shelf 12.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_523.log"
+  },
+  {
+    "id": "SENS_API_0126",
+    "text": "AWS_ACCESS_KEY_ID = 'mock_aws_access_key_id_126_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_126.env"
+  },
+  {
+    "id": "BEN_CODE_0475",
+    "text": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY department_id ORDER BY employee_count DESC;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_475.tsx"
+  },
+  {
+    "id": "BEN_NUM_0504",
+    "text": "Flight schedule: Flight AA-1049 departing JFK at 08:30 EST, arriving LAX at 11:45 PST.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_504.log"
+  },
+  {
+    "id": "SENS_EMP_0163",
+    "text": "HR Payroll run: Employee ID EMP00163, Net Pay: $6,420.00, Direct deposit account verified",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_163.csv"
+  },
+  {
+    "id": "BEN_NUM_0535",
+    "text": "Telemetry metric: CPU load 18.4%, memory utilization 42.1%, disk I/O 2.3 MB/s.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_535.csv"
+  },
+  {
+    "id": "SENS_CARD_0053",
+    "text": "MasterCard auth token requested for 5105105105101053, expiration date 09/27",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_53.txt"
+  },
+  {
+    "id": "SENS_ID_0088",
+    "text": "Employee SSN record: 987-98-4321, Full Name: Taylor Swiftly",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_88.txt"
+  },
+  {
+    "id": "SENS_EMP_0184",
+    "text": "Termination severance package: Employee #EMP00184, severance payout $48,000",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_184.csv"
+  },
+  {
+    "id": "SENS_CARD_0054",
+    "text": "Amex corporate transaction: 378282246311054, amount $1,420.50",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_54.txt"
+  },
+  {
+    "id": "SENS_API_0155",
+    "text": "api_key = 'mock_stripe_secret_token_0155xyz_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_155.py"
+  },
+  {
+    "id": "SENS_CONF_0246",
+    "text": "Attorney-client privileged communication regarding pending intellectual property patent dispute",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_246.docx"
+  },
+  {
+    "id": "SENS_CARD_0070",
+    "text": "Credit card storage record: 4123456789011070 holder: Jordan Lee",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_70.csv"
+  },
+  {
+    "id": "SENS_CRED_0040",
+    "text": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3MockRsaKeyLine40 root@internal-host",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_40.conf"
+  },
+  {
+    "id": "BEN_NUM_0531",
+    "text": "Server uptime report: System active for 142 days, 18 hours, 32 minutes without restart.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_531.csv"
+  },
+  {
+    "id": "SENS_EMP_0191",
+    "text": "Internal salary adjustment request for contractor team, hourly rate increased to $145/hr",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_191.txt"
+  },
+  {
+    "id": "BEN_PUB_0342",
+    "text": "Apache License 2.0: You may reproduce and distribute copies of the Work in any medium, with or without modifications.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_342.md"
+  },
+  {
+    "id": "SENS_CONT_0283",
+    "text": "Executive emergency contact roster: CTO email david.banner283@gamma-labs.org, mobile: +44 20 7946 09283",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_283.csv"
+  },
+  {
+    "id": "SENS_CONF_0248",
+    "text": "Trade secret disclosure: Proprietary heuristic scoring formula and machine learning weights",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_248.docx"
+  },
+  {
+    "id": "SENS_CONT_0292",
+    "text": "VIP customer escalation registry: contact email mark.watney292@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_292.csv"
+  },
+  {
+    "id": "SENS_CRED_0027",
+    "text": "vault_token: s.mockVaultTokenForDevTesting27",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_27.env"
+  },
+  {
+    "id": "BEN_OFF_0367",
+    "text": "Happy work anniversary to our front-end engineer on completing 3 years with the company!",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_367.txt"
+  },
+  {
+    "id": "SENS_CARD_0077",
+    "text": "Merchant terminal swipe record: Pan: 4242424242421077 Service code: 201",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_77.txt"
+  },
+  {
+    "id": "SENS_API_0142",
+    "text": "api_secret = 'mock_api_secret_key_token_0142_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_142.py"
+  },
+  {
+    "id": "SENS_CONF_0210",
+    "text": "Privileged risk assessment memo: Impact analysis of internal source code repository exfiltration",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_210.docx"
+  },
+  {
+    "id": "SENS_EMP_0171",
+    "text": "HR Payroll run: Employee ID EMP00171, Net Pay: $6,420.00, Direct deposit account verified",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_171.txt"
+  },
+  {
+    "id": "SENS_CRED_0003",
+    "text": "redis://user:p@ssword3_secret@cache.internal.net:6379",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_3.env"
+  },
+  {
+    "id": "BEN_OFF_0365",
+    "text": "Team lunch vote: Please react with pizza or sushi emoji to choose tomorrow's catered lunch.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_365.txt"
+  },
+  {
+    "id": "BEN_NUM_0533",
+    "text": "Warehouse inventory count: SKU-998821 quantity: 420 units, warehouse location: Aisle 4, Shelf 12.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_533.csv"
+  },
+  {
+    "id": "BEN_NUM_0508",
+    "text": "Weather station telemetry: Temperature 22.4 C, Humidity 58%, Barometric Pressure 1013.2 hPa.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_508.log"
+  },
+  {
+    "id": "SENS_API_0157",
+    "text": "SENDGRID_API_KEY = 'mock_sendgrid_secret_key_0157_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_157.py"
+  },
+  {
+    "id": "SENS_CARD_0078",
+    "text": "Card entry: 340000000001078 Exp: 04/29 Zip: 90210",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_78.txt"
+  },
+  {
+    "id": "SENS_EMP_0181",
+    "text": "Employee compensation ledger: department=Security, base_salary=$190000, equity_grant=4500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_181.csv"
+  },
+  {
+    "id": "SENS_API_0140",
+    "text": "const OPENAI_API_KEY = 'mock_openai_secret_token_0140_simulated';",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_140.py"
+  },
+  {
+    "id": "SENS_CONF_0214",
+    "text": "Proprietary architectural blueprint: Next-generation quantum-resistant encryption engine v2",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_214.pdf"
+  },
+  {
+    "id": "BEN_OFF_0376",
+    "text": "Good morning team, please make sure your timecards are submitted by end of day today.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_376.txt"
+  },
+  {
+    "id": "BEN_OFF_0419",
+    "text": "Please remember to mute your microphone when not speaking during large group meetings.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_419.txt"
+  },
+  {
+    "id": "SENS_CARD_0073",
+    "text": "MasterCard auth token requested for 5105105105101073, expiration date 09/27",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_73.txt"
+  },
+  {
+    "id": "BEN_EDGE_0567",
+    "text": "To reset your forgotten password, click the public recovery link on our help center webpage.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_567.md"
+  },
+  {
+    "id": "SENS_CARD_0063",
+    "text": "MasterCard auth token requested for 5105105105101063, expiration date 09/27",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_63.csv"
+  },
+  {
+    "id": "BEN_OFF_0408",
+    "text": "The AC maintenance in building B is scheduled for Saturday morning between 9 AM and 1 PM.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_408.txt"
+  },
+  {
+    "id": "SENS_CRED_0018",
+    "text": "root:x:0:0:root:/root:/bin/bash\nservice_account:$6$dummy_salt_18$hash_placeholder",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_18.conf"
+  },
+  {
+    "id": "BEN_EDGE_0579",
+    "text": "To reset your forgotten password, click the public recovery link on our help center webpage.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_579.txt"
+  },
+  {
+    "id": "BEN_EDGE_0592",
+    "text": "According to the 2025 Tech Careers Survey, average software engineering salaries grew by 4.2% nationwide.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_592.md"
+  },
+  {
+    "id": "BEN_EDGE_0547",
+    "text": "Learn the difference between debit card and credit card consumer fraud protection rights under Federal law.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_547.md"
+  },
+  {
+    "id": "SENS_CRED_0034",
+    "text": "DATABASE_URL=postgres://app_user:db_pass_xyz_34@db.prod.internal/main",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_34.conf"
+  },
+  {
+    "id": "SENS_CONT_0262",
+    "text": "VIP customer escalation registry: contact email mark.watney262@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_262.csv"
+  },
+  {
+    "id": "SENS_API_0130",
+    "text": "SENDGRID_API_KEY = 'mock_sendgrid_secret_key_0130_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_130.env"
+  },
+  {
+    "id": "BEN_CODE_0448",
+    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>Home Page</title></head>\n<body><h1>Welcome to our Portal</h1></body>\n</html>",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_448.py"
+  },
+  {
+    "id": "SENS_API_0138",
+    "text": "SLACK_BOT_TOKEN = 'mock_slack_bot_token_0138_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_138.py"
+  },
+  {
+    "id": "SENS_CRED_0019",
+    "text": "Here are your initial credentials: username: jdoe, temporary_password: InitPass19!@#",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_19.conf"
+  },
+  {
+    "id": "BEN_NUM_0509",
+    "text": "Order shipment tracking status: Package #99281-TRACK delivery confirmed at front porch.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_509.log"
+  },
+  {
+    "id": "SENS_API_0145",
+    "text": "GITHUB_TOKEN = 'mock_github_personal_token_0145_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_145.env"
+  },
+  {
+    "id": "BEN_EDGE_0543",
+    "text": "To reset your forgotten password, click the public recovery link on our help center webpage.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_543.md"
+  },
+  {
+    "id": "BEN_CODE_0442",
+    "text": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_442.py"
+  },
+  {
+    "id": "SENS_CRED_0005",
+    "text": "mongodb+srv://admin:ClusterPass599@cluster0.internal.net/analytics",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_5.env"
+  },
+  {
+    "id": "SENS_CRED_0038",
+    "text": "root:x:0:0:root:/root:/bin/bash\nservice_account:$6$dummy_salt_38$hash_placeholder",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_38.conf"
+  },
+  {
+    "id": "SENS_CONT_0269",
+    "text": "Whistleblower confidential tip contact: anon_source269@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_269.txt"
+  },
+  {
+    "id": "BEN_NUM_0526",
+    "text": "HTTP 200 GET /index.html 192.168.1.1 Mozilla/5.0 45ms bytes_sent=14092",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_526.log"
+  },
+  {
+    "id": "SENS_API_0154",
+    "text": "GITHUB_TOKEN = 'mock_github_personal_token_0154_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_154.py"
+  },
+  {
+    "id": "BEN_PUB_0358",
+    "text": "The annual cybersecurity symposium will be held in San Francisco from October 12 to 14, 2026.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_358.html"
+  },
+  {
+    "id": "SENS_CONF_0203",
+    "text": "INTERNAL USE ONLY: Board of Directors meeting minutes regarding Q3 financial performance and layoffs",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_203.docx"
+  },
+  {
+    "id": "BEN_PUB_0303",
+    "text": "Press Release: Open Source Community releases new version 4.2 of the data visualization library.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_303.md"
+  },
+  {
+    "id": "BEN_CODE_0423",
+    "text": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / 100);\n  return price - discount;\n};",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_423.py"
+  },
+  {
+    "id": "SENS_CONT_0290",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet290@estate-trust.co.uk, Telephone: 07700 900290",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_290.txt"
+  },
+  {
+    "id": "BEN_EDGE_0568",
+    "text": "According to the 2025 Tech Careers Survey, average software engineering salaries grew by 4.2% nationwide.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_568.md"
+  },
+  {
+    "id": "SENS_API_0134",
+    "text": "aws_secret_access_key = 'mock_aws_secret_access_key_134_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_134.py"
+  },
+  {
+    "id": "SENS_EMP_0162",
+    "text": "Confidential compensation review: Staff salary band 7 approved at $175,000 per annum",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_162.csv"
+  },
+  {
+    "id": "SENS_CONT_0268",
+    "text": "Executive emergency contact roster: CTO email david.banner268@gamma-labs.org, mobile: +44 20 7946 09268",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_268.txt"
+  },
+  {
+    "id": "BEN_NUM_0538",
+    "text": "Weather station telemetry: Temperature 22.4 C, Humidity 58%, Barometric Pressure 1013.2 hPa.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_538.csv"
+  },
+  {
+    "id": "SENS_CONT_0281",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor281@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_281.csv"
+  },
+  {
+    "id": "SENS_CRED_0021",
+    "text": "DB_PASSWORD=demo_secret_pass_21!",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_21.env"
+  },
+  {
+    "id": "BEN_CODE_0467",
+    "text": "// Unit test for string manipulation utility\ndescribe('slugify', () => {\n  it('converts title to kebab-case', () => {\n    expect(slugify('Hello World')).toBe('hello-world');\n  });\n});",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_467.py"
+  },
+  {
+    "id": "BEN_OFF_0386",
+    "text": "Good morning team, please make sure your timecards are submitted by end of day today.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_386.txt"
+  },
+  {
+    "id": "BEN_PUB_0337",
+    "text": "Release Notes v1.2: Fixed minor rendering bug on high-DPI displays and optimized image caching mechanism.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_337.html"
+  },
+  {
+    "id": "SENS_API_0121",
+    "text": "SENDGRID_API_KEY = 'mock_sendgrid_secret_key_0121_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_121.py"
+  },
+  {
+    "id": "BEN_CODE_0469",
+    "text": "import math\ndef compute_hypotenuse(a: float, b: float) -> float:\n    return math.sqrt(a**2 + b**2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_469.py"
+  },
+  {
+    "id": "BEN_OFF_0415",
+    "text": "Team lunch vote: Please react with pizza or sushi emoji to choose tomorrow's catered lunch.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_415.txt"
+  },
+  {
+    "id": "BEN_EDGE_0588",
+    "text": "Our public GitHub repository contains open source documentation and example code templates.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_588.txt"
+  },
+  {
+    "id": "SENS_CARD_0042",
+    "text": "Billing account update: Visa ending in 4532015099881042, cardholder: Alex Morgan",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_42.csv"
+  },
+  {
+    "id": "BEN_NUM_0497",
+    "text": "Event counter: Total website visitors today: 184,920 unique IP addresses recorded.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_497.csv"
+  },
+  {
+    "id": "SENS_CONT_0289",
+    "text": "Whistleblower confidential tip contact: anon_source289@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_289.txt"
+  },
+  {
+    "id": "BEN_CODE_0459",
+    "text": "import math\ndef compute_hypotenuse(a: float, b: float) -> float:\n    return math.sqrt(a**2 + b**2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_459.tsx"
+  },
+  {
+    "id": "BEN_EDGE_0574",
+    "text": "Public support contact for general questions: info@example-company.org, toll-free 1-800-555-0199.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_574.md"
+  },
+  {
+    "id": "SENS_CONT_0258",
+    "text": "Executive emergency contact roster: CTO email david.banner258@gamma-labs.org, mobile: +44 20 7946 09258",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_258.txt"
+  },
+  {
+    "id": "SENS_CONF_0245",
+    "text": "Restricted distribution: Customer vulnerability assessment report detailing unpatched CVEs in core api",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_245.docx"
+  },
+  {
+    "id": "BEN_PUB_0319",
+    "text": "Read our whitepaper on Modern Zero Trust Network Architecture and Endpoint Security Best Practices.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_319.html"
+  },
+  {
+    "id": "BEN_PUB_0357",
+    "text": "Release Notes v1.2: Fixed minor rendering bug on high-DPI displays and optimized image caching mechanism.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_357.html"
+  },
+  {
+    "id": "SENS_EMP_0161",
+    "text": "Executive payroll memo: John Doe, Chief Architect, base salary $245,000, bonus 25%",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_161.csv"
+  },
+  {
+    "id": "BEN_PUB_0348",
+    "text": "The annual cybersecurity symposium will be held in San Francisco from October 12 to 14, 2026.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_348.md"
+  },
+  {
+    "id": "SENS_CONT_0278",
+    "text": "Executive emergency contact roster: CTO email david.banner278@gamma-labs.org, mobile: +44 20 7946 09278",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_278.txt"
+  },
+  {
+    "id": "BEN_CODE_0422",
+    "text": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_422.py"
+  },
+  {
+    "id": "SENS_ID_0112",
+    "text": "HR compliance record: SSN 000-32-9999 for identity verification step 2",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_112.xlsx"
+  },
+  {
+    "id": "SENS_API_0152",
+    "text": "aws_secret_access_key = 'mock_aws_secret_access_key_152_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_152.py"
+  },
+  {
+    "id": "BEN_PUB_0332",
+    "text": "Apache License 2.0: You may reproduce and distribute copies of the Work in any medium, with or without modifications.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_332.html"
+  },
+  {
+    "id": "SENS_CARD_0080",
+    "text": "Credit card storage record: 4123456789011080 holder: Jordan Lee",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_80.txt"
+  },
+  {
+    "id": "SENS_CONF_0250",
+    "text": "Privileged risk assessment memo: Impact analysis of internal source code repository exfiltration",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_250.docx"
+  },
+  {
+    "id": "BEN_EDGE_0544",
+    "text": "According to the 2025 Tech Careers Survey, average software engineering salaries grew by 4.2% nationwide.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_544.md"
+  },
+  {
+    "id": "BEN_CODE_0443",
+    "text": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / 100);\n  return price - discount;\n};",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_443.py"
+  },
+  {
+    "id": "BEN_NUM_0514",
+    "text": "Flight schedule: Flight AA-1049 departing JFK at 08:30 EST, arriving LAX at 11:45 PST.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_514.csv"
+  },
+  {
+    "id": "BEN_CODE_0458",
+    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>Home Page</title></head>\n<body><h1>Welcome to our Portal</h1></body>\n</html>",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_458.tsx"
+  },
+  {
+    "id": "BEN_OFF_0405",
+    "text": "Team lunch vote: Please react with pizza or sushi emoji to choose tomorrow's catered lunch.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_405.txt"
+  },
+  {
+    "id": "SENS_EMP_0200",
+    "text": "Termination severance package: Employee #EMP00200, severance payout $48,000",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_200.csv"
+  },
+  {
+    "id": "BEN_CODE_0457",
+    "text": "// Unit test for string manipulation utility\ndescribe('slugify', () => {\n  it('converts title to kebab-case', () => {\n    expect(slugify('Hello World')).toBe('hello-world');\n  });\n});",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_457.tsx"
+  },
+  {
+    "id": "SENS_EMP_0195",
+    "text": "HR Payroll run: Employee ID EMP00195, Net Pay: $6,420.00, Direct deposit account verified",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_195.csv"
+  },
+  {
+    "id": "BEN_NUM_0487",
+    "text": "Event counter: Total website visitors today: 184,920 unique IP addresses recorded.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_487.log"
+  },
+  {
+    "id": "BEN_EDGE_0554",
+    "text": "Password managers allow users to store complex credentials securely without writing them down on sticky notes.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_554.txt"
+  },
+  {
+    "id": "SENS_CONF_0206",
+    "text": "Attorney-client privileged communication regarding pending intellectual property patent dispute",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_206.docx"
+  },
+  {
+    "id": "BEN_PUB_0360",
+    "text": "API Reference Guide: The `/health` endpoint returns HTTP 200 OK with the current service status.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_360.html"
+  },
+  {
+    "id": "SENS_CONF_0247",
+    "text": "Confidential product roadmap: Unannounced zero-trust enterprise agent launch scheduled for November",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_247.docx"
+  },
+  {
+    "id": "BEN_OFF_0361",
+    "text": "Reminder: The kitchen refrigerator will be cleaned on Friday afternoon at 4:00 PM. Please label your food.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_361.txt"
+  },
+  {
+    "id": "BEN_PUB_0352",
+    "text": "Apache License 2.0: You may reproduce and distribute copies of the Work in any medium, with or without modifications.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_352.html"
+  },
+  {
+    "id": "SENS_ID_0086",
+    "text": "Identity docket: SSN 999-96-1111, Driver License: DL00000096TX",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_86.xlsx"
+  },
+  {
+    "id": "BEN_NUM_0539",
+    "text": "Order shipment tracking status: Package #99281-TRACK delivery confirmed at front porch.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_539.csv"
+  },
+  {
+    "id": "SENS_CARD_0048",
+    "text": "Card entry: 340000000001048 Exp: 04/29 Zip: 90210",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_48.csv"
+  },
+  {
+    "id": "SENS_CRED_0008",
+    "text": "root:x:0:0:root:/root:/bin/bash\nservice_account:$6$dummy_salt_8$hash_placeholder",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_8.env"
+  },
+  {
+    "id": "BEN_PUB_0359",
+    "text": "Read our whitepaper on Modern Zero Trust Network Architecture and Endpoint Security Best Practices.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_359.html"
+  },
+  {
+    "id": "BEN_EDGE_0599",
+    "text": "Customer feedback ticket #49281: 'The checkout page button was easy to click, great job!'",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_599.md"
+  },
+  {
+    "id": "BEN_PUB_0339",
+    "text": "Read our whitepaper on Modern Zero Trust Network Architecture and Endpoint Security Best Practices.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_339.html"
+  },
+  {
+    "id": "BEN_OFF_0407",
+    "text": "Happy work anniversary to our front-end engineer on completing 3 years with the company!",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_407.txt"
+  },
+  {
+    "id": "SENS_CONF_0227",
+    "text": "Confidential product roadmap: Unannounced zero-trust enterprise agent launch scheduled for November",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_227.docx"
+  },
+  {
+    "id": "SENS_CRED_0039",
+    "text": "Here are your initial credentials: username: jdoe, temporary_password: InitPass39!@#",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_39.conf"
+  },
+  {
+    "id": "BEN_PUB_0334",
+    "text": "Getting Started Guide: To install the package, execute `npm install --save my-package` in your terminal.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_334.html"
+  },
+  {
+    "id": "SENS_CONF_0237",
+    "text": "Confidential product roadmap: Unannounced zero-trust enterprise agent launch scheduled for November",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_237.pdf"
+  },
+  {
+    "id": "BEN_OFF_0373",
+    "text": "Office supply order placed: whiteboard markers, printer paper, sticky notes, and replacement coffee filters.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_373.txt"
+  },
+  {
+    "id": "SENS_ID_0094",
+    "text": "Patient identity registry: SSN: 321-14-9876, State ID: CA0000014",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_94.txt"
+  },
+  {
+    "id": "BEN_EDGE_0569",
+    "text": "Negotiating your base salary requires understanding industry benchmarks and market rate data points.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_569.md"
+  },
+  {
+    "id": "BEN_EDGE_0552",
+    "text": "Our public GitHub repository contains open source documentation and example code templates.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_552.md"
+  },
+  {
+    "id": "SENS_CONF_0230",
+    "text": "Privileged risk assessment memo: Impact analysis of internal source code repository exfiltration",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_230.docx"
+  },
+  {
+    "id": "BEN_CODE_0468",
+    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>Home Page</title></head>\n<body><h1>Welcome to our Portal</h1></body>\n</html>",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_468.py"
+  },
+  {
+    "id": "BEN_PUB_0351",
+    "text": "SentinelX is an intelligent Data Loss Prevention system designed to detect and prevent unauthorized exfiltration.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_351.html"
+  },
+  {
+    "id": "SENS_ID_0099",
+    "text": "Government ID verification: US Passport #P00001984, Country of Issuance: USA",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_99.xlsx"
+  },
+  {
+    "id": "BEN_EDGE_0558",
+    "text": "Credit card processing fees typically range between 1.5% and 3.5% per merchant transaction.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_558.txt"
+  },
+  {
+    "id": "SENS_CARD_0056",
+    "text": "Direct debit card recorded: 5555555555551056, auth code: 49201",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_56.txt"
+  },
+  {
+    "id": "BEN_NUM_0510",
+    "text": "Benchmark run #42 completed in 1.482 seconds across 10,000 simulated iterations.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_510.log"
+  },
+  {
+    "id": "SENS_CONF_0207",
+    "text": "Confidential product roadmap: Unannounced zero-trust enterprise agent launch scheduled for November",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_207.docx"
+  },
+  {
+    "id": "SENS_CRED_0032",
+    "text": "admin_password = 'SecretAdminKey32#$'",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_32.conf"
+  },
+  {
+    "id": "SENS_CARD_0051",
+    "text": "Customer payment processed: Card number 4111222233331051, exp 12/28, CVV 842",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_51.txt"
+  },
+  {
+    "id": "BEN_PUB_0331",
+    "text": "SentinelX is an intelligent Data Loss Prevention system designed to detect and prevent unauthorized exfiltration.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_331.html"
+  },
+  {
+    "id": "BEN_PUB_0335",
+    "text": "System requirements: Minimum 4GB RAM, dual-core CPU, and 20GB of available disk space required.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_335.html"
+  },
+  {
+    "id": "BEN_EDGE_0584",
+    "text": "Shipping tracking code: 4111-9988-2233 (UPS ground delivery parcel identifier).",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_584.txt"
+  },
+  {
+    "id": "BEN_CODE_0479",
+    "text": "import math\ndef compute_hypotenuse(a: float, b: float) -> float:\n    return math.sqrt(a**2 + b**2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_479.tsx"
+  },
+  {
+    "id": "SENS_CONF_0211",
+    "text": "CONFIDENTIAL AND PROPRIETARY: Strategic acquisition roadmap for Project Titan Q4",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_211.pdf"
+  },
+  {
+    "id": "BEN_OFF_0402",
+    "text": "Thanks for the update on the sprint board. Let us review the user stories during the morning standup.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_402.txt"
+  },
+  {
+    "id": "SENS_EMP_0182",
+    "text": "Staff payroll list: ID=0182, Role=Senior Developer, Monthly Salary=$12,500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_182.csv"
+  },
+  {
+    "id": "BEN_EDGE_0570",
+    "text": "Credit card processing fees typically range between 1.5% and 3.5% per merchant transaction.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_570.md"
+  },
+  {
+    "id": "BEN_OFF_0409",
+    "text": "Please remember to mute your microphone when not speaking during large group meetings.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_409.txt"
+  },
+  {
+    "id": "SENS_CARD_0050",
+    "text": "Credit card storage record: 4123456789011050 holder: Jordan Lee",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_50.csv"
+  },
+  {
+    "id": "SENS_CARD_0049",
+    "text": "Batch card reconciliation: 5200828282821049 status approved",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_49.csv"
+  },
+  {
+    "id": "SENS_ID_0098",
+    "text": "HR compliance record: SSN 000-18-9999 for identity verification step 2",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_98.xlsx"
+  },
+  {
+    "id": "SENS_CONF_0209",
+    "text": "Confidential audit findings: Major compliance deficiency observed in EU customer data segregation",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_209.docx"
+  },
+  {
+    "id": "BEN_PUB_0355",
+    "text": "System requirements: Minimum 4GB RAM, dual-core CPU, and 20GB of available disk space required.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_355.html"
+  },
+  {
+    "id": "SENS_API_0125",
+    "text": "aws_secret_access_key = 'mock_aws_secret_access_key_125_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_125.env"
+  },
+  {
+    "id": "SENS_CONF_0243",
+    "text": "INTERNAL USE ONLY: Board of Directors meeting minutes regarding Q3 financial performance and layoffs",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_243.docx"
+  },
+  {
+    "id": "SENS_CONT_0296",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor296@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_296.txt"
+  },
+  {
+    "id": "SENS_CONT_0293",
+    "text": "Executive emergency contact roster: CTO email david.banner293@gamma-labs.org, mobile: +44 20 7946 09293",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_293.csv"
+  },
+  {
+    "id": "BEN_NUM_0521",
+    "text": "Server uptime report: System active for 142 days, 18 hours, 32 minutes without restart.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_521.log"
+  },
+  {
+    "id": "BEN_OFF_0400",
+    "text": "The company book club will discuss chapters 4 and 5 of Designing Data-Intensive Applications on Thursday.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_400.txt"
+  },
+  {
+    "id": "SENS_ID_0110",
+    "text": "Applicant background verification: Social Security: 123-30-6789, DOB: 1985-04-12",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_110.xlsx"
+  },
+  {
+    "id": "BEN_OFF_0416",
+    "text": "Good morning team, please make sure your timecards are submitted by end of day today.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_416.txt"
+  },
+  {
+    "id": "BEN_PUB_0343",
+    "text": "Press Release: Open Source Community releases new version 4.2 of the data visualization library.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_343.md"
+  },
+  {
+    "id": "BEN_NUM_0517",
+    "text": "Event counter: Total website visitors today: 184,920 unique IP addresses recorded.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_517.csv"
+  },
+  {
+    "id": "SENS_API_0122",
+    "text": "const OPENAI_API_KEY = 'mock_openai_secret_token_0122_simulated';",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_122.py"
+  },
+  {
+    "id": "SENS_CONT_0264",
+    "text": "Whistleblower confidential tip contact: anon_source264@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_264.csv"
+  },
+  {
+    "id": "BEN_OFF_0398",
+    "text": "The AC maintenance in building B is scheduled for Saturday morning between 9 AM and 1 PM.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_398.txt"
+  },
+  {
+    "id": "SENS_EMP_0170",
+    "text": "Confidential compensation review: Staff salary band 7 approved at $175,000 per annum",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_170.txt"
+  },
+  {
+    "id": "SENS_CRED_0017",
+    "text": "vault_token: s.mockVaultTokenForDevTesting17",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_17.conf"
+  },
+  {
+    "id": "SENS_CRED_0035",
+    "text": "mongodb+srv://admin:ClusterPass3599@cluster0.internal.net/analytics",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_35.conf"
+  },
+  {
+    "id": "BEN_OFF_0378",
+    "text": "The AC maintenance in building B is scheduled for Saturday morning between 9 AM and 1 PM.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_378.txt"
+  },
+  {
+    "id": "BEN_EDGE_0589",
+    "text": "Always choose a strong, unique password consisting of letters, numbers, and symbols for each account.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_589.md"
+  },
+  {
+    "id": "BEN_NUM_0524",
+    "text": "Flight schedule: Flight AA-1049 departing JFK at 08:30 EST, arriving LAX at 11:45 PST.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_524.log"
+  },
+  {
+    "id": "BEN_OFF_0363",
+    "text": "Office supply order placed: whiteboard markers, printer paper, sticky notes, and replacement coffee filters.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_363.txt"
+  },
+  {
+    "id": "SENS_CRED_0037",
+    "text": "vault_token: s.mockVaultTokenForDevTesting37",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_37.conf"
+  },
+  {
+    "id": "SENS_CRED_0004",
+    "text": "DATABASE_URL=postgres://app_user:db_pass_xyz_4@db.prod.internal/main",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_4.env"
+  },
+  {
+    "id": "BEN_NUM_0499",
+    "text": "Order shipment tracking status: Package #99281-TRACK delivery confirmed at front porch.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_499.csv"
+  },
+  {
+    "id": "BEN_NUM_0540",
+    "text": "Benchmark run #42 completed in 1.482 seconds across 10,000 simulated iterations.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_540.csv"
+  },
+  {
+    "id": "SENS_API_0118",
+    "text": "GITHUB_TOKEN = 'mock_github_personal_token_0118_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_118.py"
+  },
+  {
+    "id": "BEN_CODE_0476",
+    "text": "class TemperatureConverter:\n    @staticmethod\n    def celsius_to_fahrenheit(c):\n        return (c * 9/5) + 32",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_476.tsx"
+  },
+  {
+    "id": "BEN_PUB_0302",
+    "text": "Apache License 2.0: You may reproduce and distribute copies of the Work in any medium, with or without modifications.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_302.md"
+  },
+  {
+    "id": "SENS_CRED_0011",
+    "text": "DB_PASSWORD=demo_secret_pass_11!",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_11.conf"
+  },
+  {
+    "id": "SENS_EMP_0174",
+    "text": "Staff payroll list: ID=0174, Role=Senior Developer, Monthly Salary=$12,500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_174.txt"
+  },
+  {
+    "id": "BEN_NUM_0483",
+    "text": "Warehouse inventory count: SKU-998821 quantity: 420 units, warehouse location: Aisle 4, Shelf 12.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_483.log"
+  },
+  {
+    "id": "SENS_API_0116",
+    "text": "aws_secret_access_key = 'mock_aws_secret_access_key_116_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_116.py"
+  },
+  {
+    "id": "BEN_NUM_0511",
+    "text": "Server uptime report: System active for 142 days, 18 hours, 32 minutes without restart.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_511.csv"
+  },
+  {
+    "id": "SENS_CARD_0062",
+    "text": "Billing account update: Visa ending in 4532015099881062, cardholder: Alex Morgan",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_62.csv"
+  },
+  {
+    "id": "SENS_CONF_0232",
+    "text": "STRICTLY CONFIDENTIAL: Merger & acquisition preliminary term sheet between Sentinel Corp and Target Ltd",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_232.pdf"
+  },
+  {
+    "id": "SENS_CONT_0265",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet265@estate-trust.co.uk, Telephone: 07700 900265",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_265.csv"
+  },
+  {
+    "id": "BEN_NUM_0529",
+    "text": "Order shipment tracking status: Package #99281-TRACK delivery confirmed at front porch.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_529.log"
+  },
+  {
+    "id": "BEN_CODE_0438",
+    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>Home Page</title></head>\n<body><h1>Welcome to our Portal</h1></body>\n</html>",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_438.tsx"
+  },
+  {
+    "id": "BEN_NUM_0528",
+    "text": "Weather station telemetry: Temperature 22.4 C, Humidity 58%, Barometric Pressure 1013.2 hPa.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_528.log"
+  },
+  {
+    "id": "BEN_PUB_0344",
+    "text": "Getting Started Guide: To install the package, execute `npm install --save my-package` in your terminal.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_344.md"
+  },
+  {
+    "id": "BEN_NUM_0501",
+    "text": "Server uptime report: System active for 142 days, 18 hours, 32 minutes without restart.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_501.log"
+  },
+  {
+    "id": "BEN_EDGE_0571",
+    "text": "Learn the difference between debit card and credit card consumer fraud protection rights under Federal law.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_571.md"
+  },
+  {
+    "id": "BEN_OFF_0366",
+    "text": "Good morning team, please make sure your timecards are submitted by end of day today.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_366.txt"
+  },
+  {
+    "id": "SENS_ID_0103",
+    "text": "Applicant background verification: Social Security: 123-23-6789, DOB: 1985-04-12",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_103.txt"
+  },
+  {
+    "id": "BEN_PUB_0354",
+    "text": "Getting Started Guide: To install the package, execute `npm install --save my-package` in your terminal.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_354.html"
+  },
+  {
+    "id": "BEN_EDGE_0542",
+    "text": "Password managers allow users to store complex credentials securely without writing them down on sticky notes.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_542.md"
+  },
+  {
+    "id": "BEN_NUM_0494",
+    "text": "Flight schedule: Flight AA-1049 departing JFK at 08:30 EST, arriving LAX at 11:45 PST.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_494.csv"
+  },
+  {
+    "id": "BEN_CODE_0435",
+    "text": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY department_id ORDER BY employee_count DESC;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_435.tsx"
+  },
+  {
+    "id": "SENS_ID_0109",
+    "text": "Employee SSN record: 987-29-4321, Full Name: Taylor Swiftly",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_109.xlsx"
+  },
+  {
+    "id": "BEN_NUM_0485",
+    "text": "Telemetry metric: CPU load 18.4%, memory utilization 42.1%, disk I/O 2.3 MB/s.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_485.log"
+  },
+  {
+    "id": "BEN_PUB_0311",
+    "text": "SentinelX is an intelligent Data Loss Prevention system designed to detect and prevent unauthorized exfiltration.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_311.html"
+  },
+  {
+    "id": "BEN_CODE_0478",
+    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><title>Home Page</title></head>\n<body><h1>Welcome to our Portal</h1></body>\n</html>",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_478.tsx"
+  },
+  {
+    "id": "SENS_API_0136",
+    "text": "GITHUB_TOKEN = 'mock_github_personal_token_0136_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_136.py"
+  },
+  {
+    "id": "SENS_ID_0085",
+    "text": "Government ID verification: US Passport #P00009584, Country of Issuance: USA",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_85.xlsx"
+  },
+  {
+    "id": "BEN_EDGE_0598",
+    "text": "Public support contact for general questions: info@example-company.org, toll-free 1-800-555-0199.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_598.md"
+  },
+  {
+    "id": "SENS_CONF_0244",
+    "text": "Proprietary architectural blueprint: Next-generation quantum-resistant encryption engine v2",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_244.docx"
+  },
+  {
+    "id": "BEN_PUB_0338",
+    "text": "The annual cybersecurity symposium will be held in San Francisco from October 12 to 14, 2026.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_338.html"
+  },
+  {
+    "id": "SENS_CARD_0066",
+    "text": "Direct debit card recorded: 5555555555551066, auth code: 49201",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_66.csv"
+  },
+  {
+    "id": "SENS_CARD_0065",
+    "text": "Please charge 4000123456781065 for invoice #99281, authorization approved",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_65.csv"
+  },
+  {
+    "id": "BEN_OFF_0393",
+    "text": "Office supply order placed: whiteboard markers, printer paper, sticky notes, and replacement coffee filters.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_393.txt"
+  },
+  {
+    "id": "SENS_CONT_0273",
+    "text": "Executive emergency contact roster: CTO email david.banner273@gamma-labs.org, mobile: +44 20 7946 09273",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_273.csv"
+  },
+  {
+    "id": "BEN_EDGE_0545",
+    "text": "Negotiating your base salary requires understanding industry benchmarks and market rate data points.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_545.md"
+  },
+  {
+    "id": "SENS_CRED_0036",
+    "text": "export FTP_PASSWORD='SuperSafeFtpPass36!'",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_36.conf"
+  },
+  {
+    "id": "SENS_CONF_0249",
+    "text": "Confidential audit findings: Major compliance deficiency observed in EU customer data segregation",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_249.docx"
+  },
+  {
+    "id": "BEN_OFF_0375",
+    "text": "Team lunch vote: Please react with pizza or sushi emoji to choose tomorrow's catered lunch.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_375.txt"
+  },
+  {
+    "id": "SENS_CARD_0044",
+    "text": "Amex corporate transaction: 378282246311044, amount $1,420.50",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_44.csv"
+  },
+  {
+    "id": "SENS_CARD_0041",
+    "text": "Customer payment processed: Card number 4111222233331041, exp 12/28, CVV 842",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_41.csv"
+  },
+  {
+    "id": "SENS_CONT_0291",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor291@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_291.csv"
+  },
+  {
+    "id": "SENS_API_0124",
+    "text": "api_secret = 'mock_api_secret_key_token_0124_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_124.py"
+  },
+  {
+    "id": "SENS_CRED_0030",
+    "text": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3MockRsaKeyLine30 root@internal-host",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_30.env"
+  },
+  {
+    "id": "SENS_API_0123",
+    "text": "authorization_token = 'mock_bearer_jwt_authorization_token_0123'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_123.py"
+  },
+  {
+    "id": "SENS_API_0158",
+    "text": "const OPENAI_API_KEY = 'mock_openai_secret_token_0158_simulated';",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_158.py"
+  },
+  {
+    "id": "BEN_OFF_0414",
+    "text": "The conference room projector is now working properly after the cable replacement.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_414.txt"
+  },
+  {
+    "id": "BEN_NUM_0500",
+    "text": "Benchmark run #42 completed in 1.482 seconds across 10,000 simulated iterations.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_500.csv"
+  },
+  {
+    "id": "BEN_CODE_0462",
+    "text": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_462.py"
+  },
+  {
+    "id": "SENS_CRED_0010",
+    "text": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3MockRsaKeyLine10 root@internal-host",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_10.env"
+  },
+  {
+    "id": "BEN_NUM_0534",
+    "text": "Flight schedule: Flight AA-1049 departing JFK at 08:30 EST, arriving LAX at 11:45 PST.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_534.csv"
+  },
+  {
+    "id": "SENS_EMP_0166",
+    "text": "Staff payroll list: ID=0166, Role=Senior Developer, Monthly Salary=$12,500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_166.csv"
+  },
+  {
+    "id": "BEN_PUB_0307",
+    "text": "Release Notes v1.2: Fixed minor rendering bug on high-DPI displays and optimized image caching mechanism.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_307.md"
+  },
+  {
+    "id": "SENS_CRED_0001",
+    "text": "DB_PASSWORD=demo_secret_pass_1!",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_1.env"
+  },
+  {
+    "id": "BEN_NUM_0513",
+    "text": "Warehouse inventory count: SKU-998821 quantity: 420 units, warehouse location: Aisle 4, Shelf 12.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_513.csv"
+  },
+  {
+    "id": "BEN_OFF_0399",
+    "text": "Please remember to mute your microphone when not speaking during large group meetings.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_399.txt"
+  },
+  {
+    "id": "BEN_NUM_0530",
+    "text": "Benchmark run #42 completed in 1.482 seconds across 10,000 simulated iterations.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_530.log"
+  },
+  {
+    "id": "SENS_ID_0083",
+    "text": "Tax filing form W-2: Taxpayer SSN: 456-93-0123, Adjusted Gross Income: $84,200",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_83.xlsx"
+  },
+  {
+    "id": "BEN_CODE_0451",
+    "text": "def calculate_fibonacci(n):\n    if n <= 1: return n\n    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_451.tsx"
+  },
+  {
+    "id": "SENS_EMP_0192",
+    "text": "Termination severance package: Employee #EMP00192, severance payout $48,000",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_192.txt"
+  },
+  {
+    "id": "BEN_NUM_0490",
+    "text": "Benchmark run #42 completed in 1.482 seconds across 10,000 simulated iterations.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_490.log"
+  },
+  {
+    "id": "SENS_ID_0102",
+    "text": "Employee SSN record: 987-22-4321, Full Name: Taylor Swiftly",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_102.txt"
+  },
+  {
+    "id": "BEN_PUB_0312",
+    "text": "Apache License 2.0: You may reproduce and distribute copies of the Work in any medium, with or without modifications.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_312.html"
+  },
+  {
+    "id": "BEN_CODE_0455",
+    "text": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY department_id ORDER BY employee_count DESC;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_455.tsx"
+  },
+  {
+    "id": "BEN_PUB_0328",
+    "text": "The annual cybersecurity symposium will be held in San Francisco from October 12 to 14, 2026.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_328.md"
+  },
+  {
+    "id": "BEN_CODE_0431",
+    "text": "def calculate_fibonacci(n):\n    if n <= 1: return n\n    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_431.tsx"
+  },
+  {
+    "id": "SENS_API_0153",
+    "text": "AWS_ACCESS_KEY_ID = 'mock_aws_access_key_id_153_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_153.py"
+  },
+  {
+    "id": "BEN_PUB_0321",
+    "text": "SentinelX is an intelligent Data Loss Prevention system designed to detect and prevent unauthorized exfiltration.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_321.md"
+  },
+  {
+    "id": "BEN_CODE_0446",
+    "text": "class TemperatureConverter:\n    @staticmethod\n    def celsius_to_fahrenheit(c):\n        return (c * 9/5) + 32",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_446.py"
+  },
+  {
+    "id": "SENS_CARD_0055",
+    "text": "Please charge 4000123456781055 for invoice #99281, authorization approved",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_55.txt"
+  },
+  {
+    "id": "SENS_CONT_0260",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet260@estate-trust.co.uk, Telephone: 07700 900260",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_260.txt"
+  },
+  {
+    "id": "SENS_ID_0092",
+    "text": "Government ID verification: US Passport #P00001284, Country of Issuance: USA",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_92.txt"
+  },
+  {
+    "id": "BEN_OFF_0391",
+    "text": "Reminder: The kitchen refrigerator will be cleaned on Friday afternoon at 4:00 PM. Please label your food.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_391.txt"
+  },
+  {
+    "id": "SENS_CONT_0257",
+    "text": "VIP customer escalation registry: contact email mark.watney257@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_257.txt"
+  },
+  {
+    "id": "BEN_NUM_0507",
+    "text": "Event counter: Total website visitors today: 184,920 unique IP addresses recorded.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_507.log"
+  },
+  {
+    "id": "BEN_OFF_0369",
+    "text": "Please remember to mute your microphone when not speaking during large group meetings.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_369.txt"
+  },
+  {
+    "id": "BEN_CODE_0449",
+    "text": "import math\ndef compute_hypotenuse(a: float, b: float) -> float:\n    return math.sqrt(a**2 + b**2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_449.py"
+  },
+  {
+    "id": "BEN_CODE_0472",
+    "text": "import React from 'react';\nexport const Button = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_472.tsx"
+  },
+  {
+    "id": "SENS_CRED_0002",
+    "text": "admin_password = 'SecretAdminKey2#$'",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_2.env"
+  },
+  {
+    "id": "SENS_CONF_0233",
+    "text": "INTERNAL USE ONLY: Board of Directors meeting minutes regarding Q3 financial performance and layoffs",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_233.pdf"
+  },
+  {
+    "id": "BEN_EDGE_0556",
+    "text": "According to the 2025 Tech Careers Survey, average software engineering salaries grew by 4.2% nationwide.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_556.txt"
+  },
+  {
+    "id": "SENS_CONF_0223",
+    "text": "INTERNAL USE ONLY: Board of Directors meeting minutes regarding Q3 financial performance and layoffs",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_223.docx"
+  },
+  {
+    "id": "SENS_API_0151",
+    "text": "api_secret = 'mock_api_secret_key_token_0151_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_151.env"
+  },
+  {
+    "id": "BEN_NUM_0527",
+    "text": "Event counter: Total website visitors today: 184,920 unique IP addresses recorded.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_527.log"
+  },
+  {
+    "id": "SENS_EMP_0175",
+    "text": "Internal salary adjustment request for contractor team, hourly rate increased to $145/hr",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_175.txt"
+  },
+  {
+    "id": "BEN_PUB_0329",
+    "text": "Read our whitepaper on Modern Zero Trust Network Architecture and Endpoint Security Best Practices.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_329.md"
+  },
+  {
+    "id": "BEN_OFF_0394",
+    "text": "The conference room projector is now working properly after the cable replacement.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_394.txt"
+  },
+  {
+    "id": "SENS_API_0137",
+    "text": "api_key = 'mock_stripe_secret_token_0137xyz_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_137.py"
+  },
+  {
+    "id": "BEN_OFF_0385",
+    "text": "Team lunch vote: Please react with pizza or sushi emoji to choose tomorrow's catered lunch.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_385.txt"
+  },
+  {
+    "id": "BEN_NUM_0522",
+    "text": "Public company earnings: Total revenue for Q2 reached $42.5 million, up 12% year-over-year.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_522.log"
+  },
+  {
+    "id": "BEN_CODE_0454",
+    "text": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_454.tsx"
+  },
+  {
+    "id": "BEN_PUB_0350",
+    "text": "API Reference Guide: The `/health` endpoint returns HTTP 200 OK with the current service status.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_350.md"
+  },
+  {
+    "id": "SENS_CARD_0059",
+    "text": "Batch card reconciliation: 5200828282821059 status approved",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_59.txt"
+  },
+  {
+    "id": "BEN_OFF_0370",
+    "text": "The company book club will discuss chapters 4 and 5 of Designing Data-Intensive Applications on Thursday.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_370.txt"
+  },
+  {
+    "id": "BEN_NUM_0486",
+    "text": "HTTP 200 GET /index.html 192.168.1.1 Mozilla/5.0 45ms bytes_sent=14092",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_486.log"
+  },
+  {
+    "id": "SENS_CRED_0006",
+    "text": "export FTP_PASSWORD='SuperSafeFtpPass6!'",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_6.env"
+  },
+  {
+    "id": "BEN_NUM_0492",
+    "text": "Public company earnings: Total revenue for Q2 reached $42.5 million, up 12% year-over-year.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_492.csv"
+  },
+  {
+    "id": "SENS_CONT_0284",
+    "text": "Whistleblower confidential tip contact: anon_source284@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_284.csv"
+  },
+  {
+    "id": "SENS_API_0129",
+    "text": "SLACK_BOT_TOKEN = 'mock_slack_bot_token_0129_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_129.env"
+  },
+  {
+    "id": "BEN_EDGE_0562",
+    "text": "Public support contact for general questions: info@example-company.org, toll-free 1-800-555-0199.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_562.txt"
+  },
+  {
+    "id": "SENS_CONF_0240",
+    "text": "Privileged risk assessment memo: Impact analysis of internal source code repository exfiltration",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_240.pdf"
+  },
+  {
+    "id": "BEN_NUM_0484",
+    "text": "Flight schedule: Flight AA-1049 departing JFK at 08:30 EST, arriving LAX at 11:45 PST.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_484.log"
+  },
+  {
+    "id": "SENS_EMP_0196",
+    "text": "Annual bonus allocation table: Engineering Lead bonus compensation $35,000 payable Q1",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_196.csv"
+  },
+  {
+    "id": "SENS_EMP_0198",
+    "text": "Staff payroll list: ID=0198, Role=Senior Developer, Monthly Salary=$12,500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_198.csv"
+  },
+  {
+    "id": "BEN_NUM_0525",
+    "text": "Telemetry metric: CPU load 18.4%, memory utilization 42.1%, disk I/O 2.3 MB/s.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "metrics_525.log"
+  },
+  {
+    "id": "BEN_PUB_0306",
+    "text": "Our customer support team is available 24/7 to answer general inquiries about service uptime and features.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_306.md"
+  },
+  {
+    "id": "BEN_NUM_0520",
+    "text": "Benchmark run #42 completed in 1.482 seconds across 10,000 simulated iterations.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_520.csv"
+  },
+  {
+    "id": "BEN_EDGE_0573",
+    "text": "Invoice order number: INV-123-45-6789 created for office stationery bulk purchase.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_573.md"
+  },
+  {
+    "id": "BEN_NUM_0516",
+    "text": "HTTP 200 GET /index.html 192.168.1.1 Mozilla/5.0 45ms bytes_sent=14092",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_516.csv"
+  },
+  {
+    "id": "BEN_EDGE_0548",
+    "text": "Shipping tracking code: 4111-9988-2233 (UPS ground delivery parcel identifier).",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_548.md"
+  },
+  {
+    "id": "BEN_PUB_0322",
+    "text": "Apache License 2.0: You may reproduce and distribute copies of the Work in any medium, with or without modifications.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_322.md"
+  },
+  {
+    "id": "SENS_CARD_0079",
+    "text": "Batch card reconciliation: 5200828282821079 status approved",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_79.txt"
+  },
+  {
+    "id": "SENS_CARD_0057",
+    "text": "Merchant terminal swipe record: Pan: 4242424242421057 Service code: 201",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_57.txt"
+  },
+  {
+    "id": "BEN_CODE_0441",
+    "text": "def calculate_fibonacci(n):\n    if n <= 1: return n\n    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_441.py"
+  },
+  {
+    "id": "SENS_CRED_0025",
+    "text": "mongodb+srv://admin:ClusterPass2599@cluster0.internal.net/analytics",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_25.env"
+  },
+  {
+    "id": "BEN_OFF_0387",
+    "text": "Happy work anniversary to our front-end engineer on completing 3 years with the company!",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_387.txt"
+  },
+  {
+    "id": "BEN_EDGE_0551",
+    "text": "Customer feedback ticket #49281: 'The checkout page button was easy to click, great job!'",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_551.md"
+  },
+  {
+    "id": "SENS_CONT_0253",
+    "text": "Executive emergency contact roster: CTO email david.banner253@gamma-labs.org, mobile: +44 20 7946 09253",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_253.csv"
+  },
+  {
+    "id": "SENS_CONT_0261",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor261@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_261.csv"
+  },
+  {
+    "id": "SENS_CARD_0071",
+    "text": "Customer payment processed: Card number 4111222233331071, exp 12/28, CVV 842",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_71.txt"
+  },
+  {
+    "id": "SENS_ID_0113",
+    "text": "Government ID verification: US Passport #P00003384, Country of Issuance: USA",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_113.xlsx"
+  },
+  {
+    "id": "SENS_EMP_0186",
+    "text": "Confidential compensation review: Staff salary band 7 approved at $175,000 per annum",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_186.txt"
+  },
+  {
+    "id": "SENS_CONF_0205",
+    "text": "Restricted distribution: Customer vulnerability assessment report detailing unpatched CVEs in core api",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_205.docx"
+  },
+  {
+    "id": "SENS_CONT_0299",
+    "text": "Whistleblower confidential tip contact: anon_source299@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_299.txt"
+  },
+  {
+    "id": "BEN_EDGE_0578",
+    "text": "Password managers allow users to store complex credentials securely without writing them down on sticky notes.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_578.txt"
+  },
+  {
+    "id": "SENS_CONF_0220",
+    "text": "Privileged risk assessment memo: Impact analysis of internal source code repository exfiltration",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_220.pdf"
+  },
+  {
+    "id": "SENS_CONT_0300",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet300@estate-trust.co.uk, Telephone: 07700 900300",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_300.txt"
+  },
+  {
+    "id": "BEN_OFF_0383",
+    "text": "Office supply order placed: whiteboard markers, printer paper, sticky notes, and replacement coffee filters.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_383.txt"
+  },
+  {
+    "id": "SENS_API_0135",
+    "text": "AWS_ACCESS_KEY_ID = 'mock_aws_access_key_id_135_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_135.py"
+  },
+  {
+    "id": "SENS_CONT_0276",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor276@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_276.txt"
+  },
+  {
+    "id": "SENS_CONT_0288",
+    "text": "Executive emergency contact roster: CTO email david.banner288@gamma-labs.org, mobile: +44 20 7946 09288",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_288.txt"
+  },
+  {
+    "id": "BEN_OFF_0382",
+    "text": "Thanks for the update on the sprint board. Let us review the user stories during the morning standup.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_382.txt"
+  },
+  {
+    "id": "SENS_API_0127",
+    "text": "GITHUB_TOKEN = 'mock_github_personal_token_0127_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_127.env"
+  },
+  {
+    "id": "BEN_EDGE_0595",
+    "text": "Learn the difference between debit card and credit card consumer fraud protection rights under Federal law.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_595.md"
+  },
+  {
+    "id": "SENS_CONT_0272",
+    "text": "VIP customer escalation registry: contact email mark.watney272@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_272.csv"
+  },
+  {
+    "id": "SENS_API_0147",
+    "text": "SLACK_BOT_TOKEN = 'mock_slack_bot_token_0147_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_147.env"
+  },
+  {
+    "id": "BEN_CODE_0470",
+    "text": "git checkout -b feature/new-login-ui\ngit add .\ngit commit -m 'Implement responsive layout'",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_470.py"
+  },
+  {
+    "id": "BEN_OFF_0406",
+    "text": "Good morning team, please make sure your timecards are submitted by end of day today.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_406.txt"
+  },
+  {
+    "id": "BEN_NUM_0512",
+    "text": "Public company earnings: Total revenue for Q2 reached $42.5 million, up 12% year-over-year.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_512.csv"
+  },
+  {
+    "id": "SENS_CONF_0218",
+    "text": "Trade secret disclosure: Proprietary heuristic scoring formula and machine learning weights",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_218.pdf"
+  },
+  {
+    "id": "BEN_PUB_0323",
+    "text": "Press Release: Open Source Community releases new version 4.2 of the data visualization library.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_323.md"
+  },
+  {
+    "id": "SENS_CONF_0217",
+    "text": "Confidential product roadmap: Unannounced zero-trust enterprise agent launch scheduled for November",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_217.pdf"
+  },
+  {
+    "id": "SENS_CARD_0068",
+    "text": "Card entry: 340000000001068 Exp: 04/29 Zip: 90210",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_68.csv"
+  },
+  {
+    "id": "SENS_CONT_0275",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet275@estate-trust.co.uk, Telephone: 07700 900275",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_275.csv"
+  },
+  {
+    "id": "BEN_OFF_0411",
+    "text": "Reminder: The kitchen refrigerator will be cleaned on Friday afternoon at 4:00 PM. Please label your food.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_411.txt"
+  },
+  {
+    "id": "BEN_PUB_0324",
+    "text": "Getting Started Guide: To install the package, execute `npm install --save my-package` in your terminal.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_324.md"
+  },
+  {
+    "id": "BEN_EDGE_0590",
+    "text": "Password managers allow users to store complex credentials securely without writing them down on sticky notes.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_590.md"
+  },
+  {
+    "id": "SENS_CONF_0235",
+    "text": "Restricted distribution: Customer vulnerability assessment report detailing unpatched CVEs in core api",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_235.pdf"
+  },
+  {
+    "id": "SENS_CARD_0058",
+    "text": "Card entry: 340000000001058 Exp: 04/29 Zip: 90210",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_58.txt"
+  },
+  {
+    "id": "BEN_PUB_0333",
+    "text": "Press Release: Open Source Community releases new version 4.2 of the data visualization library.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_333.html"
+  },
+  {
+    "id": "SENS_CONF_0225",
+    "text": "Restricted distribution: Customer vulnerability assessment report detailing unpatched CVEs in core api",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_225.docx"
+  },
+  {
+    "id": "SENS_CONT_0277",
+    "text": "VIP customer escalation registry: contact email mark.watney277@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_277.txt"
+  },
+  {
+    "id": "BEN_OFF_0389",
+    "text": "Please remember to mute your microphone when not speaking during large group meetings.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_389.txt"
+  },
+  {
+    "id": "BEN_CODE_0474",
+    "text": ".header-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 1rem;\n}",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_474.tsx"
+  },
+  {
+    "id": "SENS_EMP_0168",
+    "text": "Termination severance package: Employee #EMP00168, severance payout $48,000",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_168.csv"
+  },
+  {
+    "id": "BEN_EDGE_0597",
+    "text": "Invoice order number: INV-123-45-6789 created for office stationery bulk purchase.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_597.md"
+  },
+  {
+    "id": "SENS_EMP_0176",
+    "text": "Termination severance package: Employee #EMP00176, severance payout $48,000",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "payroll_q3_176.txt"
+  },
+  {
+    "id": "SENS_CARD_0074",
+    "text": "Amex corporate transaction: 378282246311074, amount $1,420.50",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_74.txt"
+  },
+  {
+    "id": "SENS_CONT_0274",
+    "text": "Whistleblower confidential tip contact: anon_source274@protonmail-secure.ch, phone: +1-202-555-0143",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_274.csv"
+  },
+  {
+    "id": "SENS_CONF_0215",
+    "text": "Restricted distribution: Customer vulnerability assessment report detailing unpatched CVEs in core api",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_215.pdf"
+  },
+  {
+    "id": "BEN_OFF_0364",
+    "text": "The conference room projector is now working properly after the cable replacement.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_364.txt"
+  },
+  {
+    "id": "BEN_OFF_0380",
+    "text": "The company book club will discuss chapters 4 and 5 of Designing Data-Intensive Applications on Thursday.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_380.txt"
+  },
+  {
+    "id": "SENS_EMP_0167",
+    "text": "Internal salary adjustment request for contractor team, hourly rate increased to $145/hr",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_167.csv"
+  },
+  {
+    "id": "BEN_OFF_0374",
+    "text": "The conference room projector is now working properly after the cable replacement.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_374.txt"
+  },
+  {
+    "id": "BEN_CODE_0465",
+    "text": "SELECT department_id, COUNT(*) AS employee_count FROM departments GROUP BY department_id ORDER BY employee_count DESC;",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_465.py"
+  },
+  {
+    "id": "BEN_EDGE_0572",
+    "text": "Shipping tracking code: 4111-9988-2233 (UPS ground delivery parcel identifier).",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_572.md"
+  },
+  {
+    "id": "BEN_EDGE_0566",
+    "text": "Password managers allow users to store complex credentials securely without writing them down on sticky notes.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_566.md"
+  },
+  {
+    "id": "SENS_ID_0104",
+    "text": "Tax filing form W-2: Taxpayer SSN: 456-24-0123, Adjusted Gross Income: $84,200",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_104.txt"
+  },
+  {
+    "id": "BEN_EDGE_0586",
+    "text": "Public support contact for general questions: info@example-company.org, toll-free 1-800-555-0199.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_586.txt"
+  },
+  {
+    "id": "SENS_ID_0082",
+    "text": "Applicant background verification: Social Security: 123-92-6789, DOB: 1985-04-12",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_82.xlsx"
+  },
+  {
+    "id": "SENS_CONT_0297",
+    "text": "VIP customer escalation registry: contact email mark.watney297@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "vip_roster_297.txt"
+  },
+  {
+    "id": "SENS_CONF_0234",
+    "text": "Proprietary architectural blueprint: Next-generation quantum-resistant encryption engine v2",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_234.pdf"
+  },
+  {
+    "id": "SENS_CARD_0047",
+    "text": "Merchant terminal swipe record: Pan: 4242424242421047 Service code: 201",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_47.csv"
+  },
+  {
+    "id": "SENS_CARD_0072",
+    "text": "Billing account update: Visa ending in 4532015099881072, cardholder: Alex Morgan",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "billing_export_72.txt"
+  },
+  {
+    "id": "SENS_EMP_0197",
+    "text": "Employee compensation ledger: department=Security, base_salary=$190000, equity_grant=4500",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_197.csv"
+  },
+  {
+    "id": "BEN_OFF_0371",
+    "text": "Reminder: The kitchen refrigerator will be cleaned on Friday afternoon at 4:00 PM. Please label your food.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "slack_archive_371.txt"
+  },
+  {
+    "id": "BEN_PUB_0301",
+    "text": "SentinelX is an intelligent Data Loss Prevention system designed to detect and prevent unauthorized exfiltration.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_301.md"
+  },
+  {
+    "id": "SENS_ID_0081",
+    "text": "Employee SSN record: 987-91-4321, Full Name: Taylor Swiftly",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_81.xlsx"
+  },
+  {
+    "id": "BEN_OFF_0388",
+    "text": "The AC maintenance in building B is scheduled for Saturday morning between 9 AM and 1 PM.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_388.txt"
+  },
+  {
+    "id": "SENS_API_0128",
+    "text": "api_key = 'mock_stripe_secret_token_0128xyz_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_128.env"
+  },
+  {
+    "id": "BEN_EDGE_0550",
+    "text": "Public support contact for general questions: info@example-company.org, toll-free 1-800-555-0199.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_550.md"
+  },
+  {
+    "id": "BEN_CODE_0471",
+    "text": "def calculate_fibonacci(n):\n    if n <= 1: return n\n    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_471.tsx"
+  },
+  {
+    "id": "SENS_CARD_0045",
+    "text": "Please charge 4000123456781045 for invoice #99281, authorization approved",
+    "is_sensitive": true,
+    "category": "PAYMENT_CARD_DATA",
+    "filename": "transactions_45.csv"
+  },
+  {
+    "id": "SENS_CONT_0271",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor271@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_271.csv"
+  },
+  {
+    "id": "BEN_PUB_0353",
+    "text": "Press Release: Open Source Community releases new version 4.2 of the data visualization library.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "documentation_353.html"
+  },
+  {
+    "id": "BEN_OFF_0368",
+    "text": "The AC maintenance in building B is scheduled for Saturday morning between 9 AM and 1 PM.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_368.txt"
+  },
+  {
+    "id": "SENS_ID_0100",
+    "text": "Identity docket: SSN 999-20-1111, Driver License: DL00000020TX",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_100.xlsx"
+  },
+  {
+    "id": "BEN_OFF_0390",
+    "text": "The company book club will discuss chapters 4 and 5 of Designing Data-Intensive Applications on Thursday.",
+    "is_sensitive": false,
+    "category": "GENERIC_TEXT",
+    "filename": "announcement_390.txt"
+  },
+  {
+    "id": "SENS_ID_0095",
+    "text": "Employee SSN record: 987-15-4321, Full Name: Taylor Swiftly",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_95.xlsx"
+  },
+  {
+    "id": "BEN_EDGE_0594",
+    "text": "Credit card processing fees typically range between 1.5% and 3.5% per merchant transaction.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_594.md"
+  },
+  {
+    "id": "BEN_PUB_0345",
+    "text": "System requirements: Minimum 4GB RAM, dual-core CPU, and 20GB of available disk space required.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_345.md"
+  },
+  {
+    "id": "SENS_CONF_0221",
+    "text": "CONFIDENTIAL AND PROPRIETARY: Strategic acquisition roadmap for Project Titan Q4",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_221.docx"
+  },
+  {
+    "id": "SENS_API_0160",
+    "text": "api_secret = 'mock_api_secret_key_token_0160_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "secrets_160.py"
+  },
+  {
+    "id": "BEN_EDGE_0577",
+    "text": "Always choose a strong, unique password consisting of letters, numbers, and symbols for each account.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_577.txt"
+  },
+  {
+    "id": "BEN_PUB_0349",
+    "text": "Read our whitepaper on Modern Zero Trust Network Architecture and Endpoint Security Best Practices.",
+    "is_sensitive": false,
+    "category": "PUBLIC_DOCUMENTATION",
+    "filename": "readme_349.md"
+  },
+  {
+    "id": "BEN_EDGE_0591",
+    "text": "To reset your forgotten password, click the public recovery link on our help center webpage.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_591.md"
+  },
+  {
+    "id": "SENS_EMP_0164",
+    "text": "Annual bonus allocation table: Engineering Lead bonus compensation $35,000 payable Q1",
+    "is_sensitive": true,
+    "category": "EMPLOYEE_DATA",
+    "filename": "salary_report_164.csv"
+  },
+  {
+    "id": "SENS_CRED_0007",
+    "text": "vault_token: s.mockVaultTokenForDevTesting7",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_7.env"
+  },
+  {
+    "id": "SENS_CONT_0285",
+    "text": "Private client database: Name: Elizabeth Bennet, Email: ebennet285@estate-trust.co.uk, Telephone: 07700 900285",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_285.csv"
+  },
+  {
+    "id": "BEN_CODE_0460",
+    "text": "git checkout -b feature/new-login-ui\ngit add .\ngit commit -m 'Implement responsive layout'",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_460.tsx"
+  },
+  {
+    "id": "SENS_CONF_0226",
+    "text": "Attorney-client privileged communication regarding pending intellectual property patent dispute",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_226.docx"
+  },
+  {
+    "id": "BEN_CODE_0430",
+    "text": "git checkout -b feature/new-login-ui\ngit add .\ngit commit -m 'Implement responsive layout'",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "utility_430.py"
+  },
+  {
+    "id": "BEN_EDGE_0593",
+    "text": "Negotiating your base salary requires understanding industry benchmarks and market rate data points.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_593.md"
+  },
+  {
+    "id": "SENS_CONF_0204",
+    "text": "Proprietary architectural blueprint: Next-generation quantum-resistant encryption engine v2",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_204.docx"
+  },
+  {
+    "id": "BEN_EDGE_0575",
+    "text": "Customer feedback ticket #49281: 'The checkout page button was easy to click, great job!'",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "blog_post_575.md"
+  },
+  {
+    "id": "SENS_CRED_0028",
+    "text": "root:x:0:0:root:/root:/bin/bash\nservice_account:$6$dummy_salt_28$hash_placeholder",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_28.env"
+  },
+  {
+    "id": "BEN_NUM_0518",
+    "text": "Weather station telemetry: Temperature 22.4 C, Humidity 58%, Barometric Pressure 1013.2 hPa.",
+    "is_sensitive": false,
+    "category": "NORMAL_NUMBERS",
+    "filename": "inventory_518.csv"
+  },
+  {
+    "id": "SENS_CONF_0239",
+    "text": "Confidential audit findings: Major compliance deficiency observed in EU customer data segregation",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "internal_strategy_239.pdf"
+  },
+  {
+    "id": "SENS_CONF_0224",
+    "text": "Proprietary architectural blueprint: Next-generation quantum-resistant encryption engine v2",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_224.docx"
+  },
+  {
+    "id": "SENS_ID_0096",
+    "text": "Applicant background verification: Social Security: 123-16-6789, DOB: 1985-04-12",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_96.xlsx"
+  },
+  {
+    "id": "SENS_CRED_0031",
+    "text": "DB_PASSWORD=demo_secret_pass_31!",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_31.conf"
+  },
+  {
+    "id": "SENS_CRED_0033",
+    "text": "redis://user:p@ssword33_secret@cache.internal.net:6379",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "database_33.conf"
+  },
+  {
+    "id": "BEN_CODE_0433",
+    "text": "const calculateDiscount = (price, rate) => {\n  const discount = price * (rate / 100);\n  return price - discount;\n};",
+    "is_sensitive": false,
+    "category": "BENIGN_CODE",
+    "filename": "component_433.tsx"
+  },
+  {
+    "id": "SENS_ID_0090",
+    "text": "Tax filing form W-2: Taxpayer SSN: 456-10-0123, Adjusted Gross Income: $84,200",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_90.txt"
+  },
+  {
+    "id": "BEN_EDGE_0559",
+    "text": "Learn the difference between debit card and credit card consumer fraud protection rights under Federal law.",
+    "is_sensitive": false,
+    "category": "EDGE_CASE_BENIGN",
+    "filename": "security_tips_559.txt"
+  },
+  {
+    "id": "SENS_ID_0105",
+    "text": "HR compliance record: SSN 000-25-9999 for identity verification step 2",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "identity_verification_105.txt"
+  },
+  {
+    "id": "SENS_API_0143",
+    "text": "aws_secret_access_key = 'mock_aws_secret_access_key_143_simulated'",
+    "is_sensitive": true,
+    "category": "API_KEYS",
+    "filename": "deploy_keys_143.env"
+  },
+  {
+    "id": "SENS_CONF_0229",
+    "text": "Confidential audit findings: Major compliance deficiency observed in EU customer data segregation",
+    "is_sensitive": true,
+    "category": "CONFIDENTIAL_DOCUMENT",
+    "filename": "confidential_memo_229.docx"
+  },
+  {
+    "id": "SENS_CONT_0251",
+    "text": "Confidential customer contact: Director Sarah Connor, direct email: sarah.connor251@vip-client.corp, phone: +1-555-019-2831",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_251.csv"
+  },
+  {
+    "id": "SENS_CONT_0282",
+    "text": "VIP customer escalation registry: contact email mark.watney282@aero-defense.gov, secure cell: (555) 948-2019",
+    "is_sensitive": true,
+    "category": "CONTACT_INFORMATION",
+    "filename": "customer_contacts_282.csv"
+  },
+  {
+    "id": "SENS_CRED_0026",
+    "text": "export FTP_PASSWORD='SuperSafeFtpPass26!'",
+    "is_sensitive": true,
+    "category": "CREDENTIALS",
+    "filename": "config_26.env"
+  },
+  {
+    "id": "SENS_ID_0115",
+    "text": "Patient identity registry: SSN: 321-35-9876, State ID: CA0000035",
+    "is_sensitive": true,
+    "category": "IDENTITY_INFORMATION",
+    "filename": "hr_compliance_115.xlsx"
+  }
+]

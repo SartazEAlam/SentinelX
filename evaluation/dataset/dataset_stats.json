@@ -1,0 +1,22 @@
+{
+  "total_samples": 600,
+  "sensitive_samples": 300,
+  "sensitive_percentage": 50.0,
+  "benign_samples": 300,
+  "benign_percentage": 50.0,
+  "random_seed": 42,
+  "category_distribution": {
+    "NORMAL_NUMBERS": 60,
+    "EDGE_CASE_BENIGN": 60,
+    "BENIGN_CODE": 60,
+    "PUBLIC_DOCUMENTATION": 60,
+    "API_KEYS": 45,
+    "CONFIDENTIAL_DOCUMENT": 50,
+    "IDENTITY_INFORMATION": 35,
+    "CONTACT_INFORMATION": 50,
+    "EMPLOYEE_DATA": 40,
+    "GENERIC_TEXT": 60,
+    "PAYMENT_CARD_DATA": 40,
+    "CREDENTIALS": 40
+  }
+}
