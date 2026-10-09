@@ -122,14 +122,21 @@ pytest
 
 ---
 
-## Documentation
+## Project Documentation
 
-Full technical documentation is located in the `docs/` folder:
-- **[Evaluation and Analysis Report](docs/evaluation-and-analysis.md)** (Phase 9 Scientific Report with Tables and Charts)
-- **[Architecture](docs/architecture.md)**
-- **[API Reference](docs/api.md)**
-- **[Threat Model](docs/threat_model.md)**
-- **[Demo Guide](docs/demo_guide.md)** (A step-by-step walkthrough of Enforcement and Dashboard features)
+Comprehensive technical, operational, and academic documentation is available in the [`docs/`](docs/) directory:
+
+- **[Final Project Readiness Report](docs/final-readiness-report.md)**: Executive audit, phase verification matrix, and readiness status.
+- **[Academic Viva Voce Defense Guide](docs/viva-preparation.md)**: 22 detailed questions and answers covering theory, code, and metrics.
+- **[Repeatable Live Demo Script](docs/demo-script.md)**: 12-stage step-by-step walkthrough for examination and demonstration.
+- **[System Architecture & Workflow Diagrams](docs/system-architecture.md)**: 9 comprehensive Mermaid architecture and dataflow diagrams.
+- **[Installation and Setup Guide](docs/installation-and-setup.md)**: Single-machine and distributed two-laptop installation instructions.
+- **[Workstation User Manual](docs/user-manual.md)**: Operational guide for endpoint workstation employees.
+- **[SOC Administrator Manual](docs/administrator-manual.md)**: Incident response, policy management, approvals, and telemetry guide.
+- **[Testing & Validation Guide](docs/testing-and-validation.md)**: Automated test suite breakdown and validation procedures.
+- **[Evaluation and Analysis Report](docs/evaluation-and-analysis.md)**: Scientific benchmarks, confusion matrices, and model comparison.
+- **[Limitations and Future Work](docs/limitations-and-future-work.md)**: Honest architectural review, kernel driver roadmap, and OCR.
+- **[System Troubleshooting Guide](docs/troubleshooting.md)**: Network, port, database, and agent diagnostic procedures.
 
 ## License
 
