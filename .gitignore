@@ -75,3 +75,7 @@ htmlcov/
 # Distribution
 *.tar.gz
 *.whl
+
+# Agent Staging
+agent/staging/
+
