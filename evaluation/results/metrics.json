@@ -2,7 +2,7 @@
   "metadata": {
     "project": "SentinelX",
     "phase": "Phase 9 \u2014 Evaluation and Analysis",
-    "timestamp": "2026-10-08T16:54:13.886313+00:00",
+    "timestamp": "2026-10-09T16:34:49.632176+00:00",
     "total_dataset_samples": 600,
     "train_samples": 420,
     "test_samples": 180,
@@ -28,7 +28,7 @@
     "f1": 0.8134,
     "false_positive_rate": 0.3778,
     "false_negative_rate": 0.0556,
-    "latency_ms": 0.0235,
+    "latency_ms": 0.0237,
     "category_stats": {
       "PAYMENT_CARD_DATA": {
         "total": 15,
@@ -856,7 +856,7 @@
     "false_negative_rate": 0.0,
     "roc_auc": 1.0,
     "pr_auc": 1.0,
-    "latency_ms": 0.0176,
+    "latency_ms": 0.0174,
     "threshold_analysis": {
       "0.3": {
         "threshold": 0.3,
@@ -1796,7 +1796,7 @@
     "false_negative_rate": 0.0,
     "roc_auc": 1.0,
     "pr_auc": 1.0,
-    "latency_ms": 0.1804,
+    "latency_ms": 0.1665,
     "threshold_analysis": {
       "0.3": {
         "threshold": 0.3,
@@ -2641,7 +2641,7 @@
     "false_negative_rate": 0.1111,
     "roc_auc": 0.9322,
     "pr_auc": 0.9504,
-    "latency_ms": 33.6075,
+    "latency_ms": 33.6133,
     "category_stats": {
       "PAYMENT_CARD_DATA": {
         "total": 15,
@@ -3879,44 +3879,44 @@
     "num_samples": 100,
     "stages": {
       "classification": {
-        "mean_ms": 33.943,
-        "median_ms": 33.074,
-        "min_ms": 32.211,
-        "max_ms": 119.438,
-        "p95_ms": 33.802,
-        "std_ms": 8.603
+        "mean_ms": 34.596,
+        "median_ms": 33.531,
+        "min_ms": 32.496,
+        "max_ms": 120.946,
+        "p95_ms": 34.397,
+        "std_ms": 8.824
       },
       "risk_evaluation": {
-        "mean_ms": 0.073,
-        "median_ms": 0.076,
+        "mean_ms": 0.075,
+        "median_ms": 0.078,
         "min_ms": 0.056,
-        "max_ms": 0.105,
+        "max_ms": 0.109,
         "p95_ms": 0.089,
-        "std_ms": 0.011
+        "std_ms": 0.01
       },
       "policy_evaluation": {
         "mean_ms": 0.015,
         "median_ms": 0.015,
-        "min_ms": 0.012,
-        "max_ms": 0.051,
+        "min_ms": 0.011,
+        "max_ms": 0.026,
         "p95_ms": 0.02,
-        "std_ms": 0.004
+        "std_ms": 0.003
       },
       "backend_db_ingestion": {
-        "mean_ms": 18.708,
-        "median_ms": 15.983,
-        "min_ms": 14.766,
-        "max_ms": 190.153,
-        "p95_ms": 19.889,
-        "std_ms": 17.827
+        "mean_ms": 20.282,
+        "median_ms": 17.893,
+        "min_ms": 15.229,
+        "max_ms": 31.413,
+        "p95_ms": 26.111,
+        "std_ms": 4.283
       },
       "total_end_to_end": {
-        "mean_ms": 52.759,
-        "median_ms": 49.169,
-        "min_ms": 47.766,
-        "max_ms": 224.002,
-        "p95_ms": 53.965,
-        "std_ms": 19.908
+        "mean_ms": 54.989,
+        "median_ms": 51.946,
+        "min_ms": 48.698,
+        "max_ms": 152.473,
+        "p95_ms": 59.877,
+        "std_ms": 10.83
       }
     }
   },
@@ -3930,18 +3930,18 @@
     },
     "workload": {
       "events_processed": 200,
-      "duration_seconds": 6.651,
-      "throughput_events_per_sec": 30.07
+      "duration_seconds": 6.76,
+      "throughput_events_per_sec": 29.59
     },
     "cpu_usage": {
-      "idle_percent": 0.0,
-      "active_percent": 111.3
+      "idle_percent": 1.6,
+      "active_percent": 112.3
     },
     "memory_usage": {
-      "baseline_rss_mb": 229.71,
-      "engine_loaded_rss_mb": 229.76,
-      "peak_rss_mb": 230.34,
-      "final_rss_mb": 230.3,
+      "baseline_rss_mb": 229.38,
+      "engine_loaded_rss_mb": 229.43,
+      "peak_rss_mb": 230.04,
+      "final_rss_mb": 229.97,
       "leak_growth_delta_mb": 0.54
     },
     "disk_overhead": {
